@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award } from 'lucide-react';
-import javascript from '../assets/Img/javaScript.png';
+import javascript from '../assets/Img/javascript.png';
 import frontend from '../assets/Img/frontend.png';
 import html from '../assets/Img/html.png';
 
