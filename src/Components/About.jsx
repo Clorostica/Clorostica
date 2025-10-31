@@ -44,7 +44,7 @@ export function About() {
       <div className="space-y-6 text-slate-300 leading-relaxed text-justify">
         <p>
           Currently based in <span className="text-purple-400 font-medium">Berlin</span>, I’ve
-          worked on diverse projects — from corporate branding to front-end development. My
+          worked on diverse projects from corporate branding to front-end development. My
           mission is to capture the essence of each project through design and code that feels
           both intuitive and visually engaging.
         </p>
@@ -52,7 +52,7 @@ export function About() {
         <p>
           I’m passionate about collaboration and believe great work happens where creativity
           meets functionality. Over the years, I’ve built digital products for startups and
-          businesses worldwide — from marketing websites to complex enterprise apps — always
+          businesses worldwide from marketing websites to complex enterprise apps always
           prioritizing accessibility and performance.
         </p>
 
