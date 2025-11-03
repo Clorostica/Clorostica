@@ -20,7 +20,7 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      // Desktop hide/show, mobile always visible
+
       if (window.innerWidth >= 768) {
         setShowNav(currentY < lastScrollY || currentY < 50);
       } else {
@@ -51,14 +51,13 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+      className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
         showNav
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-10 md:opacity-0 md:-translate-y-10"
       }`}
     >
       <div className="max-w-[var(--max-width)] mx-auto flex justify-between items-center gap-6 px-6 py-2">
-        {/* Desktop */}
         <div className="hidden md:flex gap-6">
           {sections.map((sec) => (
             <GlitchLink
@@ -77,7 +76,6 @@ export function Navigation() {
           ))}
         </div>
 
-        {/* Mobile */}
         <div className="md:hidden relative">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -87,7 +85,6 @@ export function Navigation() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Mobile overlay con fondo semitransparente */}
           <div
             className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 flex flex-col gap-3 bg-slate-900/90 backdrop-blur-lg rounded-xl p-4 transition-all duration-500 ${
               isMenuOpen
