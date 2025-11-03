@@ -13,9 +13,7 @@ export function Projects() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
@@ -53,7 +51,8 @@ export function Projects() {
     },
     {
       title: "Cordillera",
-      description: "Floral arrangements crafted with elegance and natural beauty.",
+      description:
+        "Floral arrangements crafted with elegance and natural beauty.",
       tech: "HTML, CSS, JS",
       role: "Web design & development",
       link: "https://clorostica.github.io/Cordillera",
@@ -81,11 +80,17 @@ export function Projects() {
 
   return (
     <div className="main_container reveal">
-      <section id="projects" className="relative py-32 px-6" ref={sectionRef}>
+      <section
+        id="projects"
+        className="relative py-8 md:py-24 px-6"
+        ref={sectionRef}
+      >
         <div className="max-w-7xl mx-auto">
           <h2
             className={`text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             Featured Projects
@@ -93,12 +98,15 @@ export function Projects() {
 
           <p
             className={`text-slate-400 mb-12 text-lg transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: "0.1s" }}
           >
-            These are demo projects, not full applications. They were fully designed
-            and developed by me using tools like React, Next.js, and Vite.
+            These are demo projects, not full applications. They were fully
+            designed and developed by me using tools like React, Next.js, and
+            Vite.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -106,7 +114,9 @@ export function Projects() {
               <div
                 key={project.title}
                 className={`group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-all duration-700 hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
@@ -128,7 +138,9 @@ export function Projects() {
                   <h3 className="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-slate-400 text-sm mb-4">{project.description}</p>
+                  <p className="text-slate-400 text-sm mb-4">
+                    {project.description}
+                  </p>
 
                   <ul className="list-disc pl-5 text-sm mb-2">
                     <li>
