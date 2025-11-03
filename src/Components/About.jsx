@@ -54,7 +54,7 @@ export function About() {
   return (
     <div className="main_container reveal">
       <section
-        id="aboutme"
+        id="about"
         className="relative py-8 md:py-24 px-6"
         ref={sectionRef}
       >
