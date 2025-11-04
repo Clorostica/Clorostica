@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 
 export const GlitchLink = ({
+  onClick,
   children,
   href = "#",
   className = "",
@@ -62,6 +63,7 @@ export const GlitchLink = ({
       }`}
       onMouseEnter={startGlitch}
       onMouseLeave={stopGlitch}
+      onClick={onClick}
     >
       {displayText}
       <style>{`

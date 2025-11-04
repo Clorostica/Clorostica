@@ -103,8 +103,15 @@ export function Navigation() {
                 }`}
                 glitchSpeed={15}
                 glitchIntensity={4}
-                style={{ transitionDelay: `${i * 50}ms` }}
-                onClick={() => setIsMenuOpen(false)}
+                style={{
+                  transitionProperty: "color",
+                  transitionDuration: "0.3s",
+                  transitionDelay: `${i * 50}ms`,
+                }}
+                onClick={async () => {
+                  await new Promise((resolve) => setTimeout(resolve, 500));
+                  setIsMenuOpen(false);
+                }}
               >
                 {sec}
               </GlitchLink>
