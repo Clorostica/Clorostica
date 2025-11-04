@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Sparkles } from "lucide-react";
-import myPhoto from "../assets/Img/yo.jpg";
 import CV from "../Docs/ClaudiaSaezOrostica.pdf";
 
 export function Hero() {
