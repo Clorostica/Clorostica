@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { GlitchLink } from "./GlitchLink";
+import { Home, User, Code, Briefcase, Award, Mail } from "lucide-react";
 import GlassSurface from "./GlassSurface";
 
 const sections = [
-  "Home",
-  "About",
-  "Projects",
-  "Experience",
-  "Certificates",
-  "Contact",
+  { name: "Home", icon: Home },
+  { name: "About", icon: User },
+  { name: "Projects", icon: Code },
+  { name: "Experience", icon: Briefcase },
+  { name: "Certificates", icon: Award },
+  { name: "Contact", icon: Mail },
 ];
 
 export function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -32,11 +30,11 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
 
     const observers = sections.map((sec) => {
-      const el = document.getElementById(sec.toLowerCase());
+      const el = document.getElementById(sec.name.toLowerCase());
       if (!el) return null;
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(sec);
+          if (entry.isIntersecting) setActiveSection(sec.name);
         },
         { threshold: 0.6 }
       );
@@ -51,16 +49,14 @@ export function Navigation() {
   }, [lastScrollY]);
 
   return (
-    <nav
-      className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-4 md:top-6 ${
-        showNav
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-10 md:opacity-0 md:-translate-y-10"
-      }`}
-    >
-      <div className="max-w-[var(--max-width)] mx-auto px-4 md:px-6 py-2">
-        {/* ================= DESKTOP MENU ================= */}
-        <div className="hidden md:block">
+    <>
+      {/* ================= DESKTOP MENU ================= */}
+      <nav
+        className={`hidden md:block fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 ${
+          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }`}
+      >
+        <div className="max-w-[var(--max-width)] mx-auto px-4 md:px-6 py-2">
           <GlassSurface
             width="auto"
             height={60}
@@ -73,83 +69,106 @@ export function Navigation() {
             style={{ minWidth: "fit-content" }}
           >
             {sections.map((sec) => (
-              <GlitchLink
-                key={sec}
-                href={`#${sec.toLowerCase()}`}
+              <a
+                key={sec.name}
+                href={`#${sec.name.toLowerCase()}`}
                 className={`pr-10 font-semibold text-lg transition-colors ${
-                  activeSection === sec
+                  activeSection === sec.name
                     ? "text-purple-400"
                     : "text-slate-300 hover:text-purple-400"
                 }`}
               >
-                {sec}
-              </GlitchLink>
+                {sec.name}
+              </a>
             ))}
           </GlassSurface>
         </div>
-        {/* ================= MOBILE MENU ================= */}
-        <div className="md:hidden relative flex flex-col items-center">
-          <GlassSurface
-            width={56}
-            height={56}
-            borderRadius={28}
-            borderWidth={0.07}
-            brightness={50}
-            opacity={0.93}
-            blur={11}
-            className="flex items-center justify-center"
-          >
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-3 rounded-lg text-slate-300 hover:text-purple-400 transition-colors active:scale-95"
-              aria-label="Menu"
-            >
-              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </GlassSurface>
+      </nav>
 
-          {isMenuOpen && (
-            <div className="w-full flex justify-center mt-4">
-              <GlassSurface
-                width="90%"
-                height="auto"
-                borderRadius={20}
-                borderWidth={0.07}
-                brightness={50}
-                opacity={0.93}
-                blur={11}
-                className="flex flex-col items-center gap-6 p-6"
-                style={{ minHeight: "fit-content" }}
+      {/* ================= MOBILE DOCK MENU (top) ================= */}
+      <nav
+        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-4 px-4 w-full ${
+          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }`}
+      >
+        <GlassSurface
+          width="100%"
+          height={80}
+          borderRadius={40}
+          borderWidth={0.07}
+          brightness={50}
+          opacity={0.93}
+          blur={11}
+          className="flex items-center justify-around px-1"
+        >
+          {sections.map((sec) => {
+            const Icon = sec.icon;
+            const isActive = activeSection === sec.name;
+
+            return (
+              <a
+                key={sec.name}
+                href={`#${sec.name.toLowerCase()}`}
+                className="relative flex flex-col items-center justify-center group flex-shrink-0"
+                style={{ width: "60px", height: "60px" }}
+                onClick={(e) => {
+                  const target = document.getElementById(
+                    sec.name.toLowerCase()
+                  );
+                  if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
-                {sections.map((sec, i) => (
-                  <GlitchLink
-                    key={sec}
-                    href={`#${sec.toLowerCase()}`}
-                    className={`block w-full text-center font-medium text-base py-2 text-slate-200 transition-colors ${
-                      activeSection === sec
-                        ? "text-purple-400"
-                        : "hover:text-purple-400"
-                    }`}
-                    glitchSpeed={15}
-                    glitchIntensity={4}
-                    style={{
-                      transitionProperty: "color",
-                      transitionDuration: "0.3s",
-                      transitionDelay: `${i * 50}ms`,
-                    }}
-                    onClick={async () => {
-                      await new Promise((resolve) => setTimeout(resolve, 500));
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    {sec}
-                  </GlitchLink>
-                ))}
-              </GlassSurface>
-            </div>
-          )}
-        </div>
-      </div>
-    </nav>
+                {/* Active indicator background */}
+                <div
+                  className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
+                    isActive
+                      ? "bg-purple-500/20 scale-100 opacity-100"
+                      : "bg-transparent scale-90 opacity-0 group-hover:bg-purple-500/10 group-hover:scale-95 group-hover:opacity-100"
+                  }`}
+                  style={{
+                    backdropFilter: isActive ? "blur(8px)" : "none",
+                  }}
+                />
+
+                {/* Icon */}
+                <Icon
+                  size={26}
+                  className={`relative z-10 transition-all duration-300 ${
+                    isActive
+                      ? "text-purple-400 scale-110"
+                      : "text-slate-400 group-hover:text-purple-300 group-hover:scale-105"
+                  }`}
+                  strokeWidth={isActive ? 2.5 : 2}
+                />
+
+                {/* Label (only shows on active) */}
+                <span
+                  className={`absolute -bottom-9 text-xs font-medium px-2 py-1 rounded-lg transition-all duration-300 whitespace-nowrap ${
+                    isActive
+                      ? "opacity-100 translate-y-0 text-purple-300 bg-slate-800/80"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+                  style={{
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  {sec.name}
+                </span>
+
+                {/* Active dot indicator */}
+                <div
+                  className={`absolute top-1 w-1 h-1 rounded-full bg-purple-400 transition-all duration-300 ${
+                    isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
+        </GlassSurface>
+      </nav>
+    </>
   );
 }
