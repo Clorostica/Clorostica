@@ -85,9 +85,9 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* ================= MOBILE DOCK MENU (top) ================= */}
+      {/* ================= MOBILE DOCK MENU ================= */}
       <nav
-        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-4 px-4 w-full ${
+        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-12 px-4 pb-16 w-full ${
           showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }`}
       >
@@ -112,16 +112,22 @@ export function Navigation() {
                 className="relative flex flex-col items-center justify-center group flex-shrink-0"
                 style={{ width: "60px", height: "60px" }}
                 onClick={(e) => {
+                  e.preventDefault();
                   const target = document.getElementById(
                     sec.name.toLowerCase()
                   );
                   if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: "smooth" });
+                    const y =
+                      target.getBoundingClientRect().top + window.scrollY - 120; // <-- OFFSET PARA QUE NO LO TAPE EL NAV
+
+                    window.scrollTo({
+                      top: y,
+                      behavior: "smooth",
+                    });
                   }
                 }}
               >
-                {/* Active indicator background */}
+                {/* Active background */}
                 <div
                   className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
                     isActive
@@ -144,21 +150,19 @@ export function Navigation() {
                   strokeWidth={isActive ? 2.5 : 2}
                 />
 
-                {/* Label (only shows on active) */}
+                {/* Label */}
                 <span
                   className={`absolute -bottom-9 text-xs font-medium px-2 py-1 rounded-lg transition-all duration-300 whitespace-nowrap ${
                     isActive
                       ? "opacity-100 translate-y-0 text-purple-300 bg-slate-800/80"
                       : "opacity-0 -translate-y-2 pointer-events-none"
                   }`}
-                  style={{
-                    backdropFilter: "blur(8px)",
-                  }}
+                  style={{ backdropFilter: "blur(8px)" }}
                 >
                   {sec.name}
                 </span>
 
-                {/* Active dot indicator */}
+                {/* Active dot */}
                 <div
                   className={`absolute top-1 w-1 h-1 rounded-full bg-purple-400 transition-all duration-300 ${
                     isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"

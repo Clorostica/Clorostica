@@ -27,9 +27,6 @@
   --main-body-color: var(--main-bg);
 }
 
-/* ============================================
-   FONDO ULTRA VIBRANTE PARA GLASSMORPHISM
-   ============================================ */
 body {
   position: relative;
   overflow-x: hidden;
@@ -258,9 +255,6 @@ section::before, main::before {
   }
 }
 
-/* ============================================
-   MAP CONTAINER
-   ============================================ */
 .map_container {
   flex: 1;
   min-width: 320px;
@@ -287,18 +281,6 @@ section::before, main::before {
   border-radius: 1rem;
 }
 
-/* ============================================
-   ANIMACIONES
-   ============================================ */
-@keyframes morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-}
-
 .reveal {
   position: relative;
   transform: translateY(100px);
@@ -310,7 +292,14 @@ section::before, main::before {
   transform: translateY(0);
   opacity: 1;
 }
-
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
 
 @media (max-width: 768px) {
   section {
