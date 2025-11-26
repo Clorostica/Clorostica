@@ -52,14 +52,14 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+      className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-4 md:top-6 ${
         showNav
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-10 md:opacity-0 md:-translate-y-10"
       }`}
     >
-      <div className="max-w-[var(--max-width)] mx-auto px-6 py-2">
-        {/* Desktop Menu */}
+      <div className="max-w-[var(--max-width)] mx-auto px-4 md:px-6 py-2">
+        {/* ================= DESKTOP MENU ================= */}
         <div className="hidden md:block">
           <GlassSurface
             width="auto"
@@ -69,33 +69,30 @@ export function Navigation() {
             brightness={50}
             opacity={0.93}
             blur={11}
-            className="flex items-center justify-center gap-6 px-8"
+            className="flex items-center justify-center gap-12 px-10"
             style={{ minWidth: "fit-content" }}
           >
             {sections.map((sec) => (
               <GlitchLink
                 key={sec}
                 href={`#${sec.toLowerCase()}`}
-                className={`font-semibold text-lg transition-colors ${
+                className={`pr-10 font-semibold text-lg transition-colors ${
                   activeSection === sec
                     ? "text-purple-400"
                     : "text-slate-300 hover:text-purple-400"
                 }`}
-                glitchSpeed={10}
-                glitchIntensity={3}
               >
                 {sec}
               </GlitchLink>
             ))}
           </GlassSurface>
         </div>
-
-        {/* Mobile Menu */}
-        <div className="md:hidden relative">
+        {/* ================= MOBILE MENU ================= */}
+        <div className="md:hidden relative flex flex-col items-center">
           <GlassSurface
-            width={50}
-            height={50}
-            borderRadius={25}
+            width={56}
+            height={56}
+            borderRadius={28}
             borderWidth={0.07}
             brightness={50}
             opacity={0.93}
@@ -104,31 +101,31 @@ export function Navigation() {
           >
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-purple-400 transition-colors"
+              className="p-3 rounded-lg text-slate-300 hover:text-purple-400 transition-colors active:scale-95"
               aria-label="Menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </GlassSurface>
 
           {isMenuOpen && (
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+            <div className="w-full flex justify-center mt-4">
               <GlassSurface
-                width={224}
+                width="90%"
                 height="auto"
                 borderRadius={20}
                 borderWidth={0.07}
                 brightness={50}
                 opacity={0.93}
                 blur={11}
-                className="flex flex-col gap-3 p-4"
+                className="flex flex-col items-center gap-6 p-6"
                 style={{ minHeight: "fit-content" }}
               >
                 {sections.map((sec, i) => (
                   <GlitchLink
                     key={sec}
                     href={`#${sec.toLowerCase()}`}
-                    className={`font-medium text-slate-200 transition-colors ${
+                    className={`block w-full text-center font-medium text-base py-2 text-slate-200 transition-colors ${
                       activeSection === sec
                         ? "text-purple-400"
                         : "hover:text-purple-400"

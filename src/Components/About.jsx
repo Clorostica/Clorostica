@@ -98,7 +98,7 @@ export function About() {
               to become fullstack so that I can build things end-to-end.
             </p>
           </div>
-          <div className="relative overflow-hidden pt-5">
+          <div className="relative overflow-hidden pt-8">
             <LogoLoop
               logos={techLogos}
               speed={280}
@@ -107,8 +107,6 @@ export function About() {
               gap={40}
               hoverSpeed={0}
               scaleOnHover
-              fadeOut
-              fadeOutColor="#0f172a"
               ariaLabel="Technology partners"
             />
           </div>
