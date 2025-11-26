@@ -5,54 +5,54 @@ import { Projects } from "./Components/Projects";
 import { Experience } from "./Components/Experience";
 import { Hero } from "./Components/Hero";
 import { About } from "./Components/About";
-import { useState, useEffect } from "react";
 import "./Styles/index.css";
-
+import LiquidEther from "./Components/LiquidEther";
 export default function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden">
-      {/* Fondo animado */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl opacity-20"
-          style={{
-            left: `${mousePosition.x / 30}px`,
-            top: `${mousePosition.y / 30}px`,
-            transition: "all 0.3s ease-out",
-          }}
-        />
-        <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-3xl opacity-20"
-          style={{
-            right: `${mousePosition.x / 40}px`,
-            bottom: `${mousePosition.y / 40}px`,
-            transition: "all 0.3s ease-out",
-          }}
+    <div style={{ width: "100%", minHeight: "100vh", position: "relative" }}>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
+        <LiquidEther
+          // colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+          // mouseForce={20}
+          // cursorSize={100}
+          // isViscous={false}
+          // viscous={30}
+          // iterationsViscous={32}
+          // iterationsPoisson={32}
+          // resolution={0.5}
+          // isBounce={false}
+          // autoDemo={true}
+          // autoSpeed={0.5}
+          // autoIntensity={2.2}
+          // takeoverDuration={0.25}
+          autoResumeDelay={500}
+          // autoRampDuration={0.6}
         />
       </div>
 
-      <Navigation />
-      <Hero className="py-8 md:py-24" />
-      <About className="py-8 md:py-24" />
-      <Projects className="py-8 md:py-24" />
-      <Experience className="py-8 md:py-24" />
-      <Certificates className="py-8 md:py-24" />
-      <ContactMe className="py-8 md:py-24" />
-      <footer className="relative py-8 px-6 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto text-center text-slate-400">
-          <p>© 2025 Claudia Sáez. All rights reserved.</p>
-        </div>
-      </footer>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Navigation />
+        <Hero className="py-8 md:py-24" />
+        <About className="py-8 md:py-24" />
+        <Projects className="py-8 md:py-24" />
+        <Experience className="py-8 md:py-24" />
+        <Certificates className="py-8 md:py-24" />
+        <ContactMe className="py-8 md:py-24" />
+        <footer className="relative py-8 px-6 border-t border-slate-800">
+          <div className="max-w-7xl mx-auto text-center text-slate-400">
+            <p>© 2025 Claudia Sáez. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
