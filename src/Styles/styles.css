@@ -44,8 +44,8 @@ body::before {
   width: 120%;
   height: 120%;
   background: 
-    radial-gradient(circle at 20% 25%, #1e154d 0%, rgba(106, 49, 159, 0.4) 25%, transparent 50%),
-    radial-gradient(circle at 80% 75%, #ec4899 0%, rgba(236, 72, 153, 0.4) 25%, transparent 50%),
+    radial-gradient(circle at 20% 25%, rgb(30 41 59 ) 25%, transparent 50%),
+    radial-gradient(circle at 80% 75%, #521835 0%, rgba(236, 72, 153, 0.4) 25%, transparent 50%),
     radial-gradient(circle at 50% 50%, #6366f1 0%, rgba(99, 102, 241, 0.3) 30%, transparent 55%),
     radial-gradient(circle at 75% 35%, #06b6d4 0%, rgba(6, 182, 212, 0.4) 20%, transparent 45%),
     radial-gradient(circle at 25% 65%, #8b5cf6 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%),
@@ -318,5 +318,6 @@ section::before, main::before {
     padding-bottom: 3rem;
   }
 }
+
 
  
