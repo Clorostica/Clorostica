@@ -28,7 +28,7 @@ export function Hero() {
       <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 z-10 pt-20 md:pt-0">
           <div className="space-y-2">
-            <p className="text-purple-400 text-sm uppercase tracking-wider flex items-center gap-2 animate-pulse">
+            <p className="text-sm uppercase tracking-wider flex items-center gap-2 animate-pulse">
               <Sparkles size={16} /> Software Developer
             </p>
             <h1 className="text-6xl md:text-7xl font-bold">
