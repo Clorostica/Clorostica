@@ -86,93 +86,89 @@ export function Navigation() {
       </nav>
 
       {/* ================= MOBILE DOCK MENU ================= */}
-      <nav
-        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-12 px-4 pb-16 w-full ${
-          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
-        }`}
-      >
-        <GlassSurface
-          width="100%"
-          height={80}
-          borderRadius={40}
-          borderWidth={0.07}
-          brightness={50}
-          opacity={0.93}
-          blur={11}
-          className="flex items-center justify-around px-1"
+      <>
+        <nav
+          className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full ${
+            showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+          }`}
         >
-          {sections.map((sec) => {
-            const Icon = sec.icon;
-            const isActive = activeSection === sec.name;
+          <GlassSurface
+            width="100%"
+            height={80}
+            borderRadius={40}
+            borderWidth={0.07}
+            brightness={50}
+            opacity={0.93}
+            blur={11}
+            className="flex items-center justify-around px-1"
+          >
+            {sections.map((sec) => {
+              const Icon = sec.icon;
+              const isActive = activeSection === sec.name;
 
-            return (
-              <a
-                key={sec.name}
-                href={`#${sec.name.toLowerCase()}`}
-                className="relative flex flex-col items-center justify-center group flex-shrink-0"
-                style={{ width: "60px", height: "60px" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const target = document.getElementById(
-                    sec.name.toLowerCase()
-                  );
-                  if (target) {
-                    const y =
-                      target.getBoundingClientRect().top + window.scrollY - 120; // <-- OFFSET PARA QUE NO LO TAPE EL NAV
-
-                    window.scrollTo({
-                      top: y,
-                      behavior: "smooth",
-                    });
-                  }
-                }}
-              >
-                {/* Active background */}
-                <div
-                  className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
-                    isActive
-                      ? "bg-purple-500/20 scale-100 opacity-100"
-                      : "bg-transparent scale-90 opacity-0 group-hover:bg-purple-500/10 group-hover:scale-95 group-hover:opacity-100"
-                  }`}
-                  style={{
-                    backdropFilter: isActive ? "blur(8px)" : "none",
+              return (
+                <a
+                  key={sec.name}
+                  href={`#${sec.name.toLowerCase()}`}
+                  className="relative flex flex-col items-center justify-center group flex-shrink-0"
+                  style={{ width: "60px", height: "60px" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.getElementById(
+                      sec.name.toLowerCase()
+                    );
+                    if (target) {
+                      const y =
+                        target.getBoundingClientRect().top +
+                        window.scrollY -
+                        120;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
                   }}
-                />
-
-                {/* Icon */}
-                <Icon
-                  size={26}
-                  className={`relative z-10 transition-all duration-300 ${
-                    isActive
-                      ? "text-purple-400 scale-110"
-                      : "text-slate-400 group-hover:text-purple-300 group-hover:scale-105"
-                  }`}
-                  strokeWidth={isActive ? 2.5 : 2}
-                />
-
-                {/* Label */}
-                <span
-                  className={`absolute -bottom-9 text-xs font-medium px-2 py-1 rounded-lg transition-all duration-300 whitespace-nowrap ${
-                    isActive
-                      ? "opacity-100 translate-y-0 text-purple-300 bg-slate-800/80"
-                      : "opacity-0 -translate-y-2 pointer-events-none"
-                  }`}
-                  style={{ backdropFilter: "blur(8px)" }}
                 >
-                  {sec.name}
-                </span>
+                  <div
+                    className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
+                      isActive
+                        ? "bg-purple-500/20 scale-100 opacity-100"
+                        : "bg-transparent scale-90 opacity-0 group-hover:bg-purple-500/10 group-hover:scale-95 group-hover:opacity-100"
+                    }`}
+                    style={{ backdropFilter: isActive ? "blur(8px)" : "none" }}
+                  />
 
-                {/* Active dot */}
-                <div
-                  className={`absolute top-1 w-1 h-1 rounded-full bg-purple-400 transition-all duration-300 ${
-                    isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
-                  }`}
-                />
-              </a>
-            );
-          })}
-        </GlassSurface>
-      </nav>
+                  <Icon
+                    size={26}
+                    className={`relative z-10 transition-all duration-300 ${
+                      isActive
+                        ? "text-purple-400 scale-110"
+                        : "text-slate-400 group-hover:text-purple-300 group-hover:scale-105"
+                    }`}
+                    strokeWidth={isActive ? 2.5 : 2}
+                  />
+
+                  <span
+                    className={`absolute -bottom-9 text-xs font-medium px-2 py-1 rounded-lg transition-all duration-300 whitespace-nowrap ${
+                      isActive
+                        ? "opacity-100 translate-y-0 text-purple-300 bg-slate-800/80"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                    style={{ backdropFilter: "blur(8px)" }}
+                  >
+                    {sec.name}
+                  </span>
+
+                  <div
+                    className={`absolute top-1 w-1 h-1 rounded-full bg-purple-400 transition-all duration-300 ${
+                      isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                    }`}
+                  />
+                </a>
+              );
+            })}
+          </GlassSurface>
+        </nav>
+
+        <div className="h-16"></div>
+      </>
     </>
   );
 }
