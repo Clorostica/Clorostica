@@ -24,7 +24,7 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Task List App",
+      title: "Task Flow App",
       description:
         "Cross-device task manager with authentication and per-user storage.",
       tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
