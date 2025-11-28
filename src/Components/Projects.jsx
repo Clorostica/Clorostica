@@ -5,7 +5,7 @@ import eggTimerDefault from "../assets/Img/eggtimer1.png";
 import floreriaDefault from "../assets/Img/floreria.png";
 import epicaDefault from "../assets/Img/epica1.png";
 import littleLemonDefault from "../assets/Img/Littlelemon.png";
-import TaskFlow from "../assets/Img/TaskFlow.png";
+import taskFlow from "../assets/Img/TaskFlow.png";
 
 export function Projects() {
   const [isVisible, setIsVisible] = useState(false);
