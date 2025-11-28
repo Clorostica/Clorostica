@@ -31,7 +31,7 @@ export function Projects() {
       tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
       role: "Fullstack development (frontend, backend & integration)",
       link: "https://task-list-delta-sandy.vercel.app/",
-      image: TaskFlow,
+      image: taskFlow,
     },
     {
       title: "Weather App",
