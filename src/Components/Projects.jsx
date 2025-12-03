@@ -25,13 +25,14 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Task Flow App",
-      description:
-        "Cross-device task manager with authentication and per-user storage.",
-      tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
-      role: "Fullstack development (frontend, backend & integration)",
-      link: "https://task-list-delta-sandy.vercel.app/",
-      image: taskFlow,
+    title: "Hangoutly",
+    description:
+      "Social event tracker that lets users log outings, schedule tasks, and share events with friends. View user profiles with privacy controls, follow others, and manage your day effortlessly.",
+    tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
+    role: "Fullstack development (frontend, backend & integration)",
+    link: "https://task-list-delta-sandy.vercel.app/",
+    image: taskFlow,
+
     },
     {
       title: "Weather App",
