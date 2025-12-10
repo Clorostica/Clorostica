@@ -25,11 +25,11 @@ export function Projects() {
 
   const projects = [
     {
-    title: "Hangoutly",
-    description:
-      "Social event tracker that lets users log outings, schedule tasks, and share events with friends. View user profiles with privacy controls, follow others, and manage your day effortlessly.",
+    title: "Gobento",
+      
+    description: "Social media event app that allows users to save and share events with friends, upload photos, and organize them as memories or future plans. Easily manage your schedule, view profiles with privacy settings, follow friends, and keep track of your social life effortlessly.",
     tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
-    role: "Fullstack development (frontend, backend & integration)",
+    role: "Fullstack development",
     link: "https://task-list-delta-sandy.vercel.app/",
     image: taskFlow,
 
