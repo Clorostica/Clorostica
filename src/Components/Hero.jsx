@@ -5,7 +5,7 @@ import CV from "../Docs/ClaudiaSaezOrostica.pdf";
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const fullText =
-    "Software Developer focused on UX and accessibility. I build intuitive, engaging digital experiences using modern frameworks like React and Tailwind. ✨";
+    "React, Next.js & Node.js | UX & Accessibility-Driven Web Applications. ✨";
 
   useEffect(() => {
     let index = 0;
@@ -29,7 +29,7 @@ export function Hero() {
         <div className="space-y-6 z-10 pt-20 md:pt-0">
           <div className="space-y-2">
             <p className="text-sm uppercase tracking-wider flex items-center gap-2 animate-pulse">
-              <Sparkles size={16} /> Software Developer
+              <Sparkles size={16} /> Full-Stack Developer
             </p>
             <h1 className="text-6xl md:text-7xl font-bold">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] animate-pulse">
