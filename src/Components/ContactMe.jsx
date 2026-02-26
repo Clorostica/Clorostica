@@ -27,10 +27,10 @@ export function ContactMe() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex items-center justify-center px-6 bg-slate-900"
+      className="relative min-h-screen flex items-center justify-center bg-slate-900 -mx-10 md:-mx-16 lg:-mx-24 px-10 md:px-16 lg:px-24"
       ref={sectionRef}
     >
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-10">
           <h2
             className={`text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] transition-all duration-700`}
@@ -47,7 +47,7 @@ export function ContactMe() {
                 <h3 className="font-semibold text-2xl text-slate-100">Email</h3>
                 <a
                   href="mailto:clsaez1018@gmail.com"
-                  className="text-slate-400 hover:text-purple-400 transition-colors text-lg"
+                  className="text-white hover:text-purple-400 transition-colors text-lg"
                 >
                   clsaez1018@gmail.com
                 </a>
@@ -62,7 +62,7 @@ export function ContactMe() {
                 <h3 className="font-semibold text-2xl text-slate-100">
                   Location
                 </h3>
-                <p className="text-slate-400 text-lg">Berlin, Germany</p>
+                <p className="text-white text-lg">Berlin, Germany</p>
               </div>
             </div>
 

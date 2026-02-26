@@ -18,13 +18,13 @@ export function ProjectCard({
   };
 
   return (
-    <div className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden hover:border-purple-500 transition-all duration-150 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 p-6">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block mb-4 rounded-lg overflow-hidden"
-      >
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden hover:border-purple-500 transition-all duration-150 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 p-6 block cursor-pointer"
+    >
+      <div className="mb-4 rounded-lg overflow-hidden">
         <div className="relative w-full h-64">
           <img
             src={images.default}
@@ -39,17 +39,22 @@ export function ProjectCard({
             />
           )}
         </div>
-      </a>
+      </div>
 
       <h3 className="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-150">
         {title} <span className="inline-block">↗</span>
       </h3>
 
-      <p className="mb-4 text-slate-300">{description}</p>
+      <p className="mb-4 text-white">{description}</p>
 
       <button
+        type="button"
         className="readMoreBtn mb-4 px-4 py-2 rounded-full bg-purple-700/30 text-purple-200 font-medium hover:bg-purple-600 transition-colors duration-150"
-        onClick={toggleDetails}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleDetails();
+        }}
         aria-expanded={isOpen}
         aria-controls={detailsId}
       >
@@ -60,7 +65,7 @@ export function ProjectCard({
         id={detailsId}
         className={`moreDetails ${
           isOpen ? "block" : "hidden"
-        } text-sm mt-2 text-slate-300`}
+        } text-sm mt-2 text-white`}
         aria-hidden={!isOpen}
       >
         <ul className="list-disc pl-5 mb-4">
@@ -83,6 +88,6 @@ export function ProjectCard({
           </div>
         ))}
       </div>
-    </div>
+    </a>
   );
 }

@@ -39,7 +39,10 @@ export default function App() {
         />
       </div>
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div
+        style={{ position: "relative", zIndex: 1 }}
+        className="px-10 md:px-16 lg:px-24 pt-8 md:pt-12"
+      >
         <Navigation />
         <Hero className="py-8 md:py-24" />
         <About className="py-8 md:py-24" />
@@ -47,9 +50,9 @@ export default function App() {
         <Experience className="py-8 md:py-24" />
         <Certificates className="py-8 md:py-24" />
         <ContactMe className="py-8 md:py-24" />
-        <footer className="relative py-8 px-6 border-t border-slate-800">
-          <div className="max-w-7xl mx-auto text-center text-slate-400">
-            <p>© 2025 Claudia Sáez. All rights reserved.</p>
+        <footer className="relative py-8 px-10 md:px-16 lg:px-24 border-t border-slate-800">
+          <div className="max-w-7xl mx-auto text-center text-white">
+            <p>© 2026 Claudia Sáez. All rights reserved.</p>
           </div>
         </footer>
       </div>
