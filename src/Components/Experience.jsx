@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ChevronRight, Calendar } from "lucide-react";
 import "../Styles/index.css";
 import "../Styles/styles.css";
 
@@ -114,20 +115,46 @@ export function Experience() {
                 className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80"
               >
                 <div className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
-                      {exp.title}
-                    </h3>
-                    <span className="text-white text-sm">{exp.date}</span>
+                  <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
+                    <div>
+                      {(() => {
+                        const parts = exp.title.split(/\s*[-–]\s*/);
+                        const role = parts[0]?.trim() ?? exp.title;
+                        const company = parts.slice(1).join(" – ").trim() || null;
+                        return (
+                          <>
+                            <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                              {role}
+                            </h3>
+                            {company && (
+                              <p className="text-sm font-medium text-slate-400 mt-0.5 group-hover:text-purple-300/90 transition-colors">
+                                {company}
+                              </p>
+                            )}
+                          </>
+                        );
+                      })()}
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-500/20 text-purple-300 text-sm font-medium border border-purple-500/30">
+                      <Calendar className="w-4 h-4 shrink-0" strokeWidth={2} />
+                      {exp.date}
+                    </span>
                   </div>
-                  <ul className="list-disc pl-5 mb-4 text-white text-base">
+                  <ul className="space-y-2.5 mb-4 text-white text-base list-none pl-0">
                     {exp.tasks.map((task, idx) => (
-                      <li key={idx} className="mb-3 text-base">
-                        {task}
+                      <li key={idx} className="flex items-start gap-2">
+                        <ChevronRight
+                          className="shrink-0 w-5 h-5 text-purple-400 mt-0.5"
+                          strokeWidth={2.5}
+                          aria-hidden
+                        />
+                        <span className="text-slate-200 leading-relaxed">
+                          {task}
+                        </span>
                       </li>
                     ))}
                   </ul>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-8">
                     {exp.tech.map((tech) => (
                       <div
                         key={tech}
