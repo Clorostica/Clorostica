@@ -16,7 +16,7 @@ export function Projects() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -25,14 +25,14 @@ export function Projects() {
 
   const projects = [
     {
-    title: "Gobento",
-      
-    description: "Social media event app that allows users to save and share events with friends, upload photos, and organize them as memories or future plans. Easily manage your schedule, view profiles with privacy settings, follow friends, and keep track of your social life effortlessly.",
-    tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
-    role: "Fullstack development",
-    link: "https://task-list-delta-sandy.vercel.app/",
-    image: taskFlow,
+      title: "Gobento",
 
+      description:
+        "Social media event app that allows users to save and share events with friends, upload photos, and organize them as memories or future plans. Easily manage your schedule, view profiles with privacy settings, follow friends, and keep track of your social life effortlessly.",
+      tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
+      role: "Fullstack development",
+      link: "https://task-list-delta-sandy.vercel.app/",
+      image: taskFlow,
     },
     {
       title: "Weather App",
@@ -98,69 +98,60 @@ export function Projects() {
             Featured Projects
           </h2>
 
-          <p
-            className={`text-slate-400 mb-12 text-lg transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "0.1s" }}
-          >
-            These are demo projects, not full applications. They were fully
-            designed and developed by me using tools like React, Next.js, and
-            Vite.
-          </p>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className={`group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-all duration-700 hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80 ${
+                className={`h-full transition-all duration-700 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="aspect-video relative overflow-hidden bg-slate-800">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
+                <div className="group relative h-full flex flex-col bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80">
+                  <div className="aspect-video relative overflow-hidden bg-slate-800">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
 
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover p-4 transition-transform duration-700 group-hover:scale-110"
-                  />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover p-4 transition-transform duration-300 ease-out group-hover:scale-110"
+                    />
 
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1500ms] ease-in-out" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
 
-                  <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] rotate-45 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 animate-shine" />
-                </div>
+                    <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] rotate-45 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 animate-shine" />
+                  </div>
 
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-400 text-sm mb-4">
-                    {project.description}
-                  </p>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-white text-sm mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
 
-                  <ul className="list-disc pl-5 text-sm mb-2">
-                    <li>
-                      <strong>Tech:</strong> {project.tech}
-                    </li>
-                    <li>
-                      <strong>Role:</strong> {project.role}
-                    </li>
-                  </ul>
+                    <ul className="list-disc pl-5 text-sm mb-2">
+                      <li>
+                        <strong>Tech:</strong> {project.tech}
+                      </li>
+                      <li>
+                        <strong>Role:</strong> {project.role}
+                      </li>
+                    </ul>
 
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-300"
-                  >
-                    View Project
-                  </a>
+                    <div className="mt-auto pt-6">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block w-fit group flex items-center gap-2 px-6 py-3 bg-slate-800 rounded-full hover:bg-slate-700 transition-all duration-300 border border-slate-700 hover:border-purple-500 hover:shadow-xl text-white"
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -176,7 +167,7 @@ export function Projects() {
             100% { transform: translateX(100%); opacity: 0; }
           }
           .animate-shine {
-            animation: shine 2.5s ease-in-out infinite;
+            animation: shine 100.5s ease-in-out;
           }
         `}
       </style>

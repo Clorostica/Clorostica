@@ -18,7 +18,7 @@ export function About() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -75,27 +75,30 @@ export function About() {
           >
             About Me
           </h2>
-          <div className="space-y-6 text-slate-300 leading-relaxed text-justify">
+          <div className="space-y-6 text-white leading-relaxed text-justify">
             <p>
-              Currently, I am a{" "}
+              I am a{" "}
               <span className="text-pink-400 font-medium">
-                freelance front-end developer
+                full-stack engineer
               </span>{" "}
               based in{" "}
-              <span className="text-purple-400 font-medium">Berlin</span>.
+              <span className="text-purple-400 font-medium">Berlin </span>
+              where I am working with small businesses to design, develop and
+              deploy their web apps.
             </p>
             <p>
-              Right now I'm working with small businesses to make their
-              websites, but in my past I've worked on diverse projects from
-              implementing highly performant enterprise applications in banking,
-              marketing websites, and startups. I also have experience as a
-              designer and have worked on corporate branding.
+              I have experience in designing, implementing and deploying apps in
+              production environments including REST APIs, integrating
+              third-party services, tests, front and backend. This paired with
+              my background in Graphic Design and UX lets me bridge product
+              thinking and engineering to deliver performant, visually refined,
+              and user-centered digital solutions.
             </p>
             <p>
-              I already have the skills and experience on the front-end and
-              design, but I'm always learning and exploring new technologies. My
-              goal is to continue evolving as a developer and designer, and also
-              to become fullstack so that I can build things end-to-end.
+              I've worked on diverse projects from implementing highly
+              performant enterprise applications in banking, marketing websites,
+              and startups. I also have experience as a designer working on
+              corporate branding.
             </p>
           </div>
           <div className="relative overflow-hidden pt-8">

@@ -102,7 +102,7 @@ export function Experience() {
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Experience
           </h2>
-          <p className="text-slate-400 mb-12 text-lg">
+          <p className="text-white mb-12 text-base">
             Professional experience and key roles I’ve held across different
             companies and projects.
           </p>
@@ -111,19 +111,18 @@ export function Experience() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden hover:border-purple-500 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80"
               >
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
                       {exp.title}
                     </h3>
-                    <span className="text-slate-400 text-sm">{exp.date}</span>
+                    <span className="text-white text-sm">{exp.date}</span>
                   </div>
-                  <ul className="list-disc pl-5 mb-4 text-slate-300">
+                  <ul className="list-disc pl-5 mb-4 text-white text-base">
                     {exp.tasks.map((task, idx) => (
-                      <li key={idx} className="mb-1">
+                      <li key={idx} className="mb-3 text-base">
                         {task}
                       </li>
                     ))}

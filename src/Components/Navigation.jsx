@@ -36,7 +36,7 @@ export function Navigation() {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(sec.name);
         },
-        { threshold: 0.6 }
+        { threshold: 0.6 },
       );
       observer.observe(el);
       return observer;
@@ -51,41 +51,66 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`hidden md:block fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 ${
+        className={`hidden md:block fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full ${
           showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }`}
       >
-        <div className="max-w-[var(--max-width)] mx-auto px-4 md:px-6 py-2">
-          <GlassSurface
-            width="auto"
+        <div className="w-full px-4 md:px-6 py-2">
+          <div className="max-w-[800px] mx-auto w-full">
+            <GlassSurface
+            width="100%"
             height={60}
             borderRadius={30}
             borderWidth={0.07}
             brightness={50}
             opacity={0.93}
             blur={11}
-            className="flex items-center justify-center gap-12 px-10"
-            style={{ minWidth: "fit-content" }}
+            className="flex items-center justify-between pl-5 pr-2 py-0"
+            style={{ minWidth: 0 }}
           >
-            {sections.map((sec) => (
-              <a
-                key={sec.name}
-                href={`#${sec.name.toLowerCase()}`}
-                className={`pr-10 font-semibold text-lg transition-colors ${
-                  activeSection === sec.name
-                    ? "text-purple-400"
-                    : "text-slate-300 hover:text-purple-400"
-                }`}
-              >
-                {sec.name}
-              </a>
-            ))}
+            <a
+              href="#home"
+              className="shrink-0 font-semibold text-[26px] text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 hover:from-purple-200 hover:to-pink-200 transition-all"
+              style={{ fontFamily: '"Instrument Sans", sans-serif' }}
+            >
+              Clorostica
+            </a>
+            <div className="flex-1 min-w-0" />
+            <div className="flex items-center justify-center gap-1 shrink-0">
+              {sections
+                .filter((sec) => sec.name !== "Contact")
+                .map((sec) => (
+                  <a
+                    key={sec.name}
+                    href={`#${sec.name.toLowerCase()}`}
+                    className={`font-normal text-base transition-colors whitespace-nowrap px-2 py-2 ${
+                      activeSection === sec.name
+                        ? "text-purple-400"
+                        : "text-slate-300 hover:text-purple-400"
+                    }`}
+                  >
+                    {sec.name}
+                  </a>
+                ))}
+            </div>
+            <div className="flex-1 min-w-0" />
+            <a
+              href="#contact"
+              className={`shrink-0 px-6 py-2.5 rounded-full font-semibold text-base transition-all duration-300 border ${
+                activeSection === "Contact"
+                  ? "bg-purple-500/30 text-purple-400 border-purple-500/50"
+                  : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:border-purple-500 hover:text-white"
+              }`}
+            >
+              Contact
+            </a>
           </GlassSurface>
+        </div>
         </div>
       </nav>
 
       <nav
-        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full ${
+        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full px-4 sm:px-6 ${
           showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }`}
       >
@@ -108,15 +133,17 @@ export function Navigation() {
                 key={sec.name}
                 href={`#${sec.name.toLowerCase()}`}
                 className="relative flex flex-col items-center justify-center group flex-shrink-0"
-                style={{ width: "60px", height: "60px" }}
+                style={{ width: "52px", height: "56px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   const target = document.getElementById(
-                    sec.name.toLowerCase()
+                    sec.name.toLowerCase(),
                   );
                   if (target) {
                     const y =
-                      target.getBoundingClientRect().top + window.scrollY - 120;
+                      target.getBoundingClientRect().top +
+                      window.scrollY -
+                      120;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
@@ -127,11 +154,13 @@ export function Navigation() {
                       ? "bg-purple-500/20 scale-100 opacity-100"
                       : "bg-transparent scale-90 opacity-0 group-hover:bg-purple-500/10 group-hover:scale-95 group-hover:opacity-100"
                   }`}
-                  style={{ backdropFilter: isActive ? "blur(8px)" : "none" }}
+                  style={{
+                    backdropFilter: isActive ? "blur(8px)" : "none",
+                  }}
                 />
 
                 <Icon
-                  size={26}
+                  size={24}
                   className={`relative z-10 transition-all duration-300 ${
                     isActive
                       ? "text-purple-400 scale-110"

@@ -5,7 +5,7 @@ import CV from "../Docs/ClaudiaSaezOrostica.pdf";
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const fullText =
-    "React, Next.js & Node.js | UX & Accessibility-Driven Web Applications. ✨";
+    "Modern JS Stack | Building Scalable, Maintainable Web Applications ";
 
   useEffect(() => {
     let index = 0;
@@ -42,7 +42,7 @@ export function Hero() {
               aez
             </h1>
 
-            <p className="text-xl text-slate-400 leading-relaxed min-h-[120px]">
+            <p className="text-xl text-white leading-relaxed min-h-[120px]">
               {typedText}
               <span className="animate-pulse">|</span>
             </p>
