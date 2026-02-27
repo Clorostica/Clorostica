@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ChevronRight } from "lucide-react";
 import tasklistDefault from "../assets/Img/tasklist2.png";
 import weatherAppDefault from "../assets/Img/weatherapp1.png";
 import eggTimerDefault from "../assets/Img/eggtimer1.png";
@@ -89,7 +90,7 @@ export function Projects() {
       >
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 ${
+            className={`text-5xl font-bold mb-10 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -125,19 +126,29 @@ export function Projects() {
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-white text-sm mb-4 line-clamp-3">
+                    <p className="text-slate-200 text-base mb-4 line-clamp-3">
                       {project.description}
                     </p>
 
-                    <ul className="list-disc pl-5 text-sm mb-2">
-                      <li>
-                        <strong>Tech:</strong> {project.tech}
+                    <ul className="space-y-2 text-base mb-2 list-none pl-0 text-slate-200">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight
+                          className="shrink-0 w-4 h-4 text-purple-400 mt-0.5"
+                          strokeWidth={2.5}
+                          aria-hidden
+                        />
+                        <span><strong>Tech:</strong> {project.tech}</span>
                       </li>
-                      <li>
-                        <strong>Role:</strong> {project.role}
+                      <li className="flex items-start gap-2">
+                        <ChevronRight
+                          className="shrink-0 w-4 h-4 text-purple-400 mt-0.5"
+                          strokeWidth={2.5}
+                          aria-hidden
+                        />
+                        <span><strong>Role:</strong> {project.role}</span>
                       </li>
                     </ul>
 
