@@ -13,7 +13,7 @@ export function Certificates() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -74,37 +74,37 @@ export function Certificates() {
             {certificates.map((cert, index) => (
               <div
                 key={index}
-                className={`transition-all duration-700 ${
+                className={`h-full transition-all duration-700 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="group relative bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80">
-                <div className="aspect-video overflow-hidden relative bg-slate-800">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
-                  />
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300 ease-out"
-                  />
-                </div>
+                <div className="group relative h-full min-h-[320px] flex flex-col bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] hover:border-purple-500/80">
+                  <div className="aspect-video overflow-hidden relative bg-slate-800">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300 ease-out"
+                    />
+                  </div>
 
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
-                    {cert.title}
-                  </h3>
-                  <p className="text-white text-sm flex items-center gap-2">
-                    <Award size={16} className="text-purple-400" />
-                    {cert.provider}
-                  </p>
-                </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
+                      {cert.title}
+                    </h3>
+                    <p className="text-white text-sm flex items-center gap-2">
+                      <Award size={16} className="text-purple-400" />
+                      {cert.provider}
+                    </p>
+                  </div>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
-              </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
+                </div>
               </div>
             ))}
           </div>
