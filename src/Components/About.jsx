@@ -3,6 +3,10 @@ import { LogoLoop } from "./LogoLoop";
 import "../Styles/logoloop.css";
 
 import {
+  SiDocker,
+  SiPostman,
+  SiNpm,
+  SiGit,
   SiReact,
   SiNextdotjs,
   SiTypescript,
@@ -38,23 +42,25 @@ export function About() {
       title: "Tailwind CSS",
       href: "https://tailwindcss.com",
     },
-  ];
-
-  const imageLogos = [
     {
-      src: "/logos/company1.png",
-      alt: "Company 1",
-      href: "https://company1.com",
+      node: <SiDocker />,
+      title: "Docker",
+      href: "https://www.docker.com",
     },
     {
-      src: "/logos/company2.png",
-      alt: "Company 2",
-      href: "https://company2.com",
+      node: <SiPostman />,
+      title: "Postman",
+      href: "https://www.postman.com",
     },
     {
-      src: "/logos/company3.png",
-      alt: "Company 3",
-      href: "https://company3.com",
+      node: <SiNpm />,
+      title: "npm",
+      href: "https://www.npmjs.com",
+    },
+    {
+      node: <SiGit />,
+      title: "Git",
+      href: "https://github.com",
     },
   ];
 
@@ -111,6 +117,7 @@ export function About() {
               hoverSpeed={0}
               scaleOnHover
               ariaLabel="Technology partners"
+              fadeOutColor="white"
             />
           </div>
         </div>

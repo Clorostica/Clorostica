@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
-import tasklistDefault from "../assets/Img/tasklist2.png";
 import weatherAppDefault from "../assets/Img/weatherapp1.png";
 import eggTimerDefault from "../assets/Img/eggtimer1.png";
 import floreriaDefault from "../assets/Img/floreria.png";
@@ -140,7 +139,9 @@ export function Projects() {
                           strokeWidth={2.5}
                           aria-hidden
                         />
-                        <span><strong>Tech:</strong> {project.tech}</span>
+                        <span>
+                          <strong>Tech:</strong> {project.tech}
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight
@@ -148,7 +149,9 @@ export function Projects() {
                           strokeWidth={2.5}
                           aria-hidden
                         />
-                        <span><strong>Role:</strong> {project.role}</span>
+                        <span>
+                          <strong>Role:</strong> {project.role}
+                        </span>
                       </li>
                     </ul>
 
