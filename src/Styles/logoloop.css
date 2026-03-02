@@ -5,7 +5,7 @@
     --logoloop-logoHeight: 28px;
     --logoloop-fadeColorAuto: #ffffff;
   }
-  
+
   .logoloop--vertical {
     height: 100%;
     display: inline-block;
@@ -14,6 +14,9 @@
   .logoloop--scale-hover {
     padding-top: calc(var(--logoloop-logoHeight) * 0.1);
     padding-bottom: calc(var(--logoloop-logoHeight) * 0.1);
+  }
+  .logoloop svg {
+    color: white;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -47,10 +50,15 @@
   }
   
   .logoloop__item {
+
     flex: 0 0 auto;
     margin-right: var(--logoloop-gap);
     font-size: var(--logoloop-logoHeight);
     line-height: 1;
+
+  }
+  .logoloop svg {
+    fill: white;
   }
   
   .logoloop--vertical .logoloop__item {
@@ -130,7 +138,7 @@
     background: linear-gradient(
       to right,
       var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-      rgba(0, 0, 0, 0) 100%
+      rgba(255, 255, 255, 0) 100%
     );
   }
   

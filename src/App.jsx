@@ -1,3 +1,4 @@
+import React from "react";
 import { Certificates } from "./Components/Certificates";
 import { ContactMe } from "./Components/ContactMe";
 import { Navigation } from "./Components/Navigation";
