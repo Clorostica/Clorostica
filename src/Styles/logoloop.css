@@ -15,9 +15,7 @@
     padding-top: calc(var(--logoloop-logoHeight) * 0.1);
     padding-bottom: calc(var(--logoloop-logoHeight) * 0.1);
   }
-  .logoloop svg {
-    color: white;
-  }
+
   
   @media (prefers-color-scheme: dark) {
     .logoloop {
