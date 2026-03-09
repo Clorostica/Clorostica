@@ -110,19 +110,20 @@ export function Navigation() {
       </nav>
 
       <nav
-        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full px-4 sm:px-6 ${
+        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 ${
           showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }`}
       >
         <GlassSurface
-          width="100%"
-          height={80}
-          borderRadius={40}
+          width="85vw"
+          height={68}
+          borderRadius={34}
           borderWidth={0.07}
           brightness={50}
           opacity={0.93}
           blur={11}
-          className="flex items-center justify-around px-1"
+          className="flex items-center justify-around px-3"
+          style={{ minWidth: 0 }}
         >
           {sections.map((sec) => {
             const Icon = sec.icon;
@@ -133,7 +134,7 @@ export function Navigation() {
                 key={sec.name}
                 href={`#${sec.name.toLowerCase()}`}
                 className="relative flex flex-col items-center justify-center group flex-shrink-0"
-                style={{ width: "52px", height: "56px" }}
+                style={{ width: "46px", height: "56px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   const target = document.getElementById(
