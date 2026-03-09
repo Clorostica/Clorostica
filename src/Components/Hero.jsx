@@ -23,9 +23,9 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-[env(safe-area-inset-top)]"
+      className="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-[env(safe-area-inset-top)]"
     >
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-10 md:gap-12 items-center">
         <div className="space-y-6 z-10 pt-20 md:pt-0">
           <div className="space-y-2">
             <p className="text-sm uppercase tracking-wider flex items-center gap-2 animate-pulse">
@@ -101,7 +101,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative h-96 md:h-[500px] flex items-center justify-center">
+        <div className="relative h-80 md:h-[500px] flex items-center justify-center">
           <div className="drop-shadow-div blob"></div>
         </div>
       </div>

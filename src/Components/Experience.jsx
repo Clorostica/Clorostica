@@ -120,7 +120,8 @@ export function Experience() {
                       {(() => {
                         const parts = exp.title.split(/\s*[-–]\s*/);
                         const role = parts[0]?.trim() ?? exp.title;
-                        const company = parts.slice(1).join(" – ").trim() || null;
+                        const company =
+                          parts.slice(1).join(" – ").trim() || null;
                         return (
                           <>
                             <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
