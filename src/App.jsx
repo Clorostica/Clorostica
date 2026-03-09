@@ -42,7 +42,7 @@ export default function App() {
 
       <div
         style={{ position: "relative", zIndex: 1 }}
-        className="px-10 md:px-16 lg:px-24 pt-8 md:pt-12"
+        className="px-2 md:px-16 lg:px-24 pt-8 md:pt-12"
       >
         <Navigation />
         <Hero className="py-8 md:py-24" />
