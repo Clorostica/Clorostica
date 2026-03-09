@@ -80,24 +80,7 @@ export function Projects() {
     },
   ];
 
-  const getProjectLayoutClasses = (index) => {
-    // Bento-style layout: only column spans (no manual row spans) so the grid can
-    // auto-calculate heights and avoid vertical gaps while still feeling varied.
-    // lg = 6 columns → row 1: 3 + 3, row 2: 2 + 2 + 2
-    switch (index) {
-      case 0:
-        return "lg:col-span-3";
-      case 1:
-        return "lg:col-span-3";
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-        return "lg:col-span-2";
-      default:
-        return "lg:col-span-2";
-    }
-  };
+  const cardHeights = ["h-80", "h-52", "h-64", "h-48", "h-72", "h-56"];
 
   return (
     <div className="main_container reveal">
@@ -117,75 +100,62 @@ export function Projects() {
             Featured Projects
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6 items-stretch">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-5">
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className={`h-full transition-all duration-700 ${getProjectLayoutClasses(index)} ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                className={`break-inside-avoid mb-5 transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${index * 120}ms` }}
               >
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative block h-full w-full rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-lg overflow-hidden transition-[transform,box-shadow,border-color] duration-300 ease-out hover:scale-[1.03] hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80"
+                  className={`group relative block w-full ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
                 >
-                  <div className="relative w-full h-full aspect-[4/3]">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[0.8deg]"
-                    />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
 
-                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-slate-950/10 via-slate-950/80 to-slate-900/95" />
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
+                  <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
 
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 md:p-5 gap-2 overflow-y-auto">
-                      <div className="space-y-1.5">
-                        <h3 className="text-lg md:text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
-                          {project.title}
-                        </h3>
-                        <p className="text-xs md:text-sm text-slate-100 leading-snug">
-                          {project.description}
-                        </p>
-                      </div>
+                  <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-5">
+                    <div
+                      className="space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      style={{ transitionDelay: "50ms" }}
+                    >
+                      <h3 className="text-lg md:text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-100 leading-snug line-clamp-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                        {project.description}
+                      </p>
+                    </div>
 
-                      <div className="space-y-2.5 pt-1">
-                        <ul className="space-y-1 text-[11px] md:text-xs text-slate-200">
-                          <li className="flex items-start gap-2">
-                            <ChevronRight
-                              className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400"
-                              strokeWidth={2.5}
-                              aria-hidden
-                            />
-                            <span>
-                              <strong>Tech:</strong> {project.tech}
-                            </span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <ChevronRight
-                              className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400"
-                              strokeWidth={2.5}
-                              aria-hidden
-                            />
-                            <span>
-                              <strong>Role:</strong> {project.role}
-                            </span>
-                          </li>
-                        </ul>
-
-                        <div className="pt-1">
-                          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 hover:bg-slate-700/90 transition-all duration-300 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30">
-                            View Project
-                            <ChevronRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
+                    <div
+                      className="space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      style={{ transitionDelay: "100ms" }}
+                    >
+                      <ul className="space-y-1 text-[11px] md:text-xs text-slate-200">
+                        <li className="flex items-start gap-2">
+                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                          <span><strong>Tech:</strong> {project.tech}</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                          <span><strong>Role:</strong> {project.role}</span>
+                        </li>
+                      </ul>
+                      <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30 transition-all duration-300">
+                        View Project
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
                     </div>
                   </div>
                 </a>
@@ -195,18 +165,7 @@ export function Projects() {
         </div>
       </section>
 
-      <style>
-        {`
-          @keyframes shine {
-            0% { transform: translateX(-100%); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100%); opacity: 0; }
-          }
-          .animate-shine {
-            animation: shine 100.5s ease-in-out;
-          }
-        `}
-      </style>
+
     </div>
   );
 }
