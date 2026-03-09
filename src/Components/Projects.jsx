@@ -100,11 +100,12 @@ export function Projects() {
             Featured Projects
           </h2>
 
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-5">
+          {/* Mobile — imagen + contenido siempre visible */}
+          <div className="md:hidden flex flex-col gap-5">
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className={`break-inside-avoid mb-5 transition-all duration-700 ${
+                className={`transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 120}ms` }}
@@ -113,56 +114,102 @@ export function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative block w-full h-72 ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
+                  className="group block rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden transition-[box-shadow,border-color] duration-300 active:shadow-[0_0_30px_-8px_rgba(168,85,247,0.6)] active:border-purple-500/70"
                 >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-active:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                    <div className="pointer-events-none absolute -inset-px opacity-0 group-active:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.6),rgba(236,72,153,0.4),transparent_60%)] blur-sm" />
+                  </div>
 
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
-
-                  <div className="absolute inset-0 flex flex-col p-4 md:p-5">
-                    {/* Scrollable top area */}
-                    <div
-                      className="flex-1 overflow-y-auto space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 mb-3 pr-1"
-                      style={{ transitionDelay: "50ms" }}
-                    >
-                      <h3 className="text-lg md:text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs md:text-sm text-slate-100 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                        {project.description}
-                      </p>
+                  {/* Content */}
+                  <div className="p-4 space-y-3">
+                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                    <p className="text-sm text-slate-300 leading-relaxed">{project.description}</p>
+                    <div className="space-y-1 text-xs text-slate-400">
+                      <div className="flex items-start gap-1.5">
+                        <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                        <span><strong className="text-slate-200">Tech:</strong> {project.tech}</span>
+                      </div>
+                      <div className="flex items-start gap-1.5">
+                        <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                        <span><strong className="text-slate-200">Role:</strong> {project.role}</span>
+                      </div>
                     </div>
-
-                    {/* Fixed bottom area */}
-                    <div
-                      className="shrink-0 space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                      style={{ transitionDelay: "100ms" }}
-                    >
-                      <ul className="space-y-1 text-[11px] md:text-xs text-slate-200">
-                        <li className="flex items-start gap-2">
-                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                          <span><strong>Tech:</strong> {project.tech}</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                          <span><strong>Role:</strong> {project.role}</span>
-                        </li>
-                      </ul>
-                      <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30 transition-all duration-300">
-                        View Project
-                        <ChevronRight className="w-4 h-4" />
-                      </span>
-                    </div>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-white text-sm">
+                      View Project <ChevronRight className="w-4 h-4" />
+                    </span>
                   </div>
                 </a>
               </div>
             ))}
+          </div>
+
+          {/* Desktop — masonry con hover overlay */}
+          <div className="hidden md:block">
+            <div className="columns-2 lg:columns-3 gap-5">
+              {projects.map((project, index) => (
+                <div
+                  key={project.title}
+                  className={`break-inside-avoid mb-5 transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${index * 120}ms` }}
+                >
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group relative block w-full ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
+
+                    <div className="absolute inset-0 flex flex-col p-5">
+                      <div
+                        className="flex-1 overflow-y-auto space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 mb-3 pr-1"
+                        style={{ transitionDelay: "50ms" }}
+                      >
+                        <h3 className="text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-slate-100 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                          {project.description}
+                        </p>
+                      </div>
+                      <div
+                        className="shrink-0 space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                        style={{ transitionDelay: "100ms" }}
+                      >
+                        <ul className="space-y-1 text-xs text-slate-200">
+                          <li className="flex items-start gap-2">
+                            <ChevronRight className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                            <span><strong>Tech:</strong> {project.tech}</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <ChevronRight className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
+                            <span><strong>Role:</strong> {project.role}</span>
+                          </li>
+                        </ul>
+                        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30 transition-all duration-300">
+                          View Project <ChevronRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
