@@ -80,7 +80,7 @@ export function Projects() {
     },
   ];
 
-  const cardHeights = ["h-80", "h-52", "h-64", "h-48", "h-72", "h-56"];
+  const cardHeights = ["md:h-96", "md:h-80", "md:h-80", "md:h-72", "md:h-96", "md:h-80"];
 
   return (
     <div className="main_container reveal">
@@ -113,7 +113,7 @@ export function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative block w-full ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
+                  className={`group relative block w-full h-72 ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
                 >
                   <img
                     src={project.image}
@@ -125,21 +125,23 @@ export function Projects() {
 
                   <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
 
-                  <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-5">
+                  <div className="absolute inset-0 flex flex-col p-4 md:p-5">
+                    {/* Scrollable top area */}
                     <div
-                      className="space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      className="flex-1 overflow-y-auto space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 mb-3 pr-1"
                       style={{ transitionDelay: "50ms" }}
                     >
                       <h3 className="text-lg md:text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                         {project.title}
                       </h3>
-                      <p className="text-xs md:text-sm text-slate-100 leading-snug line-clamp-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      <p className="text-xs md:text-sm text-slate-100 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                         {project.description}
                       </p>
                     </div>
 
+                    {/* Fixed bottom area */}
                     <div
-                      className="space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      className="shrink-0 space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                       style={{ transitionDelay: "100ms" }}
                     >
                       <ul className="space-y-1 text-[11px] md:text-xs text-slate-200">

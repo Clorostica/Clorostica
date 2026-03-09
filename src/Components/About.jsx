@@ -68,7 +68,7 @@ export function About() {
     <div className="main_container reveal">
       <section
         id="about"
-        className="relative pt-8 md:pt-24 px-6"
+        className="relative py-8 md:py-24 px-6"
         ref={sectionRef}
       >
         <div className="max-w-7xl mx-auto">
