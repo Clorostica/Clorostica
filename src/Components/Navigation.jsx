@@ -51,67 +51,68 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`hidden md:block fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 w-full ${
-          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        className={`hidden md:block fixed left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-500 top-6 w-full ${
+          showNav ? "translate-y-0 pointer-events-auto" : "-translate-y-24 pointer-events-none"
         }`}
       >
         <div className="w-full px-4 md:px-6 py-2">
           <div className="max-w-[800px] mx-auto w-full">
             <GlassSurface
-            width="100%"
-            height={60}
-            borderRadius={30}
-            borderWidth={0.07}
-            brightness={50}
-            opacity={0.93}
-            blur={11}
-            className="flex items-center justify-between pl-5 pr-2 py-0"
-            style={{ minWidth: 0 }}
-          >
-            <a
-              href="#home"
-              className="shrink-0 font-semibold text-[26px] text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 hover:from-purple-200 hover:to-pink-200 transition-all"
-              style={{ fontFamily: '"Instrument Sans", sans-serif' }}
+              width="100%"
+              height={60}
+              borderRadius={30}
+              borderWidth={0.07}
+              brightness={50}
+              opacity={0.93}
+              blur={11}
+              className="flex items-center justify-between pl-5 pr-2 py-0"
+              style={{ minWidth: 0 }}
             >
-              Clorostica
-            </a>
-            <div className="flex-1 min-w-0" />
-            <div className="flex items-center justify-center gap-1 shrink-0">
-              {sections
-                .filter((sec) => sec.name !== "Contact")
-                .map((sec) => (
-                  <a
-                    key={sec.name}
-                    href={`#${sec.name.toLowerCase()}`}
-                    className={`font-normal text-base transition-colors whitespace-nowrap px-2 py-2 ${
-                      activeSection === sec.name
-                        ? "text-purple-400"
-                        : "text-slate-300 hover:text-purple-400"
-                    }`}
-                  >
-                    {sec.name}
-                  </a>
-                ))}
-            </div>
-            <div className="flex-1 min-w-0" />
-            <a
-              href="#contact"
-              className={`shrink-0 px-6 py-2.5 rounded-full font-semibold text-base transition-all duration-300 border ${
-                activeSection === "Contact"
-                  ? "bg-purple-500/30 text-purple-400 border-purple-500/50"
-                  : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:border-purple-500 hover:text-white"
-              }`}
-            >
-              Contact
-            </a>
-          </GlassSurface>
-        </div>
+              <a
+                href="#home"
+                className="shrink-0 font-semibold text-[26px] text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 hover:from-purple-200 hover:to-pink-200 transition-all"
+                style={{ fontFamily: '"Instrument Sans", sans-serif' }}
+              >
+                Clorostica
+              </a>
+              <div className="flex-1 min-w-0" />
+              <div className="flex items-center justify-center gap-1 shrink-0">
+                {sections
+                  .filter((sec) => sec.name !== "Contact")
+
+                  .map((sec) => (
+                    <a
+                      key={sec.name}
+                      href={`#${sec.name.toLowerCase()}`}
+                      className={`font-normal text-base transition-colors whitespace-nowrap px-2 py-2 ${
+                        activeSection === sec.name
+                          ? "text-purple-400"
+                          : "text-slate-300 hover:text-purple-400"
+                      }`}
+                    >
+                      {sec.name}
+                    </a>
+                  ))}
+              </div>
+              <div className="flex-1 min-w-0" />
+              <a
+                href="#contact"
+                className={`shrink-0 px-6 py-2.5 rounded-full font-semibold text-base transition-all duration-300 border ${
+                  activeSection === "Contact"
+                    ? "bg-purple-500/30 text-purple-400 border-purple-500/50"
+                    : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:border-purple-500 hover:text-white"
+                }`}
+              >
+                Contact
+              </a>
+            </GlassSurface>
+          </div>
         </div>
       </nav>
 
       <nav
-        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 top-6 ${
-          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        className={`md:hidden fixed left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-500 top-6 ${
+          showNav ? "translate-y-0 pointer-events-auto" : "-translate-y-24 pointer-events-none"
         }`}
       >
         <GlassSurface
@@ -142,9 +143,7 @@ export function Navigation() {
                   );
                   if (target) {
                     const y =
-                      target.getBoundingClientRect().top +
-                      window.scrollY -
-                      120;
+                      target.getBoundingClientRect().top + window.scrollY - 120;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}

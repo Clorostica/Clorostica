@@ -139,9 +139,9 @@ export function Experience() {
                     {/* Index number */}
                     <span className={`
                       shrink-0 font-mono text-xs font-bold tracking-widest
-                      bg-gradient-to-r ${accent} bg-clip-text text-transparent
-                      transition-opacity duration-300
-                      ${isOpen ? "opacity-100" : "opacity-60 group-hover:opacity-90"}
+                      bg-gradient-to-r ${accent} bg-clip-text text-transparent clip-text-gpu
+                      transition-[filter] duration-300
+                      ${isOpen ? "[filter:brightness(1)]" : "[filter:brightness(0.55)] group-hover:[filter:brightness(0.85)]"}
                     `}>
                       {nodeNum}
                     </span>

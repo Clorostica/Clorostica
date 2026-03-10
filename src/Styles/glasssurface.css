@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: opacity 0.26s ease-out, background-color 0.26s ease-out;
+    transition: background-color 0.26s ease-out;
   }
   
   .glass-surface__filter {

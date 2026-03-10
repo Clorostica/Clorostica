@@ -44,6 +44,14 @@ export function Projects() {
       image: weatherAppDefault,
     },
     {
+      title: "Egg Timer",
+      description: "Simple timer app for boiling eggs to your preferred level.",
+      tech: "JavaScript, HTML, CSS",
+      role: "Functionality and design",
+      link: "https://clorostica.github.io/Eggtimer/",
+      image: eggTimerDefault,
+    },
+    {
       title: "Little Lemon",
       description:
         "Restaurant site offering homemade dishes with a modern twist.",
@@ -51,14 +59,6 @@ export function Projects() {
       role: "Layout and branding",
       link: "https://clorostica.github.io/LittleLemon2/",
       image: littleLemonDefault,
-    },
-    {
-      title: "Egg Timer",
-      description: "Simple timer app for boiling eggs to your preferred level.",
-      tech: "JavaScript, HTML, CSS",
-      role: "Functionality and design",
-      link: "https://clorostica.github.io/Eggtimer/",
-      image: eggTimerDefault,
     },
     {
       title: "Cordillera",
@@ -80,7 +80,7 @@ export function Projects() {
     },
   ];
 
-  const cardHeights = ["md:h-96", "md:h-80", "md:h-80", "md:h-72", "md:h-96", "md:h-80"];
+  const cardHeights = ["md:h-96", "md:h-80", "md:h-72", "md:h-80", "md:h-96", "md:h-80"];
 
   return (
     <div className="main_container reveal">
@@ -91,7 +91,7 @@ export function Projects() {
       >
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-5xl font-bold mb-10 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 ${
+            className={`text-5xl font-bold mb-10 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 [will-change:opacity,transform] ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -152,11 +152,11 @@ export function Projects() {
 
           {/* Desktop — masonry con hover overlay */}
           <div className="hidden md:block">
-            <div className="columns-2 lg:columns-3 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.map((project, index) => (
                 <div
                   key={project.title}
-                  className={`break-inside-avoid mb-5 transition-all duration-700 ${
+                  className={`transition-all duration-700 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 120}ms` }}

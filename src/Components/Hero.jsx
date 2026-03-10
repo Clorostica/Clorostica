@@ -32,11 +32,11 @@ export function Hero() {
               <Sparkles size={16} /> Full-Stack Developer
             </p>
             <h1 className="text-6xl md:text-7xl font-bold">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] animate-clip-pulse">
                 C
               </span>
               laudia&nbsp;
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] animate-clip-pulse">
                 S
               </span>
               aez
