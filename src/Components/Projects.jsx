@@ -80,7 +80,14 @@ export function Projects() {
     },
   ];
 
-  const cardHeights = ["md:h-96", "md:h-80", "md:h-72", "md:h-80", "md:h-96", "md:h-80"];
+  const bentoSpans = [
+    "col-span-2 row-span-2", // Gobento — featured large
+    "",                       // Weather App
+    "",                       // Egg Timer
+    "",                       // Little Lemon
+    "",                       // Cordillera
+    "",                       // Epica
+  ];
 
   return (
     <div className="main_container reveal">
@@ -150,13 +157,16 @@ export function Projects() {
             ))}
           </div>
 
-          {/* Desktop — masonry con hover overlay */}
+          {/* Desktop — bento box sin gaps */}
           <div className="hidden md:block">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+            <div
+              className="grid grid-cols-3 gap-4"
+              style={{ gridTemplateRows: "240px 240px 220px" }}
+            >
               {projects.map((project, index) => (
                 <div
                   key={project.title}
-                  className={`transition-all duration-700 ${
+                  className={`${bentoSpans[index]} transition-all duration-700 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 120}ms` }}
@@ -165,7 +175,7 @@ export function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group relative block w-full ${cardHeights[index]} rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80`}
+                    className="group relative block w-full h-full rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80"
                   >
                     <img
                       src={project.image}
