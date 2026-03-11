@@ -48,7 +48,7 @@ export function Projects() {
       description: "Simple timer app for boiling eggs to your preferred level.",
       tech: "JavaScript, HTML, CSS",
       role: "Functionality and design",
-      link: "https://clorostica.github.io/Eggtimer/",
+      link: "https://eggtimer-3qye.vercel.app/",
       image: eggTimerDefault,
     },
     {
@@ -82,11 +82,11 @@ export function Projects() {
 
   const bentoSpans = [
     "col-span-2 row-span-2", // Gobento — featured large
-    "",                       // Weather App
-    "",                       // Egg Timer
-    "",                       // Little Lemon
-    "",                       // Cordillera
-    "",                       // Epica
+    "", // Weather App
+    "", // Egg Timer
+    "", // Little Lemon
+    "", // Cordillera
+    "", // Epica
   ];
 
   return (
@@ -113,7 +113,9 @@ export function Projects() {
               <div
                 key={project.title}
                 className={`transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 120}ms` }}
               >
@@ -136,16 +138,34 @@ export function Projects() {
 
                   {/* Content */}
                   <div className="p-4 space-y-3">
-                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                    <p className="text-sm text-slate-300 leading-relaxed">{project.description}</p>
+                    <h3 className="text-lg font-bold text-white">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-slate-300 leading-relaxed">
+                      {project.description}
+                    </p>
                     <div className="space-y-1 text-xs text-slate-400">
                       <div className="flex items-start gap-1.5">
-                        <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                        <span><strong className="text-slate-200">Tech:</strong> {project.tech}</span>
+                        <ChevronRight
+                          className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0"
+                          strokeWidth={2.5}
+                          aria-hidden
+                        />
+                        <span>
+                          <strong className="text-slate-200">Tech:</strong>{" "}
+                          {project.tech}
+                        </span>
                       </div>
                       <div className="flex items-start gap-1.5">
-                        <ChevronRight className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                        <span><strong className="text-slate-200">Role:</strong> {project.role}</span>
+                        <ChevronRight
+                          className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0"
+                          strokeWidth={2.5}
+                          aria-hidden
+                        />
+                        <span>
+                          <strong className="text-slate-200">Role:</strong>{" "}
+                          {project.role}
+                        </span>
                       </div>
                     </div>
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-white text-sm">
@@ -167,7 +187,9 @@ export function Projects() {
                 <div
                   key={project.title}
                   className={`${bentoSpans[index]} transition-all duration-700 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 120}ms` }}
                 >
@@ -203,12 +225,24 @@ export function Projects() {
                       >
                         <ul className="space-y-1 text-xs text-slate-200">
                           <li className="flex items-start gap-2">
-                            <ChevronRight className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                            <span><strong>Tech:</strong> {project.tech}</span>
+                            <ChevronRight
+                              className="w-4 h-4 mt-0.5 text-purple-400 shrink-0"
+                              strokeWidth={2.5}
+                              aria-hidden
+                            />
+                            <span>
+                              <strong>Tech:</strong> {project.tech}
+                            </span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <ChevronRight className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" strokeWidth={2.5} aria-hidden />
-                            <span><strong>Role:</strong> {project.role}</span>
+                            <ChevronRight
+                              className="w-4 h-4 mt-0.5 text-purple-400 shrink-0"
+                              strokeWidth={2.5}
+                              aria-hidden
+                            />
+                            <span>
+                              <strong>Role:</strong> {project.role}
+                            </span>
                           </li>
                         </ul>
                         <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30 transition-all duration-300">
@@ -223,8 +257,6 @@ export function Projects() {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }
