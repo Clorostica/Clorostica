@@ -66,7 +66,7 @@ export function Projects() {
         "Floral arrangements crafted with elegance and natural beauty.",
       tech: "HTML, CSS, JS",
       role: "Web design & development",
-      link: "https://clorostica.github.io/Cordillera",
+      link: "https://cordillera-rho.vercel.app/",
       image: floreriaDefault,
     },
     {
