@@ -57,7 +57,7 @@ export function Projects() {
         "Restaurant site offering homemade dishes with a modern twist.",
       tech: "HTML, CSS",
       role: "Layout and branding",
-      link: "https://clorostica.github.io/LittleLemon2/",
+      link: "https://little-lemon-nu-nine.vercel.app/,
       image: littleLemonDefault,
     },
     {
