@@ -57,7 +57,7 @@ export function Projects() {
         "Restaurant site offering homemade dishes with a modern twist.",
       tech: "HTML, CSS",
       role: "Layout and branding",
-      link: "https://little-lemon-nu-nine.vercel.app/,
+      link: "https://little-lemon-nu-nine.vercel.app/",
       image: littleLemonDefault,
     },
     {
