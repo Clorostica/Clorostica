@@ -29,7 +29,7 @@ export function Projects() {
 
       description:
         "Social media event app that allows users to save and share events with friends, upload photos, and organize them as memories or future plans. Easily manage your schedule, view profiles with privacy settings, follow friends, and keep track of your social life effortlessly.",
-      tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman",
+      tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman, Cloudflare D1",
       role: "Fullstack development",
       link: "https://task-list-delta-sandy.vercel.app/",
       image: taskFlow,
@@ -55,7 +55,7 @@ export function Projects() {
       title: "Little Lemon",
       description:
         "Restaurant site offering homemade dishes with a modern twist.",
-      tech: "HTML, CSS",
+      tech: "React, JS, Vercel",
       role: "Layout and branding",
       link: "https://little-lemon-nu-nine.vercel.app/",
       image: littleLemonDefault,
