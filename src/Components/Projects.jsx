@@ -35,15 +35,6 @@ export function Projects() {
       image: taskFlow,
     },
     {
-      title: "Weather App",
-      description:
-        "Check real-time weather by city with a clean and responsive UI.",
-      tech: "React, Vite, OpenWeather API, CSS",
-      role: "Design and development",
-      link: "https://weatherapp-delta-jet.vercel.app/",
-      image: weatherAppDefault,
-    },
-    {
       title: "Egg Timer",
       description: "Simple timer app for boiling eggs to your preferred level.",
       tech: "JavaScript, HTML, CSS",
@@ -52,13 +43,22 @@ export function Projects() {
       image: eggTimerDefault,
     },
     {
-      title: "Little Lemon",
+      title: "Epica",
       description:
-        "Restaurant site offering homemade dishes with a modern twist.",
-      tech: "React, JS, Vercel",
-      role: "Layout and branding",
-      link: "https://little-lemon-nu-nine.vercel.app/",
-      image: littleLemonDefault,
+        "E-commerce or online catalog website with modern responsive design.",
+      tech: "HTML, CSS, JavaScript, Swiper.js",
+      role: "Frontend Development, UI/UX Design",
+      link: "https://epica-iota.vercel.app/",
+      image: epicaDefault,
+    },
+    {
+      title: "Weather App",
+      description:
+        "Check real-time weather by city with a clean and responsive UI.",
+      tech: "React, Vite, OpenWeather API, CSS",
+      role: "Design and development",
+      link: "https://weatherapp-delta-jet.vercel.app/",
+      image: weatherAppDefault,
     },
     {
       title: "Cordillera",
@@ -70,23 +70,23 @@ export function Projects() {
       image: floreriaDefault,
     },
     {
-      title: "Epica",
+      title: "Little Lemon",
       description:
-        "E-commerce or online catalog website with modern responsive design.",
-      tech: "HTML, CSS, JavaScript, Swiper.js",
-      role: "Frontend Development, UI/UX Design",
-      link: "https://clorostica.github.io/Epica/",
-      image: epicaDefault,
+        "Restaurant site offering homemade dishes with a modern twist.",
+      tech: "React, JS, Vercel",
+      role: "Layout and branding",
+      link: "https://little-lemon-nu-nine.vercel.app/",
+      image: littleLemonDefault,
     },
   ];
 
   const bentoSpans = [
     "col-span-2 row-span-2", // Gobento — featured large
-    "", // Weather App
     "", // Egg Timer
-    "", // Little Lemon
-    "", // Cordillera
     "", // Epica
+    "", // Weather App
+    "", // Cordillera
+    "", // Little Lemon
   ];
 
   return (
