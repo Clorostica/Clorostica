@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import weatherAppDefault from "../assets/Img/weatherapp1.png";
-import eggTimerDefault from "../assets/Img/eggtimer1.png";
+import eggTimerDefault from "../assets/Img/Eggtimer..png";
 import floreriaDefault from "../assets/Img/floreria.png";
-import epicaDefault from "../assets/Img/epica1.png";
-import littleLemonDefault from "../assets/Img/Littlelemon.png";
+import epicaDefault from "../assets/Img/Epica.png";
+import littleLemonDefault from "../assets/Img/LittleLemon..png";
 import taskFlow from "../assets/Img/Gobento.png";
 
 export function Projects() {
@@ -37,20 +37,20 @@ export function Projects() {
     {
       title: "Egg Timer",
       description: "Simple timer app for boiling eggs to your preferred level.",
-      tech: "JavaScript, HTML, CSS",
+      tech: "React, JavaScript, HTML, CSS",
       role: "Functionality and design",
       link: "https://eggtimer-3qye.vercel.app/",
       image: eggTimerDefault,
     },
-    {
-      title: "Epica",
-      description:
-        "E-commerce or online catalog website with modern responsive design.",
-      tech: "HTML, CSS, JavaScript, Swiper.js",
-      role: "Frontend Development, UI/UX Design",
-      link: "https://epica-iota.vercel.app/",
-      image: epicaDefault,
-    },
+    {                                   
+    title: "Épica",                      
+    description:                              
+      "Brand identity portfolio for a Chilean alternative fashion startup. Full branding story — origin, logo decision, color system, target audience, mission and community. Built with scroll-reveal animations, hero parallax and ES/DE language toggle.",                
+    tech: "React, Vite, Tailwind CSS, JavaScript",
+    role: "Frontend Development, UI/UX Design, Brand Storytelling",                         
+    link: "https://epica-iota.vercel.app/",
+    image: epicaDefault,                       
+  },  
     {
       title: "Weather App",
       description:
@@ -64,7 +64,7 @@ export function Projects() {
       title: "Cordillera",
       description:
         "Floral arrangements crafted with elegance and natural beauty.",
-      tech: "HTML, CSS, JS",
+      tech: "React, HTML, CSS, JS",
       role: "Web design & development",
       link: "https://cordillera-rho.vercel.app/",
       image: floreriaDefault,
@@ -168,7 +168,7 @@ export function Projects() {
                         </span>
                       </div>
                     </div>
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-white text-sm">
+                    <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 border border-slate-700 text-white text-sm font-medium tracking-wide">
                       View Project <ChevronRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -245,7 +245,7 @@ export function Projects() {
                             </span>
                           </li>
                         </ul>
-                        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm shadow-lg shadow-purple-500/30 transition-all duration-300">
+                        <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm font-medium tracking-wide shadow-lg shadow-purple-500/30 transition-all duration-300">
                           View Project <ChevronRight className="w-4 h-4" />
                         </span>
                       </div>
