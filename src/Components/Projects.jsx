@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import weatherAppDefault from "../assets/Img/weatherapp1.png";
 import eggTimerDefault from "../assets/Img/Eggtimer..png";
-import floreriaDefault from "../assets/Img/floreria.png";
+import floreriaDefault from "../assets/Img/Cordillera.png";
 import epicaDefault from "../assets/Img/Epica.png";
 import littleLemonDefault from "../assets/Img/LittleLemon..png";
 import taskFlow from "../assets/Img/Gobento.png";
