@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Sparkles } from "lucide-react";
-import CV from "../Docs/ClaudiaSaezOrostica.pdf";
+import CV from "../Docs/ClaudiaSaez.pdf";
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const fullText =
-    "Modern JS Stack | Building Scalable, Maintainable Web Applications ";
+    "Modern JS Stack | Building Scalable, Maintainable Web Applications";
 
   useEffect(() => {
     let index = 0;
@@ -43,8 +43,7 @@ export function Hero() {
             </h1>
 
             <p className="text-xl text-white leading-relaxed min-h-[120px]">
-              {typedText}
-              <span className="animate-pulse">|</span>
+              {typedText}<span className="animate-pulse">|</span>
             </p>
           </div>
 
