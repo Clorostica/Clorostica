@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Sparkles } from "lucide-react";
 import CV from "../Docs/ClaudiaSaez.pdf";
+import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -58,7 +59,7 @@ export function Hero() {
               Resume
             </a>
             <a
-              href="https://clorostica.github.io/Doc/CV_ClaudiaOrosticaGerman.pdf"
+              href={CVDeutsch}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-6 py-3 bg-slate-800 rounded-full hover:bg-slate-700 transition-all duration-300 border border-slate-700 hover:border-purple-500 hover:shadow-xl"
