@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Rocket, Palette, Layers } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const HIGHLIGHT_ICONS = [Rocket, Palette, Layers];
+const HIGHLIGHT_ICONS = [Palette, Layers, Rocket];
 
 // Shared with the hero, which shows them on large screens
 export function AboutIntro({ className = "" }) {
