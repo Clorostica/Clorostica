@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
-  CloudSun,
   ExternalLink,
-  Languages,
   KeyRound,
   Play,
   TramFront,
@@ -12,11 +10,8 @@ import {
   SiAuth0,
   SiCloudflare,
   SiCloudflareworkers,
-  SiCss3,
   SiDocker,
   SiHono,
-  SiHtml5,
-  SiJavascript,
   SiReact,
   SiResend,
   SiStripe,
@@ -24,7 +19,6 @@ import {
   SiTailwindcss,
   SiTwilio,
   SiTypescript,
-  SiVercel,
   SiVite,
   SiVitest,
 } from "react-icons/si";
@@ -34,7 +28,6 @@ import { useLanguage } from "../i18n/LanguageContext";
 const TECH = {
   React: { icon: SiReact, color: "#61DAFB" },
   TypeScript: { icon: SiTypescript, color: "#3178C6" },
-  JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8" },
   "Cloudflare Workers": { icon: SiCloudflareworkers, color: "#F38020" },
   "Cloudflare D1": { icon: SiCloudflare, color: "#F38020" },
@@ -44,11 +37,6 @@ const TECH = {
   Docker: { icon: SiDocker, color: "#2496ED" },
   Vite: { icon: SiVite, color: "#A78BFA" },
   Swiper: { icon: SiSwiper, color: "#0080FF" },
-  "OpenWeather API": { icon: CloudSun, color: "#EB6E4B" },
-  i18next: { icon: Languages, color: "#26A69A" },
-  HTML: { icon: SiHtml5, color: "#E34F26" },
-  CSS: { icon: SiCss3, color: "#2965F1" },
-  Vercel: { icon: SiVercel, color: "#FFFFFF" },
   "VBB API": { icon: TramFront, color: "#F0D722" },
   WorkOS: { icon: KeyRound, color: "#6363F1" },
   Twilio: { icon: SiTwilio, color: "#F22F46" },
@@ -56,7 +44,7 @@ const TECH = {
   Vitest: { icon: SiVitest, color: "#6E9F18" },
 };
 
-// Ordered by strength: real products and client work first, practice projects last
+// The three projects that best show the full stack and the design side
 const projects = [
   {
     id: "gobento",
@@ -95,30 +83,6 @@ const projects = [
     title: "Épica",
     tech: ["React", "Vite", "Tailwind CSS", "Swiper"],
     link: "https://epica-iota.vercel.app/",
-  },
-  {
-    id: "cordillera",
-    title: "Cordillera",
-    tech: ["React", "Vite", "Swiper", "JavaScript"],
-    link: "https://cordillera-rho.vercel.app/",
-  },
-  {
-    id: "weather",
-    title: "Weather App",
-    tech: ["React", "Vite", "Tailwind CSS", "OpenWeather API", "i18next"],
-    link: "https://weatherapp-delta-jet.vercel.app/",
-  },
-  {
-    id: "littlelemon",
-    title: "Little Lemon",
-    tech: ["React", "Vite", "JavaScript", "Vercel"],
-    link: "https://little-lemon-nu-nine.vercel.app/",
-  },
-  {
-    id: "eggtimer",
-    title: "Egg Timer",
-    tech: ["React", "JavaScript", "HTML", "CSS"],
-    link: "https://eggtimer-3qye.vercel.app/",
   },
 ];
 
