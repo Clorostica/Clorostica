@@ -118,6 +118,13 @@ export const translations = {
           impact: "Plans die in group chats. Gobento turns “we should hang out” into one shareable link with date, place and guest list, plus photos to keep as memories.",
           build: "Built end to end: React + TypeScript front end, an API on Cloudflare Workers with Hono and a D1 database, Auth0 login, Stripe payments, email notifications and 8 languages.",
         },
+        navi: {
+          category: "Mobile web app",
+          role: "Full-stack",
+          tagline: "A U-Bahn and S-Bahn co-pilot for Berlin riders.",
+          impact: "When something happens on a train, people don't know who to tell. Navi lets riders report delays, lost items or unsafe situations in a few taps, see what's happening across the network and share their trip with trusted contacts.",
+          build: "React + TypeScript front end with a live map of trains from the VBB transit API. A Cloudflare Worker with D1 handles reports, moderation and WorkOS login, and sends alerts by SMS (Twilio) and email (Resend). Tested with Vitest.",
+        },
         epica: {
           category: "Brand site",
           role: "Frontend · UI/UX",
@@ -291,6 +298,13 @@ export const translations = {
           impact: "Los planes mueren en los chats grupales. Gobento convierte el “tenemos que juntarnos” en un link para compartir con fecha, lugar y lista de invitados, y fotos para guardar como recuerdo.",
           build: "Hecha de punta a punta: frontend en React + TypeScript, API en Cloudflare Workers con Hono y base de datos D1, login con Auth0, pagos con Stripe, notificaciones por email y 8 idiomas.",
         },
+        navi: {
+          category: "App web móvil",
+          role: "Full-stack",
+          tagline: "Un copiloto para viajar en U-Bahn y S-Bahn en Berlín.",
+          impact: "Cuando pasa algo en el tren, nadie sabe a quién avisar. Navi permite reportar retrasos, objetos perdidos o situaciones de riesgo en pocos toques, ver qué está pasando en la red y compartir el trayecto con contactos de confianza.",
+          build: "Frontend en React + TypeScript con un mapa en vivo de los trenes desde la API de transporte VBB. Un Cloudflare Worker con D1 gestiona los reportes, la moderación y el login con WorkOS, y envía alertas por SMS (Twilio) y email (Resend). Testeado con Vitest.",
+        },
         epica: {
           category: "Sitio de marca",
           role: "Frontend · UI/UX",
@@ -463,6 +477,13 @@ export const translations = {
           tagline: "Eine Social App, die aus Gruppenchat-Ideen echte Pläne macht.",
           impact: "Pläne sterben im Gruppenchat. Gobento macht aus „wir sollten mal was machen“ einen teilbaren Link mit Datum, Ort und Gästeliste – plus Fotos als Erinnerung.",
           build: "Komplett selbst entwickelt: Frontend mit React + TypeScript, API auf Cloudflare Workers mit Hono und D1-Datenbank, Login mit Auth0, Zahlungen mit Stripe, E-Mail-Benachrichtigungen und 8 Sprachen.",
+        },
+        navi: {
+          category: "Mobile Web-App",
+          role: "Full-Stack",
+          tagline: "Ein Co-Pilot für U-Bahn und S-Bahn in Berlin.",
+          impact: "Wenn im Zug etwas passiert, weiß niemand, wem man Bescheid sagen soll. Mit Navi melden Fahrgäste Verspätungen, Fundsachen oder unsichere Situationen mit wenigen Taps, sehen, was im Netz los ist, und teilen ihre Fahrt mit Vertrauenspersonen.",
+          build: "React + TypeScript im Frontend mit einer Live-Karte der Züge aus der VBB-API. Ein Cloudflare Worker mit D1 verwaltet Meldungen, Moderation und den Login über WorkOS und verschickt Warnungen per SMS (Twilio) und E-Mail (Resend). Getestet mit Vitest.",
         },
         epica: {
           category: "Marken-Website",

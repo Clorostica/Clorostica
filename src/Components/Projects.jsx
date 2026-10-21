@@ -4,7 +4,9 @@ import {
   CloudSun,
   ExternalLink,
   Languages,
+  KeyRound,
   Play,
+  TramFront,
 } from "lucide-react";
 import {
   SiAuth0,
@@ -16,12 +18,15 @@ import {
   SiHtml5,
   SiJavascript,
   SiReact,
+  SiResend,
   SiStripe,
   SiSwiper,
   SiTailwindcss,
+  SiTwilio,
   SiTypescript,
   SiVercel,
   SiVite,
+  SiVitest,
 } from "react-icons/si";
 import StarBorder from "./StarBorder/StarBorder";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -44,6 +49,11 @@ const TECH = {
   HTML: { icon: SiHtml5, color: "#E34F26" },
   CSS: { icon: SiCss3, color: "#2965F1" },
   Vercel: { icon: SiVercel, color: "#FFFFFF" },
+  "VBB API": { icon: TramFront, color: "#F0D722" },
+  WorkOS: { icon: KeyRound, color: "#6363F1" },
+  Twilio: { icon: SiTwilio, color: "#F22F46" },
+  Resend: { icon: SiResend, color: "#FFFFFF" },
+  Vitest: { icon: SiVitest, color: "#6E9F18" },
 };
 
 // Ordered by strength: real products and client work first, practice projects last
@@ -63,6 +73,22 @@ const projects = [
       "Docker",
     ],
     link: "https://gobento.clorostica.com/",
+  },
+  {
+    id: "navi",
+    title: "Navi",
+    tech: [
+      "React",
+      "TypeScript",
+      "Cloudflare Workers",
+      "Cloudflare D1",
+      "VBB API",
+      "WorkOS",
+      "Twilio",
+      "Resend",
+      "Vitest",
+    ],
+    link: "https://navi-flax-nu.vercel.app/",
   },
   {
     id: "epica",
