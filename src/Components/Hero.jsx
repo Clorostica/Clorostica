@@ -47,7 +47,7 @@ export function Hero() {
                 {t.hero.typed}
               </p>
               {/* Large screens: the About intro replaces the tagline */}
-              <AboutIntro className="hidden xl:block pt-2 text-2xl text-white leading-snug max-w-2xl" />
+              <AboutIntro className="hidden xl:block pt-2 text-xl 2xl:text-2xl text-white leading-snug max-w-2xl" />
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
