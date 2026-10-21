@@ -25,7 +25,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] md:min-h-0 flex items-center justify-center px-4 md:px-6 pt-24 pb-10 md:pt-8 md:pb-28"
+      className="relative min-h-[100svh] md:min-h-[calc(100svh-7rem)] flex items-center justify-center px-4 md:px-6 pt-24 pb-10 md:pt-0 md:pb-16"
     >
       <div className="max-w-7xl w-full grid md:grid-cols-[1.15fr_1fr] gap-8 md:gap-12 items-center">
         <div className="space-y-6 z-10">
