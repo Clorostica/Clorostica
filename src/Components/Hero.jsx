@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Briefcase,
   CalendarClock,
   Download,
   Github,
@@ -12,13 +11,12 @@ import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const FACT_ICONS = [Briefcase, CalendarClock, Languages];
+const FACT_ICONS = [CalendarClock, Languages];
 
 // Where each fact card sits around the photo (large screens only)
 const FACT_POSITIONS = [
-  "top-4 -left-16",
-  "top-[56%] right-0 2xl:-right-10",
-  "-bottom-4 -left-8",
+  "top-10 -left-12",
+  "bottom-6 right-0 2xl:-right-10",
 ];
 
 export function Hero() {
