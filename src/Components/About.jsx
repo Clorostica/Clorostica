@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-// Shared with the hero, which shows them on large screens
+// Shared with the hero, which shows it on large screens
 export function AboutIntro({ className = "" }) {
   const { t } = useLanguage();
   return (
@@ -12,22 +12,6 @@ export function AboutIntro({ className = "" }) {
       <span className="text-purple-400 font-medium">{t.about.intro.city}</span>
       {t.about.intro.post}
     </p>
-  );
-}
-
-export function AboutHighlights({ className = "" }) {
-  const { t } = useLanguage();
-  return (
-    <ul className={`grid md:grid-cols-3 gap-x-10 gap-y-6 ${className}`}>
-      {t.about.highlights.map((item) => (
-        <li key={item.title} className="border-t border-slate-600/60 pt-4">
-          <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-          <p className="mt-1.5 text-base text-slate-300 leading-relaxed">
-            {item.text}
-          </p>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -66,8 +50,6 @@ export function About() {
             {t.about.title}
           </h2>
           <AboutIntro className="text-xl md:text-2xl text-white leading-snug max-w-3xl" />
-
-          <AboutHighlights className="mt-8" />
         </div>
       </section>
     </div>

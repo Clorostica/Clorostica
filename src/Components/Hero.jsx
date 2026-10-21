@@ -10,7 +10,7 @@ import {
 import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import { useLanguage } from "../i18n/LanguageContext";
-import { AboutHighlights, AboutIntro } from "./About";
+import { AboutIntro } from "./About";
 
 const FACT_ICONS = [CalendarClock, Languages];
 
@@ -131,7 +131,6 @@ export function Hero() {
             </ul>
           </div>
         </div>
-        <AboutHighlights className="hidden xl:grid mt-16" />
       </div>
     </section>
   );

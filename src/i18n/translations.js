@@ -34,11 +34,6 @@ export const translations = {
         city: "Berlin",
         post: ". I spent half my career as a designer and the other half writing the code, so I can take a product from idea to launch.",
       },
-      highlights: [
-        { title: "Seeing an idea become real", text: "I like being there from the first sketch to the day it goes live. Designing and building it myself means nothing gets lost along the way." },
-        { title: "Things people actually use", text: "I enjoy work where the details matter to someone: an update that has to arrive in real time, a screen someone uses all day." },
-        { title: "Teams that trust each other", text: "I work best in fast-moving teams where I can own a piece of the product and have room to decide how to build it." },
-      ],
     },
     experience: {
       title: "Experience",
@@ -214,11 +209,6 @@ export const translations = {
         city: "Berlín",
         post: ". Pasé la mitad de mi carrera como diseñadora y la otra mitad escribiendo el código, así que puedo llevar un producto de la idea al lanzamiento.",
       },
-      highlights: [
-        { title: "Ver una idea hacerse real", text: "Me gusta estar desde el primer boceto hasta el día en que sale en vivo. Diseñarlo y construirlo yo misma hace que nada se pierda en el camino." },
-        { title: "Cosas que la gente usa de verdad", text: "Disfruto los proyectos donde los detalles le importan a alguien: un dato que tiene que llegar en tiempo real, una pantalla que alguien usa todo el día." },
-        { title: "Equipos que confían", text: "Trabajo mejor en equipos ágiles donde puedo hacerme cargo de una parte del producto y tengo espacio para decidir cómo construirla." },
-      ],
     },
     experience: {
       title: "Experiencia",
@@ -394,11 +384,6 @@ export const translations = {
         city: "Berlin",
         post: ". Die Hälfte meiner Laufbahn war ich Designerin, die andere Hälfte habe ich den Code geschrieben – so bringe ich ein Produkt von der Idee bis zum Launch.",
       },
-      highlights: [
-        { title: "Von der Idee bis live", text: "Ich bin gern vom ersten Entwurf bis zum Launch dabei. Wenn ich selbst gestalte und baue, geht unterwegs nichts verloren." },
-        { title: "Dinge, die Menschen wirklich nutzen", text: "Mir gefallen Projekte, in denen Details für jemanden zählen: ein Update, das in Echtzeit ankommen muss, ein Screen, mit dem jemand den ganzen Tag arbeitet." },
-        { title: "Teams, die sich vertrauen", text: "Am besten arbeite ich in schnellen Teams, in denen ich einen Teil des Produkts verantworte und mitentscheiden kann, wie wir ihn bauen." },
-      ],
     },
     experience: {
       title: "Erfahrung",
