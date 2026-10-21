@@ -6,7 +6,7 @@ import { LANGUAGES } from "../i18n/translations";
 import "../Styles/languagemenu.css";
 
 // Globe button that opens the list of languages. The list is portaled to
-// <body> because the glass nav clips its overflow.
+// <body> so it sits above the fixed nav bars.
 export function LanguageMenu({ className = "", iconSize = 20 }) {
   const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
@@ -73,7 +73,7 @@ export function LanguageMenu({ className = "", iconSize = 20 }) {
         aria-expanded={open}
         title={t.nav.language}
         className={`flex items-center justify-center transition-colors duration-300 ${
-          open ? "text-purple-300" : "text-slate-300 hover:text-purple-300"
+          open ? "text-accent" : "text-muted hover:text-accent"
         } ${className}`}
       >
         <Globe
@@ -90,7 +90,7 @@ export function LanguageMenu({ className = "", iconSize = 20 }) {
             ref={menuRef}
             role="menu"
             aria-label={t.nav.language}
-            className="fixed z-[60] min-w-[11rem] p-1.5 rounded-2xl border border-slate-700/80 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-purple-950/50 animate-[langMenuIn_0.18s_ease-out]"
+            className="fixed z-[60] min-w-[11rem] p-1.5 rounded-2xl border border-line bg-surface shadow-2xl shadow-black/10 animate-[langMenuIn_0.18s_ease-out]"
             style={{ top: position.top, right: position.right }}
           >
             {LANGUAGES.map((lang) => {
@@ -102,18 +102,18 @@ export function LanguageMenu({ className = "", iconSize = 20 }) {
                   role="menuitemradio"
                   aria-checked={active}
                   onClick={() => choose(lang.code)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition-colors outline-none focus-visible:bg-purple-500/20 ${
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-sm transition-colors outline-none focus-visible:bg-accent-soft ${
                     active
-                      ? "text-purple-200 bg-purple-500/15"
-                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                      ? "text-accent bg-accent-soft"
+                      : "text-muted hover:bg-surface-2 hover:text-fg"
                   }`}
                 >
-                  <span className="w-7 text-[11px] font-bold tracking-wider text-slate-400">
+                  <span className="w-7 text-[11px] font-bold tracking-wider text-subtle">
                     {lang.label}
                   </span>
                   <span className="flex-1">{lang.name}</span>
                   {active && (
-                    <Check size={15} className="text-purple-300" aria-hidden />
+                    <Check size={15} className="text-accent" aria-hidden />
                   )}
                 </button>
               );

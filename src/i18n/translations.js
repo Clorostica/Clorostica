@@ -14,6 +14,8 @@ export const translations = {
       certificates: "Certificates",
       contact: "Contact",
       language: "Language",
+      toLight: "Switch to light theme",
+      toDark: "Switch to dark theme",
     },
     hero: {
       role: "Full-Stack Developer",
@@ -26,7 +28,8 @@ export const translations = {
       ],
     },
     about: {
-      title: "About Me",
+      eyebrow: "Hi there",
+      title: "About me",
       intro: {
         pre: "I'm a ",
         role: "full-stack engineer",
@@ -36,8 +39,9 @@ export const translations = {
       },
     },
     experience: {
+      eyebrow: "Where I've worked",
       title: "Experience",
-      subtitle: "Professional experience and key roles I've held across different companies and projects.",
+      subtitle: "Design studios and agencies first, then product teams and my own clients.",
       stack: "Stack",
       items: [
         {
@@ -96,6 +100,7 @@ export const translations = {
       ],
     },
     projects: {
+      eyebrow: "Selected work",
       title: "Projects",
       subtitle: "Products I've designed and built from start to finish, live and in action.",
       live: "Live preview",
@@ -130,15 +135,18 @@ export const translations = {
       },
     },
     certificates: {
+      eyebrow: "Always learning",
       title: "Certificates",
-      subtitle: "Professional certifications and achievements",
+      subtitle: "Courses I've finished along the way.",
       hint: "Open the folder and pick a certificate to see it full size.",
       close: "Close",
       verify: "Verify on Coursera",
       folderLabel: "Certificates",
     },
     contact: {
-      title: "Get In Touch",
+      eyebrow: "Contact",
+      title: "Get in touch",
+      subtitle: "Have a project or a role in mind? Write to me.",
       email: "Email",
       location: "Location",
       locationValue: "Berlin, Germany",
@@ -161,6 +169,8 @@ export const translations = {
       certificates: "Certificados",
       contact: "Contacto",
       language: "Idioma",
+      toLight: "Cambiar a tema claro",
+      toDark: "Cambiar a tema oscuro",
     },
     hero: {
       role: "Desarrolladora Full-Stack",
@@ -173,6 +183,7 @@ export const translations = {
       ],
     },
     about: {
+      eyebrow: "Hola",
       title: "Sobre mí",
       intro: {
         pre: "Soy ",
@@ -183,8 +194,9 @@ export const translations = {
       },
     },
     experience: {
+      eyebrow: "Dónde he trabajado",
       title: "Experiencia",
-      subtitle: "Experiencia profesional y roles clave que he tenido en distintas empresas y proyectos.",
+      subtitle: "Primero estudios de diseño y agencias, después equipos de producto y mis propios clientes.",
       stack: "Stack",
       items: [
         {
@@ -243,6 +255,7 @@ export const translations = {
       ],
     },
     projects: {
+      eyebrow: "Trabajo seleccionado",
       title: "Proyectos",
       subtitle: "Productos que diseñé y desarrollé de principio a fin, en vivo y en acción.",
       live: "Vista en vivo",
@@ -277,15 +290,18 @@ export const translations = {
       },
     },
     certificates: {
+      eyebrow: "Siempre aprendiendo",
       title: "Certificados",
-      subtitle: "Certificaciones y logros profesionales",
+      subtitle: "Cursos que he terminado en el camino.",
       hint: "Abre la carpeta y elige un certificado para verlo en grande.",
       close: "Cerrar",
       verify: "Verificar en Coursera",
       folderLabel: "Certificados",
     },
     contact: {
+      eyebrow: "Contacto",
       title: "Hablemos",
+      subtitle: "¿Tienes un proyecto o un puesto en mente? Escríbeme.",
       email: "Email",
       location: "Ubicación",
       locationValue: "Berlín, Alemania",
@@ -308,6 +324,8 @@ export const translations = {
       certificates: "Zertifikate",
       contact: "Kontakt",
       language: "Sprache",
+      toLight: "Zum hellen Design wechseln",
+      toDark: "Zum dunklen Design wechseln",
     },
     hero: {
       role: "Full-Stack-Entwicklerin",
@@ -320,6 +338,7 @@ export const translations = {
       ],
     },
     about: {
+      eyebrow: "Hallo",
       title: "Über mich",
       intro: {
         pre: "Ich bin ",
@@ -330,8 +349,9 @@ export const translations = {
       },
     },
     experience: {
+      eyebrow: "Wo ich gearbeitet habe",
       title: "Erfahrung",
-      subtitle: "Berufserfahrung und wichtige Rollen in verschiedenen Unternehmen und Projekten.",
+      subtitle: "Erst Designstudios und Agenturen, dann Produktteams und eigene Kund:innen.",
       stack: "Stack",
       items: [
         {
@@ -390,6 +410,7 @@ export const translations = {
       ],
     },
     projects: {
+      eyebrow: "Ausgewählte Arbeiten",
       title: "Projekte",
       subtitle: "Produkte, die ich von der Idee bis zum Launch gestaltet und entwickelt habe – live und in Aktion.",
       live: "Live-Vorschau",
@@ -424,15 +445,18 @@ export const translations = {
       },
     },
     certificates: {
+      eyebrow: "Immer am Lernen",
       title: "Zertifikate",
-      subtitle: "Berufliche Zertifizierungen und Erfolge",
+      subtitle: "Kurse, die ich unterwegs abgeschlossen habe.",
       hint: "Öffne den Ordner und wähle ein Zertifikat, um es in voller Größe zu sehen.",
       close: "Schließen",
       verify: "Auf Coursera verifizieren",
       folderLabel: "Zertifikate",
     },
     contact: {
+      eyebrow: "Kontakt",
       title: "Kontakt aufnehmen",
+      subtitle: "Du hast ein Projekt oder eine Stelle im Kopf? Schreib mir.",
       email: "E-Mail",
       location: "Standort",
       locationValue: "Berlin, Deutschland",

@@ -22,8 +22,8 @@ import {
   SiVite,
   SiVitest,
 } from "react-icons/si";
-import StarBorder from "./StarBorder/StarBorder";
 import { useLanguage } from "../i18n/LanguageContext";
+import { Section, SectionHeader, buttonPrimary, buttonSecondary } from "./Section";
 
 const TECH = {
   React: { icon: SiReact, color: "#61DAFB" },
@@ -40,7 +40,8 @@ const TECH = {
   "VBB API": { icon: TramFront, color: "#F0D722" },
   WorkOS: { icon: KeyRound, color: "#6363F1" },
   Twilio: { icon: SiTwilio, color: "#F22F46" },
-  Resend: { icon: SiResend, color: "#FFFFFF" },
+  // No brand color: follows the text color so it shows in both themes
+  Resend: { icon: SiResend, color: null },
   Vitest: { icon: SiVitest, color: "#6E9F18" },
 };
 
@@ -121,33 +122,33 @@ function ProjectPreview({ project, label }) {
 
   return (
     <div
-      className="relative rounded-xl overflow-hidden border border-slate-700/70 bg-slate-950 shadow-2xl shadow-purple-900/20"
+      className="relative rounded-2xl overflow-hidden border border-line bg-surface-2 shadow-xl shadow-black/5"
       onMouseEnter={playOnHover}
       onMouseLeave={pauseOnLeave}
     >
-      <div className="flex items-center gap-3 px-3 py-2 bg-slate-900/95 border-b border-slate-800">
+      <div className="flex items-center gap-3 px-3 py-2 border-b border-line">
         <div className="flex gap-1.5 shrink-0" aria-hidden>
           <span className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
         </div>
-        <div className="flex-1 min-w-0 truncate text-center text-[11px] font-mono text-slate-400 bg-slate-800/70 rounded-md px-3 py-0.5">
+        <div className="flex-1 min-w-0 truncate text-center text-[11px] font-mono text-subtle bg-bg rounded-md px-3 py-0.5">
           {host}
         </div>
         <span
           className={`shrink-0 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider ${
-            playing ? "text-pink-300" : "text-slate-500"
+            playing ? "text-accent-2" : "text-subtle"
           }`}
         >
           <span
             className={`w-1.5 h-1.5 rounded-full ${
-              playing ? "bg-pink-400" : "bg-slate-500"
+              playing ? "bg-accent-2" : "bg-subtle"
             }`}
           />
           <span className="hidden sm:inline">{label}</span>
         </span>
       </div>
-      <div className="relative aspect-[16/10]">
+      <div className="relative aspect-[16/10] bg-black">
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover object-top"
@@ -162,8 +163,8 @@ function ProjectPreview({ project, label }) {
           onPause={() => setPlaying(false)}
         />
         {!playing && (
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-950/30 pointer-events-none">
-            <span className="flex items-center justify-center w-12 h-12 rounded-full bg-slate-900/80 border border-purple-500/50 text-purple-200">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 pointer-events-none">
+            <span className="flex items-center justify-center w-12 h-12 rounded-full bg-surface text-accent shadow-lg">
               <Play size={20} className="ml-0.5" aria-hidden />
             </span>
           </div>
@@ -173,43 +174,37 @@ function ProjectPreview({ project, label }) {
   );
 }
 
-function ViewLiveLink({ project, t }) {
-  return (
-    <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-800 border border-slate-700 text-white font-medium tracking-wide hover:border-purple-500 hover:bg-slate-700 transition-colors duration-300"
-    >
-      {t.projects.viewLive} <ExternalLink size={16} aria-hidden />
-    </a>
-  );
-}
-
 function ProjectShowcase({ project, index, t }) {
   const copy = t.projects.items[project.id];
 
   return (
-    <article className="p-5 md:p-10 rounded-3xl border border-slate-800 bg-slate-900/50 backdrop-blur-lg">
+    <article className="p-5 md:p-10 rounded-[2rem] border border-line bg-surface shadow-sm">
       <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
         <div className="space-y-3">
-          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.14em] text-purple-300/90">
-            <span className="font-mono text-slate-500">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent">
+            <span className="font-mono text-subtle">
               {String(index + 1).padStart(2, "0")}
             </span>
             <span>
               {copy.category}
-              <span className="text-slate-500"> · {copy.role}</span>
+              <span className="text-subtle"> · {copy.role}</span>
             </span>
           </p>
-          <h3 className="text-3xl md:text-4xl font-bold text-white">
+          <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-fg">
             {project.title}
           </h3>
-          <p className="text-xl md:text-2xl text-slate-200 leading-snug max-w-3xl">
+          <p className="text-xl md:text-2xl text-muted leading-snug max-w-3xl">
             {copy.tagline}
           </p>
         </div>
-        <ViewLiveLink project={project} t={t} />
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${buttonSecondary} shrink-0 self-start md:self-auto px-5 py-3`}
+        >
+          {t.projects.viewLive} <ExternalLink size={16} aria-hidden />
+        </a>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -220,25 +215,21 @@ function ProjectShowcase({ project, index, t }) {
         <div className="flex flex-col gap-7">
           <dl className="space-y-6">
             <div>
-              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-pink-300">
+              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-2">
                 {t.projects.impact}
               </dt>
-              <dd className="text-lg text-slate-200 leading-relaxed">
-                {copy.impact}
-              </dd>
+              <dd className="text-lg text-fg/90 leading-relaxed">{copy.impact}</dd>
             </div>
             <div>
-              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-pink-300">
+              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-2">
                 {t.projects.build}
               </dt>
-              <dd className="text-lg text-slate-200 leading-relaxed">
-                {copy.build}
-              </dd>
+              <dd className="text-lg text-fg/90 leading-relaxed">{copy.build}</dd>
             </div>
           </dl>
 
           <div>
-            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-subtle">
               {t.projects.tech}
             </p>
             <ul className="flex flex-wrap gap-2">
@@ -247,10 +238,9 @@ function ProjectShowcase({ project, index, t }) {
                 return (
                   <li
                     key={name}
-                    className="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-full text-sm font-medium text-slate-100 bg-slate-950/60 border"
-                    style={{ borderColor: `${color}55` }}
+                    className="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-full text-sm font-medium text-fg bg-bg border border-line"
                   >
-                    <Icon size={16} style={{ color }} aria-hidden />
+                    <Icon size={16} style={color ? { color } : undefined} aria-hidden />
                     {name}
                   </li>
                 );
@@ -265,78 +255,29 @@ function ProjectShowcase({ project, index, t }) {
 
 export function Projects() {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.05 },
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <div className="main_container">
-      <section
-        id="projects"
-        className="relative py-16 md:py-24 -mx-2 md:-mx-16 lg:-mx-24 px-5 sm:px-8 md:px-[88px] lg:px-[120px] section-projects"
-        ref={sectionRef}
-      >
-        <div className="max-w-7xl mx-auto">
-          <h2
-            className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-1 mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-500 [will-change:opacity,transform] ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
-            {t.projects.title}
-          </h2>
-          <p className="text-white mb-12 text-lg max-w-2xl">
-            {t.projects.subtitle}
-          </p>
+    <Section id="projects" tone="alt">
+      <SectionHeader
+        eyebrow={t.projects.eyebrow}
+        title={t.projects.title}
+        subtitle={t.projects.subtitle}
+      />
 
-          <div className="flex flex-col gap-10 md:gap-14">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: `${Math.min(index, 2) * 120}ms` }}
-              >
-                <ProjectShowcase project={project} index={index} t={t} />
-              </div>
-            ))}
-          </div>
+      <div className="flex flex-col gap-10 md:gap-14">
+        {projects.map((project, index) => (
+          <ProjectShowcase key={project.id} project={project} index={index} t={t} />
+        ))}
+      </div>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 text-center">
-            <p className="text-2xl font-semibold text-white">
-              {t.projects.ctaTitle}
-            </p>
-            <StarBorder
-              as="a"
-              href="#contact"
-              radius={999}
-              color="#c084fc"
-              trailColor="#ec4899"
-              glow={0.8}
-              backgroundColor="rgba(88, 28, 135, 0.7)"
-              borderColor="rgba(236, 72, 153, 0.4)"
-              className="text-base font-semibold"
-            >
-              {t.projects.ctaButton} <ArrowRight size={18} aria-hidden />
-            </StarBorder>
-          </div>
-        </div>
-      </section>
-    </div>
+      <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 text-center">
+        <p className="font-display text-2xl md:text-3xl font-bold tracking-tight text-fg">
+          {t.projects.ctaTitle}
+        </p>
+        <a href="#contact" className={`${buttonPrimary} px-6 py-3 text-base`}>
+          {t.projects.ctaButton} <ArrowRight size={18} aria-hidden />
+        </a>
+      </div>
+    </Section>
   );
 }
