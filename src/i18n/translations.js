@@ -37,7 +37,7 @@ export const translations = {
       highlights: [
         { title: "Production-ready", text: "REST APIs, integrations, tests, front and back end." },
         { title: "Design + engineering", text: "A graphic design and UX background for fast, polished products." },
-        { title: "Varied experience", text: "Banking, startups, marketing sites and brand identity." },
+        { title: "From banks to small brands", text: "Internal tools for Banco de Chile at JFX, plus websites and campaigns for agencies and online shops." },
       ],
     },
     experience: {
@@ -210,7 +210,7 @@ export const translations = {
       highlights: [
         { title: "Lista para producción", text: "APIs REST, integraciones, tests, frontend y backend." },
         { title: "Diseño + ingeniería", text: "Formación en diseño gráfico y UX para productos rápidos y cuidados." },
-        { title: "Experiencia variada", text: "Banca, startups, sitios de marketing e identidad corporativa." },
+        { title: "De bancos a marcas pequeñas", text: "Herramientas internas para Banco de Chile en JFX, y sitios y campañas para agencias y tiendas online." },
       ],
     },
     experience: {
@@ -383,7 +383,7 @@ export const translations = {
       highlights: [
         { title: "Produktionsreif", text: "REST-APIs, Integrationen, Tests, Front- und Backend." },
         { title: "Design + Engineering", text: "Hintergrund in Grafikdesign und UX für schnelle, durchdachte Produkte." },
-        { title: "Vielseitige Erfahrung", text: "Banking, Startups, Marketing-Websites und Corporate Branding." },
+        { title: "Von Banken bis zu kleinen Marken", text: "Interne Tools für die Banco de Chile bei JFX, dazu Websites und Kampagnen für Agenturen und Onlineshops." },
       ],
     },
     experience: {
