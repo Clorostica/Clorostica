@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Home, User, Code, Briefcase, Award, Mail } from "lucide-react";
+import { Home, Code, Briefcase, Award, Mail } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { LanguageMenu } from "./LanguageMenu";
 import { ThemeToggle } from "./ThemeToggle";
@@ -9,7 +9,6 @@ import "../Styles/logo.css";
 const sections = [
   { id: "home", icon: Home },
   { id: "projects", icon: Code },
-  { id: "about", icon: User },
   { id: "experience", icon: Briefcase },
   { id: "certificates", icon: Award },
   { id: "contact", icon: Mail },
@@ -65,14 +64,13 @@ export function Navigation() {
                   .map((sec) => {
                     const Icon = sec.icon;
                     const isActive = activeSection === sec.id;
-                    // About lives in the hero on large screens
                     return (
                       <a
                         key={sec.id}
                         href={`#${sec.id}`}
                         title={t.nav[sec.id]}
                         aria-current={isActive ? "true" : undefined}
-                        className={`${sec.id === "about" ? "xl:hidden " : ""}flex items-center gap-2 font-medium text-base 2xl:text-[17px] whitespace-nowrap px-3 2xl:px-4 py-2 rounded-full transition-colors duration-200 ${
+                        className={`flex items-center gap-2 font-medium text-base 2xl:text-[17px] whitespace-nowrap px-3 2xl:px-4 py-2 rounded-full transition-colors duration-200 ${
                           isActive
                             ? "text-accent bg-accent-soft"
                             : "text-muted hover:text-fg"

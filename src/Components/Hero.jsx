@@ -4,7 +4,7 @@ import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import portrait from "../assets/Img/yo.jpg";
 import { useLanguage } from "../i18n/LanguageContext";
-import { AboutIntro } from "./About";
+import { AboutIntro } from "./AboutIntro";
 import { buttonPrimary, buttonSecondary } from "./Section";
 
 const FACT_ICONS = [CalendarClock, Languages];
@@ -41,11 +41,7 @@ export function Hero() {
                 Claudia Saez
               </h1>
 
-              <p className="xl:hidden text-lg md:text-xl text-muted leading-relaxed max-w-xl">
-                {t.hero.typed}
-              </p>
-              {/* Large screens: the About intro replaces the tagline */}
-              <AboutIntro className="hidden xl:block text-xl 2xl:text-2xl text-muted leading-relaxed max-w-2xl" />
+              <AboutIntro className="text-lg md:text-xl 2xl:text-2xl text-muted leading-relaxed max-w-2xl" />
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
