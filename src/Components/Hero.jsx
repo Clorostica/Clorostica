@@ -1,8 +1,25 @@
 import React from "react";
-import { Download, Github, Linkedin, Sparkles } from "lucide-react";
+import {
+  Briefcase,
+  CalendarClock,
+  Download,
+  Github,
+  Languages,
+  Linkedin,
+  Sparkles,
+} from "lucide-react";
 import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const FACT_ICONS = [Briefcase, CalendarClock, Languages];
+
+// Where each fact card sits around the photo (large screens only)
+const FACT_POSITIONS = [
+  "top-4 -left-16",
+  "top-[56%] right-0 2xl:-right-10",
+  "-bottom-4 -left-8",
+];
 
 export function Hero() {
   const { t } = useLanguage();
@@ -10,7 +27,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex items-center justify-center px-4 md:px-6 pt-24 pb-10 md:py-0"
+      className="relative min-h-[100svh] md:min-h-0 flex items-center justify-center px-4 md:px-6 pt-24 pb-10 md:pt-8 md:pb-28"
     >
       <div className="max-w-7xl w-full grid md:grid-cols-[1.15fr_1fr] gap-8 md:gap-12 items-center">
         <div className="space-y-6 z-10">
@@ -86,6 +103,33 @@ export function Hero() {
 
         <div className="relative py-2 md:py-0 md:h-[500px] flex items-center justify-center">
           <div className="drop-shadow-div blob"></div>
+          {/* Experience at a glance, filling the space around the photo */}
+          <ul className="hidden xl:block" aria-label={t.experience.title}>
+            {t.hero.facts.map((fact, i) => {
+              const Icon = FACT_ICONS[i];
+              return (
+                <li
+                  key={fact.label}
+                  className={`absolute z-10 flex items-center gap-3 pl-3 pr-5 py-3 rounded-2xl border border-slate-700/70 bg-slate-950/75 backdrop-blur-xl shadow-xl shadow-purple-950/40 ${FACT_POSITIONS[i]}`}
+                >
+                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-purple-500/15 text-purple-300">
+                    <Icon size={20} aria-hidden />
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-pink-300">
+                      {fact.label}
+                    </span>
+                    <span className="block text-base font-semibold text-white">
+                      {fact.value}
+                    </span>
+                    <span className="block text-sm text-slate-400">
+                      {fact.detail}
+                    </span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>

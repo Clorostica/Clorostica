@@ -20,6 +20,11 @@ export const translations = {
       typed: "Modern JS Stack | Building Scalable, Maintainable Web Applications",
       resume: "Resume",
       resumeDe: "German Resume",
+      facts: [
+        { label: "Now", value: "Software Developer", detail: "Fractal Development" },
+        { label: "Experience", value: "6+ years", detail: "in design and web development" },
+        { label: "Based in", value: "Berlin", detail: "English · Spanish · German" },
+      ],
     },
     about: {
       title: "About Me",
@@ -189,6 +194,11 @@ export const translations = {
       typed: "Stack JS moderno | Aplicaciones web escalables y mantenibles",
       resume: "CV en inglés",
       resumeDe: "CV en alemán",
+      facts: [
+        { label: "Ahora", value: "Software Developer", detail: "Fractal Development" },
+        { label: "Experiencia", value: "6+ años", detail: "en diseño y desarrollo web" },
+        { label: "Desde", value: "Berlín", detail: "Inglés · Español · Alemán" },
+      ],
     },
     about: {
       title: "Sobre mí",
@@ -358,6 +368,11 @@ export const translations = {
       typed: "Moderner JS-Stack | Skalierbare, wartbare Webanwendungen",
       resume: "Lebenslauf (EN)",
       resumeDe: "Lebenslauf (DE)",
+      facts: [
+        { label: "Aktuell", value: "Software Developer", detail: "Fractal Development" },
+        { label: "Erfahrung", value: "6+ Jahre", detail: "in Design und Webentwicklung" },
+        { label: "Standort", value: "Berlin", detail: "Englisch · Spanisch · Deutsch" },
+      ],
     },
     about: {
       title: "Über mich",
