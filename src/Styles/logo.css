@@ -1,0 +1,43 @@
+.logo {
+  display: inline-flex;
+}
+
+.logo-letter {
+  display: inline-block;
+  background-image: linear-gradient(90deg, #d8b4fe, #f9a8d4, #c084fc, #f0abfc, #d8b4fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Background spans the whole word so the letters read as one gradient */
+  background-size: 1000% 100%;
+  background-position: calc(var(--i) * 11%) 0;
+  /* Letters drop in once on load; everything else waits for hover */
+  animation: logoIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 60ms) backwards;
+}
+
+.logo:hover .logo-letter,
+.logo:focus-visible .logo-letter {
+  animation: logoWave 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 40ms);
+}
+
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.7em) rotate(-12deg);
+    filter: blur(4px);
+  }
+}
+
+@keyframes logoWave {
+  40% {
+    transform: translateY(-0.3em) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-letter,
+  .logo:hover .logo-letter,
+  .logo:focus-visible .logo-letter {
+    animation: none;
+  }
+}

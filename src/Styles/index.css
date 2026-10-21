@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fix for Chrome bg-clip-text + opacity animation black flash bug.
-   Use filter:brightness() instead of opacity on gradient text elements. */
-@keyframes clipPulse {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(0.55); }
-}
-.animate-clip-pulse {
-  animation: clipPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
 /* Force GPU compositing on bg-clip-text elements to prevent black flashes
    when opacity transitions are applied to or near them. */
 .clip-text-gpu {
@@ -35,27 +25,6 @@ body {
 }
 
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-30px) translateX(20px); }
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(20px) translateX(-15px); }
-}
-
-.animate-floating {
-  animation: float 12s ease-in-out infinite;
-}
-
-.animate-floating-slow {
-  animation: float-slow 18s ease-in-out infinite;
-}
  .led-text {
    color: var(--accent-primary);
   text-shadow:

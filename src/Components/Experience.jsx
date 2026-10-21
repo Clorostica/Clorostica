@@ -2,12 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import "../Styles/index.css";
 import "../Styles/styles.css";
-
-function useReveal() {
-  useEffect(() => {
-    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
-  }, []);
-}
+import { useLanguage } from "../i18n/LanguageContext";
 
 const ACCENTS = [
   "from-purple-500 to-pink-500",
@@ -19,7 +14,7 @@ const ACCENTS = [
 ];
 
 export function Experience() {
-  useReveal();
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState(0);
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -33,83 +28,25 @@ export function Experience() {
     return () => observer.disconnect();
   }, []);
 
-  const experiences = [
-    {
-      title: "Software Developer - Fractal Development",
-      date: "2025",
-      tasks: [
-        "Worked on blockchain-based web solutions integrating smart contracts with React and Node.js",
-        "Improved app performance and enhanced user experience",
-        "Collaborated with clients to define requirements and maintain scalable codebases",
-      ],
-      tech: ["React", "Next.js", "TypeScript", "NextAuth", "Git", "Vercel"],
-    },
-    {
-      title: "Frontend Developer - Freelancer",
-      date: "2023 – 2025",
-      tasks: [
-        "Built responsive UIs using React, Next.js, and Tailwind CSS",
-        "Translated Figma and Adobe XD designs into modular, reusable components",
-        "Developed front-end features with TypeScript and integrated APIs with Axios",
-        "Implemented authentication flows using Auth0 and NextAuth",
-        "Delivered client-ready websites via Webflow and WordPress",
-      ],
-      tech: ["React", "Next.js", "TypeScript", "Tailwind", "Figma", "NextAuth", "Webflow", "Git", "Vercel"],
-    },
-    {
-      title: "Frontend Developer – JFX",
-      date: "2021 – 2023",
-      tasks: [
-        "Designed dynamic UIs in React for internal banking tools used by account executives",
-        "Developed dashboards, simulators, and real-time customer management interfaces",
-        "Integrated RESTful APIs with JSON data structures for efficient data handling",
-        "Worked with Banco de Chile to meet strict accessibility and performance standards",
-      ],
-      tech: ["React", "JavaScript", "Node.js", "JSON", "REST APIs", "CSS"],
-    },
-    {
-      title: "Web Designer - Kreativlab",
-      date: "2020 – 2021",
-      tasks: [
-        "Developed UI mockups and prototypes to visualize design solutions",
-        "Illustrated design ideas using storyboards, process flows, and sitemaps",
-        "Identified and resolved UX issues to improve user experience",
-        "Designed and conducted usability tests to validate design alternatives",
-      ],
-      tech: ["WordPress", "Adobe XD", "Git & GitHub", "Postman", "Illustrator", "Photoshop"],
-    },
-    {
-      title: "Graphic Designer - CREA7IVE",
-      date: "2019 – 2020",
-      tasks: [
-        "Created original graphic concepts based on user research and analysis",
-        "Collaborated across departments to improve user experience",
-        "Produced low to high-fidelity wireframes and prototypes",
-        "Iterated designs using user feedback and data-driven decisions",
-      ],
-      tech: ["Illustrator", "Photoshop", "Canva", "Figma"],
-    },
-    {
-      title: "Web Designer - MAD AGENCY",
-      date: "2019",
-      tasks: [
-        "Developed WordPress websites and marketing campaigns for an e-commerce startup",
-        "Created graphics, wrote copy, and managed email and social media campaigns",
-        "Oversaw projects from concept to launch ensuring consistent online presence",
-      ],
-      tech: ["Figma", "Elementor", "WordPress", "InDesign", "Google Analytics"],
-    },
+  const experienceMeta = [
+    { date: "2025", tech: ["React", "Next.js", "TypeScript", "NextAuth", "Git", "Vercel"] },
+    { date: "2023 – 2025", tech: ["React", "Next.js", "TypeScript", "Tailwind", "Figma", "NextAuth", "Webflow", "Git", "Vercel"] },
+    { date: "2021 – 2023", tech: ["React", "JavaScript", "Node.js", "JSON", "REST APIs", "CSS"] },
+    { date: "2020 – 2021", tech: ["WordPress", "Adobe XD", "Git & GitHub", "Postman", "Illustrator", "Photoshop"] },
+    { date: "2019 – 2020", tech: ["Illustrator", "Photoshop", "Canva", "Figma"] },
+    { date: "2019", tech: ["Figma", "Elementor", "WordPress", "InDesign", "Google Analytics"] },
   ];
+  const experiences = t.experience.items.map((item, i) => ({ ...item, ...experienceMeta[i] }));
 
   return (
-    <div className="main_container reveal">
-      <section id="experience" className="scroll-mt-24 pt-22 px-6" ref={sectionRef}>
+    <div className="main_container">
+      <section id="experience" className="relative py-16 md:py-24 -mx-2 md:-mx-16 lg:-mx-24 px-5 sm:px-8 md:px-[88px] lg:px-[120px] section-experience" ref={sectionRef}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Experience
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-1 mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            {t.experience.title}
           </h2>
           <p className="text-white mb-12 text-base">
-            Professional experience and key roles I've held across different companies and projects.
+            {t.experience.subtitle}
           </p>
 
           <div className="flex flex-col">
@@ -134,7 +71,7 @@ export function Experience() {
                   {/* Header — always visible, click to toggle */}
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full flex items-center gap-5 px-4 py-5 text-left group cursor-pointer"
+                    className="w-full flex items-center gap-3 sm:gap-5 px-4 py-5 text-left group cursor-pointer"
                   >
                     {/* Index number */}
                     <span className={`
@@ -186,7 +123,7 @@ export function Experience() {
 
                   {/* Expandable content */}
                   <div className={`overflow-hidden transition-all duration-500 ease-out ${isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
-                    <div className="px-4 pb-6 pl-14">
+                    <div className="px-4 pb-6 sm:pl-14">
                       {/* Accent line */}
                       <div className={`h-px w-full bg-gradient-to-r ${accent} opacity-20 mb-5`} />
 
@@ -207,7 +144,7 @@ export function Experience() {
 
                         {/* Tech */}
                         <div className="sm:w-48 shrink-0">
-                          <p className="text-[10px] font-mono tracking-[0.15em] uppercase text-slate-400 mb-2">Stack</p>
+                          <p className="text-[10px] font-mono tracking-[0.15em] uppercase text-slate-400 mb-2">{t.experience.stack}</p>
                           <div className="flex flex-wrap gap-1.5">
                             {exp.tech.map((t) => (
                               <span
