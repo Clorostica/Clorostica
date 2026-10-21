@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Rocket, Palette, Layers } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-
-const HIGHLIGHT_ICONS = [Palette, Layers, Rocket];
 
 // Shared with the hero, which shows them on large screens
 export function AboutIntro({ className = "" }) {
@@ -21,28 +18,15 @@ export function AboutIntro({ className = "" }) {
 export function AboutHighlights({ className = "" }) {
   const { t } = useLanguage();
   return (
-    <ul className={`grid md:grid-cols-3 gap-4 ${className}`}>
-      {t.about.highlights.map((item, i) => {
-        const Icon = HIGHLIGHT_ICONS[i];
-        return (
-          <li
-            key={i}
-            className="flex gap-3 p-5 rounded-2xl bg-slate-900/50 border border-slate-800 backdrop-blur-lg"
-          >
-            <Icon
-              size={22}
-              className="shrink-0 mt-0.5 text-pink-400"
-              aria-hidden
-            />
-            <div>
-              <h3 className="font-semibold text-white">{item.title}</h3>
-              <p className="text-sm text-slate-300 leading-relaxed mt-1">
-                {item.text}
-              </p>
-            </div>
-          </li>
-        );
-      })}
+    <ul className={`grid md:grid-cols-3 gap-x-10 gap-y-6 ${className}`}>
+      {t.about.highlights.map((item) => (
+        <li key={item.title} className="border-t border-slate-600/60 pt-4">
+          <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+          <p className="mt-1.5 text-base text-slate-300 leading-relaxed">
+            {item.text}
+          </p>
+        </li>
+      ))}
     </ul>
   );
 }
