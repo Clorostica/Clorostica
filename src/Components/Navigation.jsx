@@ -21,7 +21,6 @@ export function Navigation() {
   const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState("home");
 
-
   useEffect(() => {
     const observers = sections.map((sec) => {
       const el = document.getElementById(sec.id);
@@ -49,12 +48,7 @@ export function Navigation() {
       style={{ fontFamily: '"Instrument Sans", sans-serif' }}
     >
       {"Clorostica".split("").map((letter, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="logo-letter"
-          style={{ "--i": i }}
-        >
+        <span key={i} aria-hidden className="logo-letter" style={{ "--i": i }}>
           {letter}
         </span>
       ))}
@@ -89,13 +83,14 @@ export function Navigation() {
                   .map((sec) => {
                     const Icon = sec.icon;
                     const isActive = activeSection === sec.id;
+                    // About lives in the hero on large screens
                     return (
                       <a
                         key={sec.id}
                         href={`#${sec.id}`}
                         title={t.nav[sec.id]}
                         aria-current={isActive ? "true" : undefined}
-                        className={`group flex items-center gap-1.5 font-medium text-base 2xl:text-[17px] transition-colors whitespace-nowrap px-3 2xl:px-4 py-2.5 rounded-full ${
+                        className={`${sec.id === "about" ? "xl:hidden " : ""}group flex items-center gap-1.5 font-medium text-base 2xl:text-[17px] transition-colors whitespace-nowrap px-3 2xl:px-4 py-2.5 rounded-full ${
                           isActive
                             ? "text-purple-300 bg-purple-500/15"
                             : "text-slate-300 hover:text-purple-300"
@@ -128,9 +123,15 @@ export function Navigation() {
               className="shrink-0"
               style={{ background: GLASS_TINT }}
             >
-              <LanguageMenu iconSize={22} className="w-12 h-12 rounded-full hover:bg-purple-500/15" />
+              <LanguageMenu
+                iconSize={22}
+                className="w-12 h-12 rounded-full hover:bg-purple-500/15"
+              />
             </GlassSurface>
-            <a href="#contact" className={`${ctaClass} h-14 2xl:h-[60px] px-6 2xl:px-7 text-base 2xl:text-[17px]`}>
+            <a
+              href="#contact"
+              className={`${ctaClass} h-14 2xl:h-[60px] px-6 2xl:px-7 text-base 2xl:text-[17px]`}
+            >
               {t.projects.ctaButton}
             </a>
           </div>
@@ -158,15 +159,16 @@ export function Navigation() {
                       : "text-slate-300 active:bg-purple-500/10"
                   }`}
                 >
-                  <Icon size={24} strokeWidth={isActive ? 2.4 : 2} aria-hidden />
+                  <Icon
+                    size={24}
+                    strokeWidth={isActive ? 2.4 : 2}
+                    aria-hidden
+                  />
                 </span>
               </a>
             );
           })}
-          <LanguageMenu
-            iconSize={24}
-            className="flex-1 h-12 rounded-2xl"
-          />
+          <LanguageMenu iconSize={24} className="flex-1 h-12 rounded-2xl" />
         </div>
       </nav>
 
