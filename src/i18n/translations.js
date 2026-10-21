@@ -32,7 +32,7 @@ export const translations = {
         role: "full-stack engineer",
         mid: " in ",
         city: "Berlin",
-        post: ". I spent half my career as a designer and the other half writing the code, so I can take a product from idea to launch.",
+        post: ". I spent half my career as a designer and the other half writing code, so I still notice when a button is two pixels off.",
       },
     },
     experience: {
@@ -179,7 +179,7 @@ export const translations = {
         role: "ingeniera full-stack",
         mid: " en ",
         city: "Berlín",
-        post: ". Pasé la mitad de mi carrera como diseñadora y la otra mitad escribiendo el código, así que puedo llevar un producto de la idea al lanzamiento.",
+        post: ". Pasé la mitad de mi carrera como diseñadora y la otra mitad programando, así que todavía me doy cuenta cuando un botón está dos píxeles fuera de lugar.",
       },
     },
     experience: {
@@ -326,7 +326,7 @@ export const translations = {
         role: "Full-Stack-Entwicklerin",
         mid: " in ",
         city: "Berlin",
-        post: ". Die Hälfte meiner Laufbahn war ich Designerin, die andere Hälfte habe ich den Code geschrieben – so bringe ich ein Produkt von der Idee bis zum Launch.",
+        post: ". Die Hälfte meiner Laufbahn war ich Designerin, die andere Hälfte habe ich programmiert – deshalb fällt mir immer noch auf, wenn ein Button zwei Pixel daneben liegt.",
       },
     },
     experience: {
