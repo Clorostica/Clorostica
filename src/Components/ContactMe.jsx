@@ -1,7 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
-import StarBorder from "./StarBorder/StarBorder";
 import { useLanguage } from "../i18n/LanguageContext";
+import { Section, SectionHeader, buttonPrimary } from "./Section";
+
+const inputClass =
+  "w-full px-4 py-3 rounded-xl bg-bg border border-line text-fg text-base placeholder:text-subtle outline-none focus:border-accent focus:ring-4 focus:ring-accent/15 transition-[border-color,box-shadow]";
+
+function Field({ label, children }) {
+  return (
+    <label className="block">
+      <span className="block mb-1.5 text-sm font-medium text-muted">{label}</span>
+      {children}
+    </label>
+  );
+}
+
+function ContactRow({ icon: Icon, label, children }) {
+  return (
+    <li className="flex items-center gap-4 py-4">
+      <span className="flex items-center justify-center w-11 h-11 shrink-0 rounded-xl bg-accent-soft text-accent">
+        <Icon size={20} aria-hidden />
+      </span>
+      <span>
+        <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-subtle">
+          {label}
+        </span>
+        <span className="block text-lg text-fg">{children}</span>
+      </span>
+    </li>
+  );
+}
 
 export function ContactMe() {
   const { t } = useLanguage();
@@ -11,152 +39,111 @@ export function ContactMe() {
     email: "",
     message: "",
   });
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setIsVisible(true),
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleInputChange = (e) => {
     setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
+  const socialLink =
+    "inline-flex items-center gap-1.5 hover:text-accent transition-colors";
+
   return (
-    <section
-      id="contact"
-      className="relative min-h-screen flex items-center justify-center bg-slate-900 -mx-2 md:-mx-16 lg:-mx-24 px-5 md:px-[88px] lg:px-[120px]"
-      ref={sectionRef}
-    >
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-10">
-          <h2
-            className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-1 text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] transition-all duration-500`}
-          >
-            {t.contact.title}
-          </h2>
-
-          <div className="space-y-6">
-            <div
-              className={`flex items-center gap-4 p-5 md:p-6 bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 transition-all duration-500 hover:border-purple-500 hover:shadow-lg`}
-            >
-              <Mail className="text-purple-400" size={32} />
-              <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-slate-100">{t.contact.email}</h3>
+    <Section id="contact">
+      <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div>
+          <SectionHeader
+            eyebrow={t.contact.eyebrow}
+            title={t.contact.title}
+            subtitle={t.contact.subtitle}
+            className="!mb-8"
+          />
+          <ul className="divide-y divide-line border-y border-line">
+            <ContactRow icon={Mail} label={t.contact.email}>
+              <a href="mailto:clsaez1018@gmail.com" className="hover:text-accent transition-colors">
+                clsaez1018@gmail.com
+              </a>
+            </ContactRow>
+            <ContactRow icon={MapPin} label={t.contact.location}>
+              {t.contact.locationValue}
+            </ContactRow>
+            <ContactRow icon={Github} label={t.contact.social}>
+              <span className="flex gap-5">
                 <a
-                  href="mailto:clsaez1018@gmail.com"
-                  className="text-white hover:text-purple-400 transition-colors text-lg"
+                  href="https://github.com/Clorostica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={socialLink}
                 >
-                  clsaez1018@gmail.com
+                  <Github size={18} aria-hidden /> GitHub
                 </a>
-              </div>
-            </div>
-
-            <div
-              className={`flex items-center gap-4 p-5 md:p-6 bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 transition-all duration-500 hover:border-purple-500 hover:shadow-lg`}
-            >
-              <MapPin className="text-purple-400" size={32} />
-              <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-slate-100">
-                  {t.contact.location}
-                </h3>
-                <p className="text-white text-lg">{t.contact.locationValue}</p>
-              </div>
-            </div>
-
-            <div
-              className={`flex items-center gap-4 p-5 md:p-6 bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 transition-all duration-500 hover:border-purple-500 hover:shadow-lg`}
-            >
-              <Github className="text-purple-400" size={32} />
-              <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-slate-100">
-                  {t.contact.social}
-                </h3>
-                <div className="flex gap-4 mt-1">
-                  <a
-                    href="https://github.com/Clorostica"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-purple-400 transition-colors"
-                  >
-                    <Github size={24} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/claudia-saez-orostica-97221624b/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-purple-400 transition-colors"
-                  >
-                    <Linkedin size={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+                <a
+                  href="https://www.linkedin.com/in/claudia-saez-orostica-97221624b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={socialLink}
+                >
+                  <Linkedin size={18} aria-hidden /> LinkedIn
+                </a>
+              </span>
+            </ContactRow>
+          </ul>
         </div>
 
         <form
           action="https://formsubmit.co/8e0862922f3402a25639bcc38f5a6b58"
           method="POST"
-          className={`space-y-4 p-5 md:p-6 bg-slate-900/50 backdrop-blur-lg rounded-2xl border border-slate-800 transition-all duration-500`}
+          className="space-y-5 p-6 md:p-8 rounded-[2rem] bg-surface border border-line shadow-sm"
         >
-          <input
-            type="text"
-            name="firstName"
-            value={contactData.firstName}
-            onChange={handleInputChange}
-            placeholder={t.contact.firstName}
-            className="w-full p-4 mb-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-purple-400 outline-none text-white text-lg"
-            required
-          />
-          <input
-            type="text"
-            name="lastName"
-            value={contactData.lastName}
-            onChange={handleInputChange}
-            placeholder={t.contact.lastName}
-            className="w-full p-4 mb-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-purple-400 outline-none text-white text-lg"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            value={contactData.email}
-            onChange={handleInputChange}
-            placeholder={t.contact.emailPlaceholder}
-            className="w-full p-4 mb-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-purple-400 outline-none text-white text-lg"
-            required
-          />
-          <textarea
-            name="message"
-            value={contactData.message}
-            onChange={handleInputChange}
-            placeholder={t.contact.message}
-            rows={4}
-            className="w-full p-4 mb-4 rounded-xl bg-slate-800 border border-slate-700 focus:border-purple-400 outline-none text-white text-lg resize-none"
-            required
-          />
-          <StarBorder
-            type="submit"
-            radius={12}
-            hover="reveal"
-            glow={0.8}
-            color="#f0abfc"
-            trailColor="#a855f7"
-            backgroundColor="rgba(88, 28, 135, 0.7)"
-            borderColor="rgba(236, 72, 153, 0.4)"
-            className="w-full text-lg font-semibold"
-            style={{ padding: "1rem 1.5rem" }}
-          >
-            <Send size={20} /> {t.contact.send}
-          </StarBorder>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <Field label={t.contact.firstName}>
+              <input
+                type="text"
+                name="firstName"
+                autoComplete="given-name"
+                value={contactData.firstName}
+                onChange={handleInputChange}
+                className={inputClass}
+                required
+              />
+            </Field>
+            <Field label={t.contact.lastName}>
+              <input
+                type="text"
+                name="lastName"
+                autoComplete="family-name"
+                value={contactData.lastName}
+                onChange={handleInputChange}
+                className={inputClass}
+                required
+              />
+            </Field>
+          </div>
+          <Field label={t.contact.emailPlaceholder}>
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              value={contactData.email}
+              onChange={handleInputChange}
+              className={inputClass}
+              required
+            />
+          </Field>
+          <Field label={t.contact.message}>
+            <textarea
+              name="message"
+              value={contactData.message}
+              onChange={handleInputChange}
+              rows={5}
+              className={`${inputClass} resize-none`}
+              required
+            />
+          </Field>
+          <button type="submit" className={`${buttonPrimary} w-full py-3.5 text-lg`}>
+            <Send size={18} aria-hidden /> {t.contact.send}
+          </button>
         </form>
       </div>
-    </section>
+    </Section>
   );
 }

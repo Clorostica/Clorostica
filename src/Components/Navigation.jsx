@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Home, User, Code, Briefcase, Award, Mail } from "lucide-react";
-import GlassSurface from "./GlassSurface";
 import { useLanguage } from "../i18n/LanguageContext";
 import { LanguageMenu } from "./LanguageMenu";
+import { ThemeToggle } from "./ThemeToggle";
+import { buttonPrimary } from "./Section";
 import "../Styles/logo.css";
 
 const sections = [
@@ -14,8 +15,7 @@ const sections = [
   { id: "contact", icon: Mail },
 ];
 
-// Dark tint behind the glass so text scrolling underneath stays calm
-const GLASS_TINT = "rgba(12, 10, 28, 0.55)";
+const bar = "bg-surface/80 backdrop-blur-xl border border-line shadow-lg shadow-black/5";
 
 export function Navigation() {
   const { t } = useLanguage();
@@ -40,44 +40,26 @@ export function Navigation() {
     return () => observers.forEach((obs) => obs?.disconnect());
   }, []);
 
-  const logo = (className) => (
-    <a
-      href="#home"
-      aria-label="Clorostica"
-      className={`logo shrink-0 font-semibold ${className}`}
-      style={{ fontFamily: '"Instrument Sans", sans-serif' }}
-    >
-      {"Clorostica".split("").map((letter, i) => (
-        <span key={i} aria-hidden className="logo-letter" style={{ "--i": i }}>
-          {letter}
-        </span>
-      ))}
-    </a>
-  );
-
-  const ctaClass =
-    "shrink-0 inline-flex items-center rounded-full font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-900/30 hover:brightness-110 hover:shadow-pink-500/30 transition-[filter,box-shadow] duration-300";
-
   return (
     <>
-      <nav className="hidden md:block fixed left-1/2 -translate-x-1/2 z-50 top-6 w-full">
+      <nav className="hidden md:block fixed inset-x-0 top-6 z-50">
         {/* Same side margins as the page sections so the nav lines up with the content */}
-        <div className="w-full px-4 lg:px-[120px] py-2">
-          <div className="max-w-7xl mx-auto w-full flex items-center gap-3">
+        <div className="px-12 lg:px-[120px]">
+          <div className="max-w-7xl mx-auto flex items-center gap-3">
             {/* Page navigation */}
-            <GlassSurface
-              width="100%"
-              height={68}
-              borderRadius={34}
-              borderWidth={0.07}
-              brightness={50}
-              opacity={0.93}
-              blur={11}
-              className="flex-1 flex items-center justify-between gap-3 pl-5 pr-2 py-0"
-              style={{ minWidth: 0, background: GLASS_TINT }}
-            >
-              {logo("text-[28px]")}
-              <div className="flex flex-1 min-w-0 items-center justify-evenly gap-2 px-4">
+            <div className={`flex-1 min-w-0 h-16 flex items-center gap-3 pl-6 pr-2 rounded-full ${bar}`}>
+              <a
+                href="#home"
+                aria-label="Clorostica"
+                className="logo shrink-0 font-display font-bold text-2xl"
+              >
+                {"Clorostica".split("").map((letter, i) => (
+                  <span key={i} aria-hidden className="logo-letter" style={{ "--i": i }}>
+                    {letter}
+                  </span>
+                ))}
+              </a>
+              <div className="flex flex-1 min-w-0 items-center justify-evenly gap-1 px-2">
                 {sections
                   .filter((sec) => sec.id !== "contact")
                   .map((sec) => {
@@ -90,47 +72,31 @@ export function Navigation() {
                         href={`#${sec.id}`}
                         title={t.nav[sec.id]}
                         aria-current={isActive ? "true" : undefined}
-                        className={`${sec.id === "about" ? "xl:hidden " : ""}group flex items-center gap-1.5 font-medium text-base 2xl:text-[17px] transition-colors whitespace-nowrap px-3 2xl:px-4 py-2.5 rounded-full ${
+                        className={`${sec.id === "about" ? "xl:hidden " : ""}flex items-center gap-2 font-medium text-base 2xl:text-[17px] whitespace-nowrap px-3 2xl:px-4 py-2 rounded-full transition-colors duration-200 ${
                           isActive
-                            ? "text-purple-300 bg-purple-500/15"
-                            : "text-slate-300 hover:text-purple-300"
+                            ? "text-accent bg-accent-soft"
+                            : "text-muted hover:text-fg"
                         }`}
                       >
-                        <Icon
-                          size={19}
-                          strokeWidth={isActive ? 2.4 : 2}
-                          className="shrink-0"
-                          aria-hidden
-                        />
-                        <span className="hidden xl:inline">
-                          {t.nav[sec.id]}
-                        </span>
+                        <Icon size={18} aria-hidden className="shrink-0" />
+                        <span className="hidden xl:inline">{t.nav[sec.id]}</span>
                       </a>
                     );
                   })}
               </div>
-            </GlassSurface>
+            </div>
 
-            {/* Actions live apart from the page links */}
-            <GlassSurface
-              width={68}
-              height={68}
-              borderRadius={34}
-              borderWidth={0.07}
-              brightness={50}
-              opacity={0.93}
-              blur={11}
-              className="shrink-0"
-              style={{ background: GLASS_TINT }}
-            >
+            {/* Settings live apart from the page links */}
+            <div className={`shrink-0 h-16 flex items-center gap-1 px-2 rounded-full ${bar}`}>
+              <ThemeToggle className="w-12 h-12 rounded-full hover:bg-accent-soft" />
               <LanguageMenu
-                iconSize={22}
-                className="w-12 h-12 rounded-full hover:bg-purple-500/15"
+                iconSize={20}
+                className="w-12 h-12 rounded-full hover:bg-accent-soft"
               />
-            </GlassSurface>
+            </div>
             <a
               href="#contact"
-              className={`${ctaClass} h-14 2xl:h-[60px] px-6 2xl:px-7 text-base 2xl:text-[17px]`}
+              className={`${buttonPrimary} shrink-0 h-14 px-6 2xl:px-7 text-base 2xl:text-[17px]`}
             >
               {t.projects.ctaButton}
             </a>
@@ -139,7 +105,7 @@ export function Navigation() {
       </nav>
 
       {/* Mobile: every section as an icon, spread across the full width */}
-      <nav className="md:hidden fixed inset-x-0 top-0 z-50 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
+      <nav className="md:hidden fixed inset-x-0 top-0 z-50 bg-bg/90 backdrop-blur-xl border-b border-line">
         <div className="flex h-16 items-center justify-between px-1">
           {sections.map((sec) => {
             const Icon = sec.icon;
@@ -153,26 +119,20 @@ export function Navigation() {
                 className="flex flex-1 items-center justify-center h-12"
               >
                 <span
-                  className={`flex items-center justify-center w-12 h-12 rounded-2xl transition-colors duration-300 ${
-                    isActive
-                      ? "bg-purple-500/20 text-purple-300"
-                      : "text-slate-300 active:bg-purple-500/10"
+                  className={`flex items-center justify-center w-11 h-11 rounded-2xl transition-colors duration-200 ${
+                    isActive ? "bg-accent-soft text-accent" : "text-muted"
                   }`}
                 >
-                  <Icon
-                    size={24}
-                    strokeWidth={isActive ? 2.4 : 2}
-                    aria-hidden
-                  />
+                  <Icon size={22} strokeWidth={isActive ? 2.4 : 2} aria-hidden />
                 </span>
               </a>
             );
           })}
-          <LanguageMenu iconSize={24} className="flex-1 h-12 rounded-2xl" />
+          <span className="w-px h-7 bg-line mx-0.5" aria-hidden />
+          <ThemeToggle iconSize={22} className="flex-1 h-12 rounded-2xl" />
+          <LanguageMenu iconSize={22} className="flex-1 h-12 rounded-2xl" />
         </div>
       </nav>
-
-      <div className="hidden md:block h-16"></div>
     </>
   );
 }

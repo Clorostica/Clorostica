@@ -2,49 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force GPU compositing on bg-clip-text elements to prevent black flashes
-   when opacity transitions are applied to or near them. */
-.clip-text-gpu {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: opacity;
+/* Light theme */
+:root {
+  --c-bg: 251 249 252;
+  --c-bg-alt: 244 240 249;
+  --c-surface: 255 255 255;
+  --c-surface-2: 246 243 250;
+  --c-fg: 28 21 38;
+  --c-muted: 84 74 98;
+  --c-subtle: 128 117 142;
+  --c-line: 228 221 237;
+  --c-accent: 124 58 237;
+  --c-accent-2: 219 39 119;
+  --c-accent-soft: 238 231 253;
+  --c-on-accent: 255 255 255;
+  color-scheme: light;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Dark theme */
+.dark {
+  --c-bg: 15 12 23;
+  --c-bg-alt: 22 18 34;
+  --c-surface: 28 23 42;
+  --c-surface-2: 36 30 54;
+  --c-fg: 245 242 250;
+  --c-muted: 190 181 206;
+  --c-subtle: 142 133 160;
+  --c-line: 48 41 68;
+  --c-accent: 186 152 255;
+  --c-accent-2: 244 114 182;
+  --c-accent-soft: 42 33 70;
+  --c-on-accent: 22 13 38;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchored sections land below the fixed nav instead of under it */
+  scroll-padding-top: 72px;
+  /* Keeps decorative overflow from widening the mobile viewport */
+  overflow-x: clip;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: rgb(var(--c-bg));
+  color: rgb(var(--c-fg));
+  font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: rgb(var(--c-accent) / 0.25);
+}
 
- .led-text {
-   color: var(--accent-primary);
-  text-shadow:
-  0 0 6px var(--accent-primary),
-  0 0 12px var(--accent-primary),
-  0 0 24px var(--shadow-glow),
-  0 0 48px var(--shadow-purple);
-  transition: all 0.3s ease-in-out;
-          }
+:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
+}
 
-  .led-text:hover {
-  color: var(--text-color);
-  text-shadow:
-  0 0 10px var(--hover-color),
-  0 0 20px var(--hover-color),
-  0 0 40px var(--hover-color),
-  0 0 60px rgba(255,255,255,0.5);
-    }
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+}
 
-  @keyframes slideIn {
-  from { transform: translateX(-10px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-    }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Soft wash of color behind the hero */
+.hero-wash {
+  background:
+    radial-gradient(ellipse 55% 60% at 80% 35%, rgb(var(--c-accent) / 0.16), transparent 70%),
+    radial-gradient(ellipse 45% 50% at 10% 90%, rgb(var(--c-accent-2) / 0.1), transparent 70%);
+}
+
+/* Portrait with a thin brand-colored ring */
+.portrait {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, rgb(var(--c-accent)), rgb(var(--c-accent-2)));
+  box-shadow: 0 24px 60px -20px rgb(var(--c-accent) / 0.45);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgb(var(--c-bg));
+}
+
+@media (max-width: 767px) {
+  .portrait {
+    width: min(78vw, 24rem);
+    height: min(78vw, 24rem);
+  }
+}
