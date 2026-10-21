@@ -1,13 +1,280 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronRight } from "lucide-react";
-import weatherAppDefault from "../assets/Img/weatherapp1.png";
-import eggTimerDefault from "../assets/Img/Eggtimer..png";
-import floreriaDefault from "../assets/Img/Cordillera.png";
-import epicaDefault from "../assets/Img/Epica.png";
-import littleLemonDefault from "../assets/Img/LittleLemon..png";
-import taskFlow from "../assets/Img/Gobento.png";
+import {
+  ArrowRight,
+  CloudSun,
+  ExternalLink,
+  Languages,
+  Play,
+} from "lucide-react";
+import {
+  SiAuth0,
+  SiCloudflare,
+  SiCloudflareworkers,
+  SiCss3,
+  SiDocker,
+  SiHono,
+  SiHtml5,
+  SiJavascript,
+  SiReact,
+  SiStripe,
+  SiSwiper,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+} from "react-icons/si";
+import StarBorder from "./StarBorder/StarBorder";
+import { useLanguage } from "../i18n/LanguageContext";
+
+const TECH = {
+  React: { icon: SiReact, color: "#61DAFB" },
+  TypeScript: { icon: SiTypescript, color: "#3178C6" },
+  JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8" },
+  "Cloudflare Workers": { icon: SiCloudflareworkers, color: "#F38020" },
+  "Cloudflare D1": { icon: SiCloudflare, color: "#F38020" },
+  Hono: { icon: SiHono, color: "#FF5B11" },
+  Auth0: { icon: SiAuth0, color: "#EB5424" },
+  Stripe: { icon: SiStripe, color: "#8B83FF" },
+  Docker: { icon: SiDocker, color: "#2496ED" },
+  Vite: { icon: SiVite, color: "#A78BFA" },
+  Swiper: { icon: SiSwiper, color: "#0080FF" },
+  "OpenWeather API": { icon: CloudSun, color: "#EB6E4B" },
+  i18next: { icon: Languages, color: "#26A69A" },
+  HTML: { icon: SiHtml5, color: "#E34F26" },
+  CSS: { icon: SiCss3, color: "#2965F1" },
+  Vercel: { icon: SiVercel, color: "#FFFFFF" },
+};
+
+// Ordered by strength: real products and client work first, practice projects last
+const projects = [
+  {
+    id: "gobento",
+    title: "Gobento",
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Cloudflare Workers",
+      "Hono",
+      "Cloudflare D1",
+      "Auth0",
+      "Stripe",
+      "Docker",
+    ],
+    link: "https://gobento.clorostica.com/",
+  },
+  {
+    id: "epica",
+    title: "Épica",
+    tech: ["React", "Vite", "Tailwind CSS", "Swiper"],
+    link: "https://epica-iota.vercel.app/",
+  },
+  {
+    id: "cordillera",
+    title: "Cordillera",
+    tech: ["React", "Vite", "Swiper", "JavaScript"],
+    link: "https://cordillera-rho.vercel.app/",
+  },
+  {
+    id: "weather",
+    title: "Weather App",
+    tech: ["React", "Vite", "Tailwind CSS", "OpenWeather API", "i18next"],
+    link: "https://weatherapp-delta-jet.vercel.app/",
+  },
+  {
+    id: "littlelemon",
+    title: "Little Lemon",
+    tech: ["React", "Vite", "JavaScript", "Vercel"],
+    link: "https://little-lemon-nu-nine.vercel.app/",
+  },
+  {
+    id: "eggtimer",
+    title: "Egg Timer",
+    tech: ["React", "JavaScript", "HTML", "CSS"],
+    link: "https://eggtimer-3qye.vercel.app/",
+  },
+];
+
+const prefersReducedMotion = () =>
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+
+// Recorded walkthrough of the live site, framed as a browser window.
+// Plays only while on screen; with reduced motion it waits for hover.
+function ProjectPreview({ project, label }) {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  const reduced = useRef(prefersReducedMotion());
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || reduced.current) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const playOnHover = () => {
+    if (reduced.current) videoRef.current?.play().catch(() => {});
+  };
+  const pauseOnLeave = () => {
+    if (reduced.current) videoRef.current?.pause();
+  };
+
+  const host = new URL(project.link).host;
+
+  return (
+    <div
+      className="relative rounded-xl overflow-hidden border border-slate-700/70 bg-slate-950 shadow-2xl shadow-purple-900/20"
+      onMouseEnter={playOnHover}
+      onMouseLeave={pauseOnLeave}
+    >
+      <div className="flex items-center gap-3 px-3 py-2 bg-slate-900/95 border-b border-slate-800">
+        <div className="flex gap-1.5 shrink-0" aria-hidden>
+          <span className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+        </div>
+        <div className="flex-1 min-w-0 truncate text-center text-[11px] font-mono text-slate-400 bg-slate-800/70 rounded-md px-3 py-0.5">
+          {host}
+        </div>
+        <span
+          className={`shrink-0 flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider ${
+            playing ? "text-pink-300" : "text-slate-500"
+          }`}
+        >
+          <span
+            className={`w-1.5 h-1.5 rounded-full ${
+              playing ? "bg-pink-400" : "bg-slate-500"
+            }`}
+          />
+          <span className="hidden sm:inline">{label}</span>
+        </span>
+      </div>
+      <div className="relative aspect-[16/10]">
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          src={`/projects/${project.id}.webm`}
+          poster={`/projects/${project.id}.jpg`}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={`${project.title} – ${label}`}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+        {!playing && (
+          <div className="absolute inset-0 flex items-center justify-center bg-slate-950/30 pointer-events-none">
+            <span className="flex items-center justify-center w-12 h-12 rounded-full bg-slate-900/80 border border-purple-500/50 text-purple-200">
+              <Play size={20} className="ml-0.5" aria-hidden />
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ViewLiveLink({ project, t }) {
+  return (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-slate-800 border border-slate-700 text-white font-medium tracking-wide hover:border-purple-500 hover:bg-slate-700 transition-colors duration-300"
+    >
+      {t.projects.viewLive} <ExternalLink size={16} aria-hidden />
+    </a>
+  );
+}
+
+function ProjectShowcase({ project, index, t }) {
+  const copy = t.projects.items[project.id];
+
+  return (
+    <article className="p-5 md:p-10 rounded-3xl border border-slate-800 bg-slate-900/50 backdrop-blur-lg">
+      <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+        <div className="space-y-3">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.14em] text-purple-300/90">
+            <span className="font-mono text-slate-500">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>
+              {copy.category}
+              <span className="text-slate-500"> · {copy.role}</span>
+            </span>
+          </p>
+          <h3 className="text-3xl md:text-4xl font-bold text-white">
+            {project.title}
+          </h3>
+          <p className="text-xl md:text-2xl text-slate-200 leading-snug max-w-3xl">
+            {copy.tagline}
+          </p>
+        </div>
+        <ViewLiveLink project={project} t={t} />
+      </header>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="lg:col-span-2">
+          <ProjectPreview project={project} label={t.projects.live} />
+        </div>
+
+        <div className="flex flex-col gap-7">
+          <dl className="space-y-6">
+            <div>
+              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-pink-300">
+                {t.projects.impact}
+              </dt>
+              <dd className="text-lg text-slate-200 leading-relaxed">
+                {copy.impact}
+              </dd>
+            </div>
+            <div>
+              <dt className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-pink-300">
+                {t.projects.build}
+              </dt>
+              <dd className="text-lg text-slate-200 leading-relaxed">
+                {copy.build}
+              </dd>
+            </div>
+          </dl>
+
+          <div>
+            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+              {t.projects.tech}
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {project.tech.map((name) => {
+                const { icon: Icon, color } = TECH[name];
+                return (
+                  <li
+                    key={name}
+                    className="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-full text-sm font-medium text-slate-100 bg-slate-950/60 border"
+                    style={{ borderColor: `${color}55` }}
+                  >
+                    <Icon size={16} style={{ color }} aria-hidden />
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export function Projects() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -16,244 +283,67 @@ export function Projects() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const projects = [
-    {
-      title: "Gobento",
-
-      description:
-        "Social media event app that allows users to save and share events with friends, upload photos, and organize them as memories or future plans. Easily manage your schedule, view profiles with privacy settings, follow friends, and keep track of your social life effortlessly.",
-      tech: "React, TypeScript, TailwindCSS, Auth0, Node.js, Docker, Postman, Cloudflare D1",
-      role: "Fullstack development",
-      link: "https://task-list-delta-sandy.vercel.app/",
-      image: taskFlow,
-    },
-    {
-      title: "Egg Timer",
-      description: "Simple timer app for boiling eggs to your preferred level.",
-      tech: "React, JavaScript, HTML, CSS",
-      role: "Functionality and design",
-      link: "https://eggtimer-3qye.vercel.app/",
-      image: eggTimerDefault,
-    },
-    {                                   
-    title: "Épica",                      
-    description:                              
-      "Brand identity portfolio for a Chilean alternative fashion startup. Full branding story — origin, logo decision, color system, target audience, mission and community. Built with scroll-reveal animations, hero parallax and ES/DE language toggle.",                
-    tech: "React, Vite, Tailwind CSS, JavaScript",
-    role: "Frontend Development, UI/UX Design, Brand Storytelling",                         
-    link: "https://epica-iota.vercel.app/",
-    image: epicaDefault,                       
-  },  
-    {
-      title: "Weather App",
-      description:
-        "Check real-time weather by city with a clean and responsive UI.",
-      tech: "React, Vite, OpenWeather API, CSS",
-      role: "Design and development",
-      link: "https://weatherapp-delta-jet.vercel.app/",
-      image: weatherAppDefault,
-    },
-    {
-      title: "Cordillera",
-      description:
-        "Floral arrangements crafted with elegance and natural beauty.",
-      tech: "React, HTML, CSS, JS",
-      role: "Web design & development",
-      link: "https://cordillera-rho.vercel.app/",
-      image: floreriaDefault,
-    },
-    {
-      title: "Little Lemon",
-      description:
-        "Restaurant site offering homemade dishes with a modern twist.",
-      tech: "React, JS, Vercel",
-      role: "Layout and branding",
-      link: "https://little-lemon-nu-nine.vercel.app/",
-      image: littleLemonDefault,
-    },
-  ];
-
-  const bentoSpans = [
-    "col-span-2 row-span-2", // Gobento — featured large
-    "", // Egg Timer
-    "", // Epica
-    "", // Weather App
-    "", // Cordillera
-    "", // Little Lemon
-  ];
-
   return (
-    <div className="main_container reveal">
+    <div className="main_container">
       <section
         id="projects"
-        className="relative py-8 md:py-24 px-6"
+        className="relative py-16 md:py-24 -mx-2 md:-mx-16 lg:-mx-24 px-5 sm:px-8 md:px-[88px] lg:px-[120px] section-projects"
         ref={sectionRef}
       >
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-5xl font-bold mb-10 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-700 [will-change:opacity,transform] ${
+            className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-1 mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent transition-all duration-500 [will-change:opacity,transform] ${
               isVisible
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-4"
             }`}
           >
-            Featured Projects
+            {t.projects.title}
           </h2>
+          <p className="text-white mb-12 text-lg max-w-2xl">
+            {t.projects.subtitle}
+          </p>
 
-          {/* Mobile — imagen + contenido siempre visible */}
-          <div className="md:hidden flex flex-col gap-5">
+          <div className="flex flex-col gap-10 md:gap-14">
             {projects.map((project, index) => (
               <div
-                key={project.title}
-                className={`transition-all duration-700 ${
+                key={project.id}
+                className={`transition-all duration-500 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-4"
                 }`}
-                style={{ transitionDelay: `${index * 120}ms` }}
+                style={{ transitionDelay: `${Math.min(index, 2) * 120}ms` }}
               >
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden transition-[box-shadow,border-color] duration-300 active:shadow-[0_0_30px_-8px_rgba(168,85,247,0.6)] active:border-purple-500/70"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-active:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
-                    <div className="pointer-events-none absolute -inset-px opacity-0 group-active:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.6),rgba(236,72,153,0.4),transparent_60%)] blur-sm" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 space-y-3">
-                    <h3 className="text-lg font-bold text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-slate-300 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="space-y-1 text-xs text-slate-400">
-                      <div className="flex items-start gap-1.5">
-                        <ChevronRight
-                          className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0"
-                          strokeWidth={2.5}
-                          aria-hidden
-                        />
-                        <span>
-                          <strong className="text-slate-200">Tech:</strong>{" "}
-                          {project.tech}
-                        </span>
-                      </div>
-                      <div className="flex items-start gap-1.5">
-                        <ChevronRight
-                          className="w-3.5 h-3.5 mt-0.5 text-purple-400 shrink-0"
-                          strokeWidth={2.5}
-                          aria-hidden
-                        />
-                        <span>
-                          <strong className="text-slate-200">Role:</strong>{" "}
-                          {project.role}
-                        </span>
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 border border-slate-700 text-white text-sm font-medium tracking-wide">
-                      View Project <ChevronRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </a>
+                <ProjectShowcase project={project} index={index} t={t} />
               </div>
             ))}
           </div>
 
-          {/* Desktop — bento box sin gaps */}
-          <div className="hidden md:block">
-            <div
-              className="grid grid-cols-3 gap-4"
-              style={{ gridTemplateRows: "240px 240px 220px" }}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 text-center">
+            <p className="text-2xl font-semibold text-white">
+              {t.projects.ctaTitle}
+            </p>
+            <StarBorder
+              as="a"
+              href="#contact"
+              radius={999}
+              color="#c084fc"
+              trailColor="#ec4899"
+              glow={0.8}
+              backgroundColor="rgba(88, 28, 135, 0.7)"
+              borderColor="rgba(236, 72, 153, 0.4)"
+              className="text-base font-semibold"
             >
-              {projects.map((project, index) => (
-                <div
-                  key={project.title}
-                  className={`${bentoSpans[index]} transition-all duration-700 ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${index * 120}ms` }}
-                >
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative block w-full h-full rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden transition-[box-shadow,border-color] duration-300 hover:shadow-[0_0_40px_-12px_rgba(168,85,247,0.7)] hover:border-purple-500/80"
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[conic-gradient(at_0%_0%,rgba(168,85,247,0.8),rgba(236,72,153,0.5),transparent_60%)] blur-sm" />
-
-                    <div className="absolute inset-0 flex flex-col p-5">
-                      <div
-                        className="flex-1 overflow-y-auto space-y-1.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 mb-3 pr-1"
-                        style={{ transitionDelay: "50ms" }}
-                      >
-                        <h3 className="text-xl font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-slate-100 leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                          {project.description}
-                        </p>
-                      </div>
-                      <div
-                        className="shrink-0 space-y-2.5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                        style={{ transitionDelay: "100ms" }}
-                      >
-                        <ul className="space-y-1 text-xs text-slate-200">
-                          <li className="flex items-start gap-2">
-                            <ChevronRight
-                              className="w-4 h-4 mt-0.5 text-purple-400 shrink-0"
-                              strokeWidth={2.5}
-                              aria-hidden
-                            />
-                            <span>
-                              <strong>Tech:</strong> {project.tech}
-                            </span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <ChevronRight
-                              className="w-4 h-4 mt-0.5 text-purple-400 shrink-0"
-                              strokeWidth={2.5}
-                              aria-hidden
-                            />
-                            <span>
-                              <strong>Role:</strong> {project.role}
-                            </span>
-                          </li>
-                        </ul>
-                        <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-800/90 border border-slate-700 hover:border-purple-500 text-white text-sm font-medium tracking-wide shadow-lg shadow-purple-500/30 transition-all duration-300">
-                          View Project <ChevronRight className="w-4 h-4" />
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              ))}
-            </div>
+              {t.projects.ctaButton} <ArrowRight size={18} aria-hidden />
+            </StarBorder>
           </div>
         </div>
       </section>

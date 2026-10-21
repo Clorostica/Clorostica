@@ -27,6 +27,14 @@
   --main-body-color: var(--main-bg);
 }
 
+html {
+  scroll-behavior: smooth;
+  /* Anchored sections land below the fixed nav instead of under it */
+  scroll-padding-top: 72px;
+  /* Keeps decorative overflow (button glows, wide sections) from widening the mobile viewport */
+  overflow-x: clip;
+}
+
 body {
   position: relative;
   overflow-x: hidden;
@@ -48,7 +56,6 @@ body::before {
     radial-gradient(circle at 25% 65%, #8b5cf6 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%),
     radial-gradient(circle at 60% 80%, #f59e0b 0%, rgba(245, 158, 11, 0.3) 20%, transparent 40%);
   background-size: 100% 100%;
-  animation: backgroundPulse 12s ease-in-out infinite alternate;
   z-index: -2;
   pointer-events: none;
   filter: blur(80px);
@@ -71,7 +78,6 @@ body::after {
       transparent 100%
     );
   background-size: 300% 300%;
-  animation: gradientSweep 25s ease infinite;
   z-index: -1;
   pointer-events: none;
 }
@@ -94,35 +100,8 @@ section::before, main::before {
   z-index: -1;
   opacity: 0.5;
   filter: blur(40px);
-  animation: sectionGlow 8s ease-in-out infinite alternate;
 }
 
-@keyframes backgroundPulse {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(1.15) translate(3%, 3%);
-  }
-}
-
-@keyframes gradientSweep {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes sectionGlow {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
 .drop-shadow-div.blob {
   width: 22rem;
   height: 22rem;
@@ -137,7 +116,6 @@ section::before, main::before {
     #c860ff
   );
   background-size: 300% 300%;
-  animation: gradientShift 8s ease infinite;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -150,7 +128,6 @@ section::before, main::before {
   background-size: cover;
   background-position: center;
   z-index: 1;
-  animation: morph 3s ease-in-out infinite;
 }
 
 .drop-shadow-div.blob::after {
@@ -172,76 +149,7 @@ section::before, main::before {
 }
 
 
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 
-
-@keyframes morph {
-  0%, 100% { border-radius: 50% 50% 50% 50%; }
-  25% { border-radius: 60% 40% 50% 50%; }
-  50% { border-radius: 50% 60% 40% 50%; }
-  75% { border-radius: 50% 50% 60% 40%; }
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 .map_container {
   flex: 1;
@@ -269,25 +177,6 @@ section::before, main::before {
   border-radius: 1rem;
 }
 
-.reveal {
-  position: relative;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 1s ease;
-}
-
-.reveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-@keyframes morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-}
 
 @media (max-width: 768px) {
   section {
@@ -300,3 +189,38 @@ section::before, main::before {
 
 
  
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .drop-shadow-div.blob {
+    width: min(84vw, 26rem);
+    height: min(84vw, 26rem);
+  }
+}
+
+/* Sections with their own background, alternating with the fluid gradient */
+.section-projects {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(168, 85, 247, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(236, 72, 153, 0.12), transparent 70%),
+    #0d0a1c;
+  border-block: 1px solid rgba(168, 85, 247, 0.18);
+}
+
+.section-experience {
+  background:
+    radial-gradient(ellipse 60% 45% at 100% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+    radial-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px) 0 0 / 22px 22px,
+    #0a0e1c;
+  border-block: 1px solid rgba(56, 189, 248, 0.14);
+}
