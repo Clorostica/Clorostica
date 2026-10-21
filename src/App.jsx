@@ -5,7 +5,6 @@ import { Navigation } from "./Components/Navigation";
 import { Projects } from "./Components/Projects";
 import { Experience } from "./Components/Experience";
 import { Hero } from "./Components/Hero";
-import { About } from "./Components/About";
 import "./Styles/index.css";
 import { useLanguage } from "./i18n/LanguageContext";
 
@@ -17,7 +16,6 @@ export default function App() {
       <main>
         <Hero />
         <Projects />
-        <About />
         <Experience />
         <Certificates />
         <ContactMe />

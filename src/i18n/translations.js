@@ -8,7 +8,6 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      about: "About",
       projects: "Projects",
       experience: "Experience",
       certificates: "Certificates",
@@ -19,7 +18,6 @@ export const translations = {
     },
     hero: {
       role: "Full-Stack Developer",
-      typed: "Modern JS Stack | Building Scalable, Maintainable Web Applications",
       resume: "Resume",
       resumeDe: "German Resume",
       facts: [
@@ -28,8 +26,6 @@ export const translations = {
       ],
     },
     about: {
-      eyebrow: "Hi there",
-      title: "About me",
       intro: {
         pre: "I'm a ",
         role: "full-stack engineer",
@@ -163,7 +159,6 @@ export const translations = {
   es: {
     nav: {
       home: "Inicio",
-      about: "Sobre mí",
       projects: "Proyectos",
       experience: "Experiencia",
       certificates: "Certificados",
@@ -174,7 +169,6 @@ export const translations = {
     },
     hero: {
       role: "Desarrolladora Full-Stack",
-      typed: "Stack JS moderno | Aplicaciones web escalables y mantenibles",
       resume: "CV en inglés",
       resumeDe: "CV en alemán",
       facts: [
@@ -183,8 +177,6 @@ export const translations = {
       ],
     },
     about: {
-      eyebrow: "Hola",
-      title: "Sobre mí",
       intro: {
         pre: "Soy ",
         role: "ingeniera full-stack",
@@ -318,7 +310,6 @@ export const translations = {
   de: {
     nav: {
       home: "Start",
-      about: "Über mich",
       projects: "Projekte",
       experience: "Erfahrung",
       certificates: "Zertifikate",
@@ -329,7 +320,6 @@ export const translations = {
     },
     hero: {
       role: "Full-Stack-Entwicklerin",
-      typed: "Moderner JS-Stack | Skalierbare, wartbare Webanwendungen",
       resume: "Lebenslauf (EN)",
       resumeDe: "Lebenslauf (DE)",
       facts: [
@@ -338,8 +328,6 @@ export const translations = {
       ],
     },
     about: {
-      eyebrow: "Hallo",
-      title: "Über mich",
       intro: {
         pre: "Ich bin ",
         role: "Full-Stack-Entwicklerin",
