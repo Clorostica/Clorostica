@@ -190,7 +190,7 @@ function ProjectShowcase({ project, index, t }) {
               <span className="text-subtle"> · {copy.role}</span>
             </span>
           </p>
-          <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-fg">
+          <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight text-fg">
             {project.title}
           </h3>
           <p className="text-xl md:text-2xl text-muted leading-snug max-w-3xl">
@@ -271,7 +271,7 @@ export function Projects() {
       </div>
 
       <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 text-center">
-        <p className="font-display text-2xl md:text-3xl font-bold tracking-tight text-fg">
+        <p className="font-display text-xl md:text-2xl font-semibold tracking-tight text-fg">
           {t.projects.ctaTitle}
         </p>
         <a href="#contact" className={`${buttonPrimary} px-6 py-3 text-base`}>

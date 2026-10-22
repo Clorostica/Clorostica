@@ -23,8 +23,8 @@ export default {
         "on-accent": token("on-accent"),
       },
       fontFamily: {
-        sans: ['"Instrument Sans"', "system-ui", "-apple-system", "sans-serif"],
-        display: ['"Bricolage Grotesque"', '"Instrument Sans"', "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        display: ["Inter", "system-ui", "-apple-system", "sans-serif"],
       },
     },
   },

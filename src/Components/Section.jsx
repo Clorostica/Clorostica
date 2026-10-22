@@ -18,14 +18,14 @@ export function Section({ id, tone = "base", className = "", children }) {
 export function SectionHeader({ eyebrow, title, subtitle, className = "" }) {
   return (
     <header className={`max-w-3xl mb-12 md:mb-16 ${className}`}>
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-accent">
+      <p className="mb-3 font-mono text-sm text-accent">
         {eyebrow}
       </p>
-      <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] text-fg">
+      <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-fg">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-5 text-lg md:text-xl text-muted leading-relaxed">
+        <p className="mt-4 text-base md:text-lg text-muted leading-relaxed">
           {subtitle}
         </p>
       )}
