@@ -131,7 +131,6 @@ export const translations = {
       },
     },
     certificates: {
-      eyebrow: "Always learning",
       title: "Certificates",
       subtitle: "Courses I've finished along the way.",
       hint: "Open the folder and pick a certificate to see it full size.",
@@ -282,7 +281,6 @@ export const translations = {
       },
     },
     certificates: {
-      eyebrow: "Siempre aprendiendo",
       title: "Certificados",
       subtitle: "Cursos que he terminado en el camino.",
       hint: "Abre la carpeta y elige un certificado para verlo en grande.",
@@ -433,7 +431,6 @@ export const translations = {
       },
     },
     certificates: {
-      eyebrow: "Immer am Lernen",
       title: "Zertifikate",
       subtitle: "Kurse, die ich unterwegs abgeschlossen habe.",
       hint: "Öffne den Ordner und wähle ein Zertifikat, um es in voller Größe zu sehen.",

@@ -76,10 +76,10 @@ body {
 }
 
 /* Soft wash of color behind the hero */
-.hero-wash {
-  background:
-    radial-gradient(ellipse 55% 60% at 80% 35%, rgb(var(--c-accent) / 0.16), transparent 70%),
-    radial-gradient(ellipse 45% 50% at 10% 90%, rgb(var(--c-accent-2) / 0.1), transparent 70%);
+/* Fade the hero veil out at the bottom so it melts into the next section */
+.hero-veil {
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent);
 }
 
 /* Portrait with a thin brand-colored ring */
