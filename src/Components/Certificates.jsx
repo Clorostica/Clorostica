@@ -147,7 +147,6 @@ export function Certificates() {
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <SectionHeader
-            eyebrow={t.certificates.eyebrow}
             title={t.certificates.title}
             subtitle={t.certificates.subtitle}
             className="!mb-8"

@@ -4,6 +4,8 @@ import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import portrait from "../assets/Img/yo.jpg";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useTheme } from "../theme/ThemeContext";
+import DarkVeil from "./DarkVeil/DarkVeil";
 import { AboutIntro } from "./AboutIntro";
 import { buttonPrimary, buttonSecondary } from "./Section";
 
@@ -23,13 +25,25 @@ const SOCIAL = [
 
 export function Hero() {
   const { t } = useLanguage();
+  const { theme } = useTheme();
 
   return (
     <section
       id="home"
       className="relative min-h-[100svh] flex items-center px-5 sm:px-8 md:px-12 lg:px-[120px] pt-28 pb-16 md:pt-32"
     >
-      <div className="hero-wash absolute inset-0 -z-0 pointer-events-none" aria-hidden />
+      {/* Animated veil behind the hero, fading into the page below */}
+      <div className="hero-veil absolute inset-0 pointer-events-none" aria-hidden>
+        <DarkVeil
+          color="#7c3aed"
+          speed={0.4}
+          brightness={theme === "light" ? 1 : 1.8}
+          glow={0.8}
+          sheen={0.6}
+          lightMode={theme === "light"}
+          opacity={theme === "light" ? 0.55 : 1}
+        />
+      </div>
       <div className="relative max-w-7xl w-full mx-auto">
         <div className="grid md:grid-cols-[1.15fr_1fr] gap-12 items-center">
           <div className="space-y-8">
