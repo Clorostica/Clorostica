@@ -56,7 +56,7 @@ export function Experience() {
                 </span>
 
                 <div className="flex-1 min-w-0 flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                  <h3 className="font-display font-bold text-xl md:text-2xl tracking-tight leading-tight text-fg">
+                  <h3 className="font-display font-semibold text-lg md:text-xl tracking-tight leading-tight text-fg">
                     {role}
                   </h3>
                   {company && (

@@ -37,25 +37,30 @@ export function Hero() {
         <DarkVeil
           color="#7c3aed"
           speed={0.4}
-          brightness={theme === "light" ? 1 : 1.8}
+          brightness={theme === "light" ? 1 : 1.4}
           glow={0.8}
           sheen={0.6}
           lightMode={theme === "light"}
-          opacity={theme === "light" ? 0.55 : 1}
+          opacity={theme === "light" ? 0.45 : 0.85}
         />
       </div>
+      {/* Scrim so the copy stays readable over the veil */}
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-r from-bg/80 via-bg/40 to-transparent"
+        aria-hidden
+      />
       <div className="relative max-w-7xl w-full mx-auto">
         <div className="grid md:grid-cols-[1.15fr_1fr] gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
+              <p className="font-mono text-sm md:text-base text-accent">
                 {t.hero.role}
               </p>
-              <h1 className="font-display text-6xl sm:text-7xl xl:text-8xl 2xl:text-[7.5rem] font-extrabold tracking-tight leading-[0.95] text-fg">
+              <h1 className="font-display text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-fg">
                 Claudia Saez
               </h1>
 
-              <AboutIntro className="text-lg md:text-xl 2xl:text-2xl text-muted leading-relaxed max-w-2xl" />
+              <AboutIntro className="text-lg md:text-xl text-fg/75 leading-relaxed max-w-xl" />
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
