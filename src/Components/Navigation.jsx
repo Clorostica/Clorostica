@@ -4,6 +4,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { LanguageMenu } from "./LanguageMenu";
 import { ThemeToggle } from "./ThemeToggle";
 import { buttonPrimary } from "./Section";
+import GlassSurface from "./GlassSurface";
 import "../Styles/logo.css";
 
 const sections = [
@@ -13,7 +14,16 @@ const sections = [
   { id: "contact", icon: Mail },
 ];
 
-const bar = "bg-surface/80 backdrop-blur-xl border border-line shadow-lg shadow-black/5";
+// Shared look for the two glass pills in the desktop nav
+const glass = {
+  height: 64,
+  borderRadius: 32,
+  borderWidth: 0.07,
+  brightness: 50,
+  opacity: 0.93,
+  blur: 11,
+  saturation: 1.4,
+};
 
 export function Navigation() {
   const { t } = useLanguage();
@@ -45,52 +55,56 @@ export function Navigation() {
         <div className="px-12 lg:px-[120px]">
           <div className="max-w-7xl mx-auto flex items-center gap-3">
             {/* Page navigation */}
-            <div className={`flex-1 min-w-0 h-16 flex items-center gap-3 pl-6 pr-2 rounded-full ${bar}`}>
-              <a
-                href="#home"
-                aria-label="Clorostica"
-                className="logo shrink-0 font-display font-bold text-2xl"
-              >
-                {"Clorostica".split("").map((letter, i) => (
-                  <span key={i} aria-hidden className="logo-letter" style={{ "--i": i }}>
-                    {letter}
-                  </span>
-                ))}
-              </a>
-              <div className="flex flex-1 min-w-0 items-center justify-evenly gap-1 px-2">
-                {sections
-                  .filter((sec) => sec.id !== "contact")
-                  .map((sec) => {
-                    const Icon = sec.icon;
-                    const isActive = activeSection === sec.id;
-                    return (
-                      <a
-                        key={sec.id}
-                        href={`#${sec.id}`}
-                        title={t.nav[sec.id]}
-                        aria-current={isActive ? "true" : undefined}
-                        className={`flex items-center gap-2 font-medium text-base 2xl:text-[17px] whitespace-nowrap px-3 2xl:px-4 py-2 rounded-full transition-colors duration-200 ${
-                          isActive
-                            ? "text-accent bg-accent-soft"
-                            : "text-muted hover:text-fg"
-                        }`}
-                      >
-                        <Icon size={18} aria-hidden className="shrink-0" />
-                        <span className="hidden xl:inline">{t.nav[sec.id]}</span>
-                      </a>
-                    );
-                  })}
+            <GlassSurface {...glass} width="100%" className="flex-1 min-w-0">
+              <div className="w-full flex items-center gap-3 pl-6 pr-2">
+                <a
+                  href="#home"
+                  aria-label="Clorostica"
+                  className="logo shrink-0 font-display font-bold text-2xl"
+                >
+                  {"Clorostica".split("").map((letter, i) => (
+                    <span key={i} aria-hidden className="logo-letter" style={{ "--i": i }}>
+                      {letter}
+                    </span>
+                  ))}
+                </a>
+                <div className="flex flex-1 min-w-0 items-center justify-evenly gap-1 px-2">
+                  {sections
+                    .filter((sec) => sec.id !== "contact")
+                    .map((sec) => {
+                      const Icon = sec.icon;
+                      const isActive = activeSection === sec.id;
+                      return (
+                        <a
+                          key={sec.id}
+                          href={`#${sec.id}`}
+                          title={t.nav[sec.id]}
+                          aria-current={isActive ? "true" : undefined}
+                          className={`flex items-center gap-2 font-medium text-base 2xl:text-[17px] whitespace-nowrap px-3 2xl:px-4 py-2 rounded-full transition-colors duration-200 ${
+                            isActive
+                              ? "text-accent bg-accent-soft"
+                              : "text-muted hover:text-fg"
+                          }`}
+                        >
+                          <Icon size={18} aria-hidden className="shrink-0" />
+                          <span className="hidden xl:inline">{t.nav[sec.id]}</span>
+                        </a>
+                      );
+                    })}
+                </div>
               </div>
-            </div>
+            </GlassSurface>
 
             {/* Settings live apart from the page links */}
-            <div className={`shrink-0 h-16 flex items-center gap-1 px-2 rounded-full ${bar}`}>
-              <ThemeToggle className="w-12 h-12 rounded-full hover:bg-accent-soft" />
-              <LanguageMenu
-                iconSize={20}
-                className="w-12 h-12 rounded-full hover:bg-accent-soft"
-              />
-            </div>
+            <GlassSurface {...glass} width={118} className="shrink-0">
+              <div className="w-full flex items-center justify-center gap-1">
+                <ThemeToggle className="w-12 h-12 rounded-full hover:bg-accent-soft" />
+                <LanguageMenu
+                  iconSize={20}
+                  className="w-12 h-12 rounded-full hover:bg-accent-soft"
+                />
+              </div>
+            </GlassSurface>
             <a
               href="#contact"
               className={`${buttonPrimary} shrink-0 h-14 px-6 2xl:px-7 text-base 2xl:text-[17px]`}
