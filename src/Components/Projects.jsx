@@ -1,49 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  ArrowRight,
-  ExternalLink,
-  KeyRound,
-  Play,
-  TramFront,
-} from "lucide-react";
-import {
-  SiAuth0,
-  SiCloudflare,
-  SiCloudflareworkers,
-  SiDocker,
-  SiHono,
-  SiReact,
-  SiResend,
-  SiStripe,
-  SiSwiper,
-  SiTailwindcss,
-  SiTwilio,
-  SiTypescript,
-  SiVite,
-  SiVitest,
-} from "react-icons/si";
+import { ArrowRight, ExternalLink, Github, Play } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-import { Section, SectionHeader, buttonPrimary, buttonSecondary } from "./Section";
-
-const TECH = {
-  React: { icon: SiReact, color: "#61DAFB" },
-  TypeScript: { icon: SiTypescript, color: "#3178C6" },
-  "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8" },
-  "Cloudflare Workers": { icon: SiCloudflareworkers, color: "#F38020" },
-  "Cloudflare D1": { icon: SiCloudflare, color: "#F38020" },
-  Hono: { icon: SiHono, color: "#FF5B11" },
-  Auth0: { icon: SiAuth0, color: "#EB5424" },
-  Stripe: { icon: SiStripe, color: "#8B83FF" },
-  Docker: { icon: SiDocker, color: "#2496ED" },
-  Vite: { icon: SiVite, color: "#A78BFA" },
-  Swiper: { icon: SiSwiper, color: "#0080FF" },
-  "VBB API": { icon: TramFront, color: "#F0D722" },
-  WorkOS: { icon: KeyRound, color: "#6363F1" },
-  Twilio: { icon: SiTwilio, color: "#F22F46" },
-  // No brand color: follows the text color so it shows in both themes
-  Resend: { icon: SiResend, color: null },
-  Vitest: { icon: SiVitest, color: "#6E9F18" },
-};
+import { Section, SectionHeader, buttonSecondary } from "./Section";
 
 // The three projects that best show the full stack and the design side
 const projects = [
@@ -78,12 +36,14 @@ const projects = [
       "Vitest",
     ],
     link: "https://navi-flax-nu.vercel.app/",
+    code: "https://github.com/Clorostica/Navi",
   },
   {
     id: "epica",
     title: "Épica",
     tech: ["React", "Vite", "Tailwind CSS", "Swiper"],
     link: "https://epica-iota.vercel.app/",
+    code: "https://github.com/Clorostica/Epica",
   },
 ];
 
@@ -197,14 +157,26 @@ function ProjectShowcase({ project, index, t }) {
             {copy.tagline}
           </p>
         </div>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${buttonSecondary} shrink-0 self-start md:self-auto px-5 py-3`}
-        >
-          {t.projects.viewLive} <ExternalLink size={16} aria-hidden />
-        </a>
+        <div className="flex flex-wrap gap-3 shrink-0 self-start md:self-auto">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${buttonSecondary} px-5 py-3`}
+          >
+            {t.projects.viewLive} <ExternalLink size={16} aria-hidden />
+          </a>
+          {project.code && (
+            <a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${buttonSecondary} px-5 py-3`}
+            >
+              <Github size={16} aria-hidden /> {t.projects.viewCode}
+            </a>
+          )}
+        </div>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -229,22 +201,18 @@ function ProjectShowcase({ project, index, t }) {
           </dl>
 
           <div>
-            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-subtle">
+            <p className="mb-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-subtle">
               {t.projects.tech}
             </p>
-            <ul className="flex flex-wrap gap-2">
-              {project.tech.map((name) => {
-                const { icon: Icon, color } = TECH[name];
-                return (
-                  <li
-                    key={name}
-                    className="inline-flex items-center gap-2 pl-2.5 pr-3.5 py-1.5 rounded-full text-sm font-medium text-fg bg-bg border border-line"
-                  >
-                    <Icon size={16} style={color ? { color } : undefined} aria-hidden />
-                    {name}
-                  </li>
-                );
-              })}
+            <ul className="flex flex-wrap gap-x-2 gap-y-1 text-sm text-muted">
+              {project.tech.map((name, i) => (
+                <li key={name} className="whitespace-nowrap">
+                  {name}
+                  {i < project.tech.length - 1 && (
+                    <span className="ml-2 text-subtle" aria-hidden>·</span>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -270,12 +238,15 @@ export function Projects() {
         ))}
       </div>
 
-      <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 text-center">
-        <p className="font-display text-xl md:text-2xl font-semibold tracking-tight text-fg">
-          {t.projects.ctaTitle}
-        </p>
-        <a href="#contact" className={`${buttonPrimary} px-6 py-3 text-base`}>
-          {t.projects.ctaButton} <ArrowRight size={18} aria-hidden />
+      <div className="mt-12 text-center">
+        <a
+          href="https://github.com/Clorostica"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors duration-200"
+        >
+          <Github size={18} aria-hidden /> {t.projects.moreWork}
+          <ArrowRight size={16} aria-hidden />
         </a>
       </div>
     </Section>

@@ -1,5 +1,5 @@
 import React from "react";
-import { CalendarClock, Download, Github, Languages, Linkedin } from "lucide-react";
+import { Download, Github, Languages, Linkedin } from "lucide-react";
 import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import portrait from "../assets/Img/yo.jpg";
@@ -9,10 +9,10 @@ import DarkVeil from "./DarkVeil/DarkVeil";
 import { AboutIntro } from "./AboutIntro";
 import { buttonPrimary, buttonSecondary } from "./Section";
 
-const FACT_ICONS = [CalendarClock, Languages];
+const FACT_ICONS = [Languages];
 
 // Where each fact card sits around the photo (large screens only)
-const FACT_POSITIONS = ["top-10 -left-12", "bottom-6 right-0 2xl:-right-10"];
+const FACT_POSITIONS = ["bottom-6 right-0 2xl:-right-10"];
 
 const SOCIAL = [
   { href: "https://github.com/Clorostica", label: "GitHub", icon: Github },

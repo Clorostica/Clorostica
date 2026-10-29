@@ -1,5 +1,4 @@
 import React from "react";
-import { Certificates } from "./Components/Certificates";
 import { ContactMe } from "./Components/ContactMe";
 import { Navigation } from "./Components/Navigation";
 import { Projects } from "./Components/Projects";
@@ -17,7 +16,6 @@ export default function App() {
         <Hero />
         <Projects />
         <Experience />
-        <Certificates />
         <ContactMe />
       </main>
       <footer className="px-5 py-10 border-t border-line text-center text-sm text-subtle">
