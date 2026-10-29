@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Home, Code, Briefcase, Award, Mail } from "lucide-react";
+import { Home, Code, Briefcase, Mail } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { LanguageMenu } from "./LanguageMenu";
 import { ThemeToggle } from "./ThemeToggle";
@@ -10,7 +10,6 @@ const sections = [
   { id: "home", icon: Home },
   { id: "projects", icon: Code },
   { id: "experience", icon: Briefcase },
-  { id: "certificates", icon: Award },
   { id: "contact", icon: Mail },
 ];
 
