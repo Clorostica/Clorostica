@@ -7,24 +7,24 @@ Portfolio: [clorostica.vercel.app](https://clorostica.vercel.app) · [LinkedIn](
 ## Where to start
 
 <a href="https://github.com/Clorostica/Navi"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Clorostica/Clorostica/main/profile/navi-dark.svg">
-  <img src="profile/navi-light.svg" alt="Navi" height="60">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/navi-dark.svg">
+  <img src="profile/navi-light.svg" alt="Navi" height="48">
 </picture></a>
 
 Companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live trains and share their trip with trusted contacts.
 [Live](https://navi-flax-nu.vercel.app) · [Code](https://github.com/Clorostica/Navi)
 
 <a href="https://gobento.clorostica.com"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Clorostica/Clorostica/main/profile/gobento-dark.svg">
-  <img src="profile/gobento-light.svg" alt="Gobento" height="60">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/gobento-dark.svg">
+  <img src="profile/gobento-light.svg" alt="Gobento" height="48">
 </picture></a>
 
 Turns group-chat plans into one shareable link with date, place and guest list.
 [Live](https://gobento.clorostica.com)
 
 <a href="https://github.com/Clorostica/Epica"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Clorostica/Clorostica/main/profile/epica-dark.svg">
-  <img src="profile/epica-light.svg" alt="Épica" height="60">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/epica-dark.svg">
+  <img src="profile/epica-light.svg" alt="Épica" height="48">
 </picture></a>
 
 Brand identity and website for a Chilean fashion label.
