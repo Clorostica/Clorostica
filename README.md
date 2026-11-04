@@ -1,4 +1,4 @@
-# Claudia Sáez
+<img src="profile/banner.svg" alt="Claudia Sáez, Design Engineer" width="100%">
 
 Design engineer in Berlin. I design web products and build them with React, TypeScript and Cloudflare.
 
