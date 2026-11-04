@@ -6,9 +6,17 @@ Portfolio: [clorostica.vercel.app](https://clorostica.vercel.app) · [LinkedIn](
 
 ## Where to start
 
-- [Navi](https://github.com/Clorostica/Navi): companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live trains and share their trip with trusted contacts.
-- [Gobento](https://gobento.clorostica.com): turns group-chat plans into one shareable link with date, place and guest list.
-- [Épica](https://github.com/Clorostica/Epica): brand identity and website for a Chilean fashion label.
+<a href="https://github.com/Clorostica/Navi"><img src="profile/navi.svg" alt="Navi: companion app for Berlin's U-Bahn and S-Bahn" width="100%"></a>
+
+[Live](https://navi-flax-nu.vercel.app) · [Code](https://github.com/Clorostica/Navi)
+
+<a href="https://gobento.clorostica.com"><img src="profile/gobento.svg" alt="Gobento: turns group-chat plans into one shareable link" width="100%"></a>
+
+[Live](https://gobento.clorostica.com)
+
+<a href="https://github.com/Clorostica/Epica"><img src="profile/epica.svg" alt="Épica: brand identity and website for a Chilean fashion label" width="100%"></a>
+
+[Live](https://epica-iota.vercel.app) · [Code](https://github.com/Clorostica/Epica)
 
 ## This repo
 
