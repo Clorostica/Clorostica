@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink, Github, Play } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Section, SectionHeader, buttonSecondary } from "./Section";
 
-// The three projects that best show the full stack and the design side
+// The projects that best show the full stack and the design side
 const projects = [
   {
     id: "gobento",
@@ -37,6 +37,23 @@ const projects = [
     ],
     link: "https://navi-flax-nu.vercel.app/",
     code: "https://github.com/Clorostica/Navi",
+  },
+  {
+    id: "tabio",
+    title: "Tabio",
+    tech: [
+      "React",
+      "TypeScript",
+      "WXT",
+      "Tailwind CSS",
+      "Cloudflare Workers",
+      "Hono",
+      "Cloudflare D1",
+      "WorkOS",
+      "Stripe",
+      "Playwright",
+    ],
+    link: "https://tabio.clorostica.com/",
   },
   {
     id: "epica",

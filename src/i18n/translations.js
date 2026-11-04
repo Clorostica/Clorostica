@@ -82,7 +82,7 @@ export const translations = {
     projects: {
       eyebrow: "Selected work",
       title: "Products I've shipped",
-      subtitle: "Designed and built end to end. All live.",
+      subtitle: "Designed and built. All live.",
       live: "Live preview",
       viewLive: "Visit live site",
       viewCode: "View code",
@@ -105,6 +105,13 @@ export const translations = {
           tagline: "A U-Bahn and S-Bahn co-pilot for Berlin riders.",
           impact: "Riders can report delays, lost items or unsafe situations in a few taps.",
           build: "Design, live train map, moderated reports and SMS/email alerts.",
+        },
+        tabio: {
+          category: "Browser extension",
+          role: "Team project",
+          tagline: "Bookmark sync that works across Chrome, Firefox, Edge, Brave and Safari.",
+          impact: "Browser sync only works inside one browser. Tabio keeps the same bookmarks everywhere, end-to-end encrypted.",
+          build: "Design, extension UI and website.",
         },
         epica: {
           category: "Brand site",
@@ -217,7 +224,7 @@ export const translations = {
     projects: {
       eyebrow: "Trabajo seleccionado",
       title: "Productos que he lanzado",
-      subtitle: "Diseñados y construidos de principio a fin. Todos en línea.",
+      subtitle: "Diseñados y construidos. Todos en línea.",
       live: "Vista en vivo",
       viewLive: "Ver sitio en vivo",
       viewCode: "Ver código",
@@ -240,6 +247,13 @@ export const translations = {
           tagline: "Un copiloto para viajar en U-Bahn y S-Bahn en Berlín.",
           impact: "Reportar retrasos, objetos perdidos o situaciones de riesgo en pocos toques.",
           build: "Diseño, mapa de trenes en vivo, reportes moderados y alertas por SMS/email.",
+        },
+        tabio: {
+          category: "Extensión de navegador",
+          role: "Proyecto en equipo",
+          tagline: "Sincroniza marcadores entre Chrome, Firefox, Edge, Brave y Safari.",
+          impact: "La sincronización de cada navegador solo funciona dentro de ese navegador. Tabio mantiene los mismos marcadores en todos, con cifrado de extremo a extremo.",
+          build: "Diseño, interfaz de la extensión y sitio web.",
         },
         epica: {
           category: "Sitio de marca",
@@ -352,7 +366,7 @@ export const translations = {
     projects: {
       eyebrow: "Ausgewählte Arbeiten",
       title: "Produkte, die ich gelauncht habe",
-      subtitle: "Von Anfang bis Ende gestaltet und gebaut. Alle live.",
+      subtitle: "Gestaltet und gebaut. Alle live.",
       live: "Live-Vorschau",
       viewLive: "Live ansehen",
       viewCode: "Code ansehen",
@@ -375,6 +389,13 @@ export const translations = {
           tagline: "Ein Co-Pilot für U-Bahn und S-Bahn in Berlin.",
           impact: "Verspätungen, Fundsachen oder unsichere Situationen mit wenigen Taps melden.",
           build: "Design, Live-Zugkarte, moderierte Meldungen und Warnungen per SMS/E-Mail.",
+        },
+        tabio: {
+          category: "Browser-Erweiterung",
+          role: "Teamprojekt",
+          tagline: "Lesezeichen-Sync für Chrome, Firefox, Edge, Brave und Safari.",
+          impact: "Die Sync-Funktion jedes Browsers funktioniert nur im eigenen Browser. Tabio hält überall dieselben Lesezeichen synchron, Ende-zu-Ende-verschlüsselt.",
+          build: "Design, Oberfläche der Erweiterung und Website.",
         },
         epica: {
           category: "Marken-Website",

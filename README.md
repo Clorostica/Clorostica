@@ -23,6 +23,14 @@ Turns group-chat plans into one shareable link with date, place and guest list.
 [Live](https://gobento.clorostica.com)
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/tabio-dark.svg">
+  <img src="profile/tabio-light.svg" alt="Tabio" height="48">
+</picture>
+
+Team project. A browser extension that syncs bookmarks across Chrome, Firefox, Edge, Brave and Safari, end-to-end encrypted.
+[Live](https://tabio.clorostica.com)
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/epica-dark.svg">
   <img src="profile/epica-light.svg" alt="Épica" height="48">
 </picture>
