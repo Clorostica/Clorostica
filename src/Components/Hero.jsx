@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, Github, Languages, Linkedin } from "lucide-react";
+import { Download, Github, Linkedin } from "lucide-react";
 import CV from "../Docs/ClaudiaSaez.pdf";
 import CVDeutsch from "../Docs/Claudia_Saez_CV_Deutsch.pdf";
 import portrait from "../assets/Img/yo.jpg";
@@ -8,11 +8,6 @@ import { useTheme } from "../theme/ThemeContext";
 import DarkVeil from "./DarkVeil/DarkVeil";
 import { AboutIntro } from "./AboutIntro";
 import { buttonPrimary, buttonSecondary } from "./Section";
-
-const FACT_ICONS = [Languages];
-
-// Where each fact card sits around the photo (large screens only)
-const FACT_POSITIONS = ["bottom-6 right-0 2xl:-right-10"];
 
 const SOCIAL = [
   { href: "https://github.com/Clorostica", label: "GitHub", icon: Github },
@@ -60,7 +55,7 @@ export function Hero() {
                 Claudia Saez
               </h1>
 
-              <AboutIntro className="text-lg md:text-xl text-fg/75 leading-relaxed max-w-xl" />
+              <AboutIntro />
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -106,33 +101,6 @@ export function Hero() {
             <div className="portrait">
               <img src={portrait} alt="Claudia Saez" width="352" height="352" />
             </div>
-            {/* Experience at a glance, filling the space around the photo */}
-            <ul className="hidden xl:block" aria-label={t.experience.title}>
-              {t.hero.facts.map((fact, i) => {
-                const Icon = FACT_ICONS[i];
-                return (
-                  <li
-                    key={fact.label}
-                    className={`absolute z-10 flex items-center gap-3 pl-3 pr-5 py-3 rounded-2xl border border-line bg-surface/90 backdrop-blur-xl shadow-xl shadow-black/5 ${FACT_POSITIONS[i]}`}
-                  >
-                    <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent-soft text-accent">
-                      <Icon size={20} aria-hidden />
-                    </span>
-                    <span className="leading-tight">
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-2">
-                        {fact.label}
-                      </span>
-                      <span className="block text-base font-semibold text-fg">
-                        {fact.value}
-                      </span>
-                      <span className="block text-sm text-muted">
-                        {fact.detail}
-                      </span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
           </div>
         </div>
       </div>
