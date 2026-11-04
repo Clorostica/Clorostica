@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Claudia Sáez, Design Engineer">
-  <title>Claudia Sáez, Design Engineer</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Claudia Orostica, Design Engineer">
+  <title>Claudia Orostica, Design Engineer</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#fdf2f8"/>
@@ -78,7 +78,7 @@
   <g transform="translate(965 285) scale(0.8)"><use href="#spark" class="spark s3" fill="#ffffff"/></g>
 
   <text class="hi" x="80" y="108">hi, I'm</text>
-  <text class="name" x="76" y="186" fill="url(#name)">Claudia Sáez</text>
+  <text class="name" x="76" y="186" fill="url(#name)">Claudia Orostica</text>
 
   <g transform="translate(80 248)">
     <text class="word w1" x="0" y="0">Design Engineer</text>
