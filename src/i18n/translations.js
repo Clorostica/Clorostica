@@ -137,7 +137,7 @@ export const translations = {
       message: "Message",
       send: "Send",
     },
-    footer: "© 2026 Claudia Sáez. All rights reserved.",
+    footer: "© 2026 Claudia Orostica. All rights reserved.",
   },
 
   es: {
@@ -272,7 +272,7 @@ export const translations = {
       message: "Mensaje",
       send: "Enviar",
     },
-    footer: "© 2026 Claudia Sáez. Todos los derechos reservados.",
+    footer: "© 2026 Claudia Orostica. Todos los derechos reservados.",
   },
 
   de: {
@@ -407,6 +407,6 @@ export const translations = {
       message: "Nachricht",
       send: "Senden",
     },
-    footer: "© 2026 Claudia Sáez. Alle Rechte vorbehalten.",
+    footer: "© 2026 Claudia Orostica. Alle Rechte vorbehalten.",
   },
 };

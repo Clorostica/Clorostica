@@ -52,7 +52,7 @@ export function Hero() {
                 {t.hero.role}
               </p>
               <h1 className="font-display text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-fg">
-                Claudia Saez
+                Claudia Orostica
               </h1>
 
               <AboutIntro />
@@ -99,7 +99,7 @@ export function Hero() {
 
           <div className="relative md:h-[500px] flex items-center justify-center">
             <div className="portrait">
-              <img src={portrait} alt="Claudia Saez" width="352" height="352" />
+              <img src={portrait} alt="Claudia Orostica" width="352" height="352" />
             </div>
           </div>
         </div>
