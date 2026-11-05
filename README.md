@@ -13,7 +13,7 @@ Portfolio: [clorostica.vercel.app](https://clorostica.vercel.app) · [LinkedIn](
 
 Companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live trains and share their trip with trusted contacts.
 
-[Live](https://navi-flax-nu.vercel.app) · [Code](https://github.com/Clorostica/Navi)
+<a href="https://navi-flax-nu.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/navi-live-dark.svg"><img src="profile/navi-live-light.svg" alt="Live" height="32"></picture></a>&nbsp;<a href="https://github.com/Clorostica/Navi"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/navi-code-dark.svg"><img src="profile/navi-code-light.svg" alt="Code" height="32"></picture></a>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/gobento-dark.svg">
@@ -22,7 +22,7 @@ Companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live 
 
 Turns group-chat plans into one shareable link with date, place and guest list.
 
-[Live](https://gobento.clorostica.com) · [Code](https://github.com/Clorostica/Gobento)
+<a href="https://gobento.clorostica.com"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/gobento-live-dark.svg"><img src="profile/gobento-live-light.svg" alt="Live" height="32"></picture></a>&nbsp;<a href="https://github.com/Clorostica/Gobento"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/gobento-code-dark.svg"><img src="profile/gobento-code-light.svg" alt="Code" height="32"></picture></a>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/tabio-dark.svg">
@@ -31,7 +31,7 @@ Turns group-chat plans into one shareable link with date, place and guest list.
 
 Team project. A browser extension that syncs bookmarks across Chrome, Firefox, Edge, Brave and Safari, end-to-end encrypted.
 
-[Live](https://tabio.clorostica.com)
+<a href="https://tabio.clorostica.com"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/tabio-live-dark.svg"><img src="profile/tabio-live-light.svg" alt="Live" height="32"></picture></a>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/epica-dark.svg">
@@ -40,7 +40,7 @@ Team project. A browser extension that syncs bookmarks across Chrome, Firefox, E
 
 Brand identity and website for a Chilean fashion label.
 
-[Live](https://epica-iota.vercel.app) · [Code](https://github.com/Clorostica/Epica)
+<a href="https://epica-iota.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/epica-live-dark.svg"><img src="profile/epica-live-light.svg" alt="Live" height="32"></picture></a>&nbsp;<a href="https://github.com/Clorostica/Epica"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/epica-code-dark.svg"><img src="profile/epica-code-light.svg" alt="Code" height="32"></picture></a>
 
 ## This repo
 
