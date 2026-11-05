@@ -12,6 +12,7 @@ Portfolio: [clorostica.vercel.app](https://clorostica.vercel.app) · [LinkedIn](
 </picture>
 
 Companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live trains and share their trip with trusted contacts.
+
 [Live](https://navi-flax-nu.vercel.app) · [Code](https://github.com/Clorostica/Navi)
 
 <picture>
@@ -20,7 +21,8 @@ Companion app for Berlin's U-Bahn and S-Bahn. Riders report incidents, see live 
 </picture>
 
 Turns group-chat plans into one shareable link with date, place and guest list.
-[Live](https://gobento.clorostica.com)
+
+[Live](https://gobento.clorostica.com) · [Code](https://github.com/Clorostica/Gobento)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Clorostica/Clorostica/raw/main/profile/tabio-dark.svg">
@@ -28,6 +30,7 @@ Turns group-chat plans into one shareable link with date, place and guest list.
 </picture>
 
 Team project. A browser extension that syncs bookmarks across Chrome, Firefox, Edge, Brave and Safari, end-to-end encrypted.
+
 [Live](https://tabio.clorostica.com)
 
 <picture>
@@ -36,6 +39,7 @@ Team project. A browser extension that syncs bookmarks across Chrome, Firefox, E
 </picture>
 
 Brand identity and website for a Chilean fashion label.
+
 [Live](https://epica-iota.vercel.app) · [Code](https://github.com/Clorostica/Epica)
 
 ## This repo
