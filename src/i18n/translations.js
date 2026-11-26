@@ -17,7 +17,7 @@ export const translations = {
       toDark: "Switch to dark theme",
     },
     hero: {
-      role: "Design Engineer · Product-focused Frontend",
+      role: "Software Developer · React & TypeScript",
       resume: "Resume",
       resumeDe: "German Resume",
     },
@@ -133,7 +133,7 @@ export const translations = {
     contact: {
       eyebrow: "Contact",
       title: "Get in touch",
-      subtitle: "Open to Design Engineer and product-focused Frontend roles. Remote or Berlin.",
+      subtitle: "Open to Software Developer and Frontend roles. Remote or Berlin.",
       email: "Email",
       location: "Location",
       locationValue: "Berlin, Germany",
@@ -159,7 +159,7 @@ export const translations = {
       toDark: "Cambiar a tema oscuro",
     },
     hero: {
-      role: "Design Engineer · Frontend con foco en producto",
+      role: "Desarrolladora de Software · React y TypeScript",
       resume: "CV en inglés",
       resumeDe: "CV en alemán",
     },
@@ -275,7 +275,7 @@ export const translations = {
     contact: {
       eyebrow: "Contacto",
       title: "Hablemos",
-      subtitle: "Abierta a puestos de Design Engineer y Frontend con foco en producto. Remoto o en Berlín.",
+      subtitle: "Abierta a puestos de desarrollo de software y frontend. Remoto o en Berlín.",
       email: "Email",
       location: "Ubicación",
       locationValue: "Berlín, Alemania",
@@ -301,7 +301,7 @@ export const translations = {
       toDark: "Zum dunklen Design wechseln",
     },
     hero: {
-      role: "Design Engineer · Produktorientiertes Frontend",
+      role: "Softwareentwicklerin · React & TypeScript",
       resume: "Lebenslauf (EN)",
       resumeDe: "Lebenslauf (DE)",
     },
@@ -417,7 +417,7 @@ export const translations = {
     contact: {
       eyebrow: "Kontakt",
       title: "Kontakt aufnehmen",
-      subtitle: "Offen für Rollen als Design Engineer und im produktorientierten Frontend. Remote oder in Berlin.",
+      subtitle: "Offen für Rollen in der Softwareentwicklung und im Frontend. Remote oder in Berlin.",
       email: "E-Mail",
       location: "Standort",
       locationValue: "Berlin, Deutschland",

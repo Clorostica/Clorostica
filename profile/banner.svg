@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Claudia Orostica, Design Engineer">
-  <title>Claudia Orostica, Design Engineer</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Claudia Orostica, Software Developer">
+  <title>Claudia Orostica, Software Developer</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#fdf2f8"/>
@@ -81,8 +81,8 @@
   <text class="name" x="76" y="186" fill="url(#name)">Claudia Orostica</text>
 
   <g transform="translate(80 248)">
-    <text class="word w1" x="0" y="0">Design Engineer</text>
-    <text class="word w2" x="0" y="0">Product-focused Frontend</text>
+    <text class="word w1" x="0" y="0">Software Developer</text>
+    <text class="word w2" x="0" y="0">Frontend &amp; Product</text>
     <text class="word w3" x="0" y="0">React · TypeScript · Figma</text>
     <text class="word w4" x="0" y="0">Based in Berlin</text>
   </g>

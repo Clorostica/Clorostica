@@ -1,6 +1,6 @@
-<img src="profile/banner.svg" alt="Claudia Orostica, Design Engineer" width="100%">
+<img src="profile/banner.svg" alt="Claudia Orostica, Software Developer" width="100%">
 
-Design engineer in Berlin. I design web products and build them with React, TypeScript and Cloudflare.
+Software developer in Berlin. I build web products with React, TypeScript and Cloudflare.
 
 Portfolio: [clorostica.vercel.app](https://clorostica.vercel.app) · [LinkedIn](https://www.linkedin.com/in/claudia-saez-orostica-97221624b/)
 
